@@ -40,35 +40,35 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQJ-LQ-nh7">
-                                <rect key="frame" x="20" y="357" width="40.5" height="19"/>
+                                <rect key="frame" x="20" y="359" width="40.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="uiG-be-I7h">
-                                <rect key="frame" x="20" y="386" width="374" height="34"/>
+                                <rect key="frame" x="20" y="388" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoO-5A-bro">
-                                <rect key="frame" x="20" y="439" width="73.5" height="19"/>
+                                <rect key="frame" x="20" y="432" width="73.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Ses-3Z-HPV">
-                                <rect key="frame" x="20" y="468" width="374" height="34"/>
+                                <rect key="frame" x="20" y="461" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLC-Mh-CNb">
-                                <rect key="frame" x="20" y="517" width="138.5" height="19"/>
+                                <rect key="frame" x="20" y="505" width="138.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Full Name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="F4h-Ax-NJ6">
-                                <rect key="frame" x="20" y="546" width="374" height="34"/>
+                                <rect key="frame" x="20" y="534" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -113,7 +113,7 @@
                             <constraint firstItem="BLC-Mh-CNb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DQR-F2-wwx"/>
                             <constraint firstItem="qQJ-LQ-nh7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0212054" id="DQr-p9-s1B"/>
                             <constraint firstItem="F4h-Ax-NJ6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ITE-5Z-9zP"/>
-                            <constraint firstItem="qQJ-LQ-nh7" firstAttribute="top" secondItem="LfZ-AL-fNr" secondAttribute="bottom" constant="8" symbolic="YES" id="IoS-kh-zKW"/>
+                            <constraint firstItem="qQJ-LQ-nh7" firstAttribute="top" secondItem="LfZ-AL-fNr" secondAttribute="bottom" constant="10" id="IoS-kh-zKW"/>
                             <constraint firstItem="LfZ-AL-fNr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.903382" id="JRB-1f-tq6"/>
                             <constraint firstItem="xrK-N4-XJx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="MdT-vU-Xb4"/>
                             <constraint firstItem="xrK-N4-XJx" firstAttribute="centerY" secondItem="V5p-qs-4KX" secondAttribute="centerY" id="Mo4-iD-PYv"/>
@@ -138,12 +138,12 @@
                             <constraint firstItem="CVc-Rd-drV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-12.5" id="kaN-ww-7Pk"/>
                             <constraint firstItem="qQJ-LQ-nh7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lkY-eP-l5N"/>
                             <constraint firstItem="UWr-HP-mhI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="mH2-ff-iyN"/>
-                            <constraint firstItem="UoO-5A-bro" firstAttribute="top" secondItem="uiG-be-I7h" secondAttribute="bottom" constant="19" id="mhq-rb-1Xe"/>
+                            <constraint firstItem="UoO-5A-bro" firstAttribute="top" secondItem="uiG-be-I7h" secondAttribute="bottom" constant="10" id="mhq-rb-1Xe"/>
                             <constraint firstItem="V5p-qs-4KX" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0368304" id="ocq-aG-o84"/>
                             <constraint firstItem="xrK-N4-XJx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0212054" id="oqX-lH-es8"/>
                             <constraint firstItem="35f-Wq-4aK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pbV-k2-goA"/>
                             <constraint firstItem="35f-Wq-4aK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0212054" id="qPM-ja-T41"/>
-                            <constraint firstItem="BLC-Mh-CNb" firstAttribute="top" secondItem="Ses-3Z-HPV" secondAttribute="bottom" constant="15" id="unh-po-tgq"/>
+                            <constraint firstItem="BLC-Mh-CNb" firstAttribute="top" secondItem="Ses-3Z-HPV" secondAttribute="bottom" constant="10" id="unh-po-tgq"/>
                         </constraints>
                     </view>
                 </viewController>
