@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33866A512C7F4CC0008F665E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33866A502C7F4CC0008F665E /* SignUpVC.swift */; };
 		33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */; };
 		33A372102C7E5A0F00EE834F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3720F2C7E5A0F00EE834F /* ViewController.swift */; };
 		33A372132C7E5A0F00EE834F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A372112C7E5A0F00EE834F /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33866A502C7F4CC0008F665E /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		33A372082C7E5A0F00EE834F /* Registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Registration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33A3720F2C7E5A0F00EE834F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33866A4F2C7F4B01008F665E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				33A372222C7E66E700EE834F /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		33A371FF2C7E5A0F00EE834F = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +66,9 @@
 		33A3720A2C7E5A0F00EE834F /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				33A372222C7E66E700EE834F /* Fonts */,
+				33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */,
+				33A3720F2C7E5A0F00EE834F /* ViewController.swift */,
+				33866A4F2C7F4B01008F665E /* Resources */,
 				33A372212C7E5B5700EE834F /* Views */,
 				33A3721F2C7E5AB700EE834F /* Controllers */,
 				33A372202C7E5AD400EE834F /* Models */,
@@ -69,8 +81,7 @@
 		33A3721F2C7E5AB700EE834F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */,
-				33A3720F2C7E5A0F00EE834F /* ViewController.swift */,
+				33866A502C7F4CC0008F665E /* SignUpVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A372102C7E5A0F00EE834F /* ViewController.swift in Sources */,
+				33866A512C7F4CC0008F665E /* SignUpVC.swift in Sources */,
 				33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
