@@ -85,7 +85,7 @@ class OnBoardingVC: UIViewController {
         if UIScreen.main.bounds.size.height <= 700 {
             verticalSpace.constant = 140
         } else {
-            verticalSpace.constant = 170
+            verticalSpace.constant = 180
         }
     }
     
