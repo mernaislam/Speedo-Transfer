@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332DF53D2C836AC600802396 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332DF53C2C836AC600802396 /* CountryPickerVC.swift */; };
 		33621F162C80FD7500A12CD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33621F152C80FD7500A12CD3 /* User.swift */; };
 		33621F182C80FE7900A12CD3 /* SignUpVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33621F172C80FE7900A12CD3 /* SignUpVC1.swift */; };
 		33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		332DF53C2C836AC600802396 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
 		33621F152C80FD7500A12CD3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		33621F172C80FE7900A12CD3 /* SignUpVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC1.swift; sourceTree = "<group>"; };
 		33A372082C7E5A0F00EE834F /* Registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Registration.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 				33621F172C80FE7900A12CD3 /* SignUpVC1.swift */,
 				33CF59952C82690D0046A7E9 /* SignUpVC2.swift */,
 				33CF599B2C8343290046A7E9 /* SignInVC.swift */,
+				332DF53C2C836AC600802396 /* CountryPickerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332DF53D2C836AC600802396 /* CountryPickerVC.swift in Sources */,
 				33621F182C80FE7900A12CD3 /* SignUpVC1.swift in Sources */,
 				33A372102C7E5A0F00EE834F /* ViewController.swift in Sources */,
 				33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */,
