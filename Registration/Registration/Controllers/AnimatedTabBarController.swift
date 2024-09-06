@@ -41,7 +41,7 @@ extension AnimatedTabBarController {
         self.homeNavigation.tabBarItem = customAnimatedTabBar(title: "Home", image: UIImage(named: "Home"), tag: 0, animation: RAMBounceAnimation())
         
         // Transfer Tab
-        self.transferNavigation = UINavigationController(rootViewController: UIViewController())
+        self.transferNavigation = UINavigationController(rootViewController: TransferVC())
         self.transferNavigation.tabBarItem = customAnimatedTabBar(title: "Transfer", image: UIImage(named: "Transfer"), tag: 1, animation: RAMRotationAnimation())
         
         // Transactions Tab
