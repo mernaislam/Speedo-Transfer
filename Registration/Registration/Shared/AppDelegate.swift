@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        navBarSetup()
 //        let isFirstOpen = UserDefaultsManager.shared().isFirstOpen
 //        
 //        if isFirstOpen {
@@ -23,6 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switchToHomeScreen()
         return true
 
+    }
+    
+    func navBarSetup(){
+        if #available(iOS 15, *) {
+            // MARK: Navigation bar appearance
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            navigationBarAppearance.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor : UIColor.black,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23, weight: .regular)
+            ]
+            navigationBarAppearance.backgroundColor = UIColor.clear
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+
+        }
     }
     
     func showOnBoardingScreen(){
