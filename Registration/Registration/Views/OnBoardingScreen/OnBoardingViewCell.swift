@@ -9,14 +9,17 @@ import UIKit
 
 class OnBoardingViewCell: UICollectionViewCell {
     
+    // MARK: - Static Properties
     static let identifier = "OnBoardingViewCell"
     
+    // MARK: - IBOutlet
     @IBOutlet var verticalSpaceInBetween: NSLayoutConstraint!
     @IBOutlet var slideStackView: UIStackView!
     @IBOutlet weak var slideImageView: UIImageView!
     @IBOutlet weak var slideDescription: UILabel!
     @IBOutlet weak var slideTitle: UILabel!
     
+    // MARK: - Methods
     func configureCell(_ onBoardingModel: OnBoardingModel){
         slideImageView.image = onBoardingModel.image
         slideTitle.text = onBoardingModel.title

@@ -18,11 +18,18 @@
 		0376730B2C86320C00301E6F /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037673092C86320C00301E6F /* HomeVC.xib */; };
 		0376730E2C863CF700301E6F /* HomeTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376730C2C863CF700301E6F /* HomeTransactionCell.swift */; };
 		0376730F2C863CF700301E6F /* HomeTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0376730D2C863CF700301E6F /* HomeTransactionCell.xib */; };
+		038B16022C88FF7100BB4549 /* TransactionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038B16012C88FF7100BB4549 /* TransactionsVC.xib */; };
+		038B16032C88FF7100BB4549 /* TransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B16002C88FF7100BB4549 /* TransactionsVC.swift */; };
+		038B16072C8900D800BB4549 /* TransactionsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038B16062C8900D800BB4549 /* TransactionsViewCell.xib */; };
+		038B16082C8900D800BB4549 /* TransactionsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B16052C8900D800BB4549 /* TransactionsViewCell.swift */; };
 		03A25CBB2C8738D60040DE60 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A25CBA2C8738D60040DE60 /* AnimatedTabBarController.swift */; };
 		03A25CBD2C8772E40040DE60 /* UIViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A25CBC2C8772E40040DE60 /* UIViewController+Background.swift */; };
 		03B647D02C7F6741007F1F07 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B647CF2C7F6741007F1F07 /* AppColors.swift */; };
 		03B647D22C7F6846007F1F07 /* OnBoardingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B647D12C7F6846007F1F07 /* OnBoardingScreen.storyboard */; };
 		03B647D42C7F6886007F1F07 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B647D32C7F6886007F1F07 /* OnBoardingVC.swift */; };
+		03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */; };
+		03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */; };
+		03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */; };
 		33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */; };
 		33A372132C7E5A0F00EE834F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A372112C7E5A0F00EE834F /* Main.storyboard */; };
 		33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A372142C7E5A2500EE834F /* Assets.xcassets */; };
@@ -42,11 +49,18 @@
 		037673092C86320C00301E6F /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		0376730C2C863CF700301E6F /* HomeTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTransactionCell.swift; sourceTree = "<group>"; };
 		0376730D2C863CF700301E6F /* HomeTransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTransactionCell.xib; sourceTree = "<group>"; };
+		038B16002C88FF7100BB4549 /* TransactionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsVC.swift; sourceTree = "<group>"; };
+		038B16012C88FF7100BB4549 /* TransactionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsVC.xib; sourceTree = "<group>"; };
+		038B16052C8900D800BB4549 /* TransactionsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewCell.swift; sourceTree = "<group>"; };
+		038B16062C8900D800BB4549 /* TransactionsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsViewCell.xib; sourceTree = "<group>"; };
 		03A25CBA2C8738D60040DE60 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		03A25CBC2C8772E40040DE60 /* UIViewController+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Background.swift"; sourceTree = "<group>"; };
 		03B647CF2C7F6741007F1F07 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		03B647D12C7F6846007F1F07 /* OnBoardingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoardingScreen.storyboard; sourceTree = "<group>"; };
 		03B647D32C7F6886007F1F07 /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
+		03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
+		03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsVC.swift; sourceTree = "<group>"; };
+		03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsVC.xib; sourceTree = "<group>"; };
 		33A372082C7E5A0F00EE834F /* Registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Registration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33A372122C7E5A0F00EE834F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +91,7 @@
 			children = (
 				030128452C810523006ECA3F /* UIView+cornerRadius.swift */,
 				03A25CBC2C8772E40040DE60 /* UIViewController+Background.swift */,
+				03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -117,6 +132,25 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		038B15FF2C88FEC600BB4549 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		038B16042C8900B400BB4549 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				038B16012C88FF7100BB4549 /* TransactionsVC.xib */,
+				038B16052C8900D800BB4549 /* TransactionsViewCell.swift */,
+				038B16062C8900D800BB4549 /* TransactionsViewCell.xib */,
+				03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
 		03B647CE2C7F6708007F1F07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +182,7 @@
 		33A3720A2C7E5A0F00EE834F /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */,
+				038B15FF2C88FEC600BB4549 /* Shared */,
 				0301284D2C8112DA006ECA3F /* Manager */,
 				030128482C8107F7006ECA3F /* Utils */,
 				030128292C809C73006ECA3F /* Extensions */,
@@ -164,6 +198,8 @@
 		33A3721F2C7E5AB700EE834F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */,
+				038B16002C88FF7100BB4549 /* TransactionsVC.swift */,
 				037673082C86320C00301E6F /* HomeVC.swift */,
 				03B647D32C7F6886007F1F07 /* OnBoardingVC.swift */,
 				0301284B2C810A2C006ECA3F /* RegistrationVC.swift */,
@@ -187,6 +223,7 @@
 				33A372162C7E5A2500EE834F /* LaunchScreen.storyboard */,
 				33A372112C7E5A0F00EE834F /* Main.storyboard */,
 				037673102C863D0D00301E6F /* HomeScreen */,
+				038B16042C8900B400BB4549 /* Transactions */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,10 +315,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A372182C7E5A2500EE834F /* LaunchScreen.storyboard in Resources */,
+				038B16072C8900D800BB4549 /* TransactionsViewCell.xib in Resources */,
+				03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */,
 				0376730B2C86320C00301E6F /* HomeVC.xib in Resources */,
 				030128432C80E10D006ECA3F /* OnBoardingViewCell.xib in Resources */,
 				03B647D22C7F6846007F1F07 /* OnBoardingScreen.storyboard in Resources */,
 				33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */,
+				038B16022C88FF7100BB4549 /* TransactionsVC.xib in Resources */,
 				33A372132C7E5A0F00EE834F /* Main.storyboard in Resources */,
 				0376730F2C863CF700301E6F /* HomeTransactionCell.xib in Resources */,
 			);
@@ -337,15 +377,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				03B647D02C7F6741007F1F07 /* AppColors.swift in Sources */,
+				038B16032C88FF7100BB4549 /* TransactionsVC.swift in Sources */,
+				03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */,
 				0376730A2C86320C00301E6F /* HomeVC.swift in Sources */,
 				03A25CBD2C8772E40040DE60 /* UIViewController+Background.swift in Sources */,
 				0301282D2C80A357006ECA3F /* OnBoardingModel.swift in Sources */,
 				03B647D42C7F6886007F1F07 /* OnBoardingVC.swift in Sources */,
 				0301284C2C810A2C006ECA3F /* RegistrationVC.swift in Sources */,
 				030128462C810523006ECA3F /* UIView+cornerRadius.swift in Sources */,
+				038B16082C8900D800BB4549 /* TransactionsViewCell.swift in Sources */,
 				0376730E2C863CF700301E6F /* HomeTransactionCell.swift in Sources */,
 				0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */,
 				03A25CBB2C8738D60040DE60 /* AnimatedTabBarController.swift in Sources */,
+				03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */,
 				0301284A2C810805006ECA3F /* Constants.swift in Sources */,
 				33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */,
 				030128442C80E10D006ECA3F /* OnBoardingViewCell.swift in Sources */,

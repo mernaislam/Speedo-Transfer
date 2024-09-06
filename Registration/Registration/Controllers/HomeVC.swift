@@ -9,22 +9,33 @@ import UIKit
 
 class HomeVC: UIViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet var profileView: UIView!
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var transactionTableView: UITableView!
+    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpTableView()
+        self.applyGradientBgYellowToRed()
+        profileView.cornerRadius = profileView.frame.width / 2
+    }
+    
+    // MARK: - Private Methods
+    private func setUpTableView(){
         transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
-        applyGradientBgYellowToRed()
-        profileView.cornerRadius = profileView.frame.width / 2
     }
-
+    
+    // MARK: - IBAction
     @IBAction func viewAllBtnTapped(_ sender: UIButton) {
+        self.navigationController?.pushViewController(TransactionsVC(), animated: true)
     }
 }
 
+// MARK: - UITableView Extension
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
