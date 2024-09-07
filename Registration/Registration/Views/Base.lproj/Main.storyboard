@@ -261,7 +261,6 @@
         <!--Sign UpVC2-->
         <scene sceneID="VUe-dk-Q0z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2V6-fi-gcR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SignUpVC2" id="Jpt-ln-2op" customClass="SignUpVC2" customModule="Registration" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qgc-xg-nuC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -435,6 +434,7 @@
                         <outlet property="signInButton" destination="Wax-xN-lN7" id="36d-HL-5fT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2V6-fi-gcR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1861.5999999999999" y="107.88177339901478"/>
         </scene>
@@ -535,6 +535,9 @@
                                                             <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="baseBackgroundColor" red="0.52941176469999995" green="0.1176470588" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="SignInButtonTapped:" destination="JAj-X5-hGe" eventType="touchUpInside" id="b7R-g6-9ky"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OLM-oO-hAj">
                                                         <rect key="frame" x="30" y="68" width="283" height="33.333333333333343"/>

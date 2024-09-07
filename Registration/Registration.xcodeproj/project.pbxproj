@@ -98,9 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				33621F172C80FE7900A12CD3 /* SignUpVC1.swift */,
-				33CF599B2C8343290046A7E9 /* SignInVC.swift */,
-				332DF53C2C836AC600802396 /* CountryPickerVC.swift */,
 				33F548DB2C8C58DF009A95AC /* SignUpVC2.swift */,
+				332DF53C2C836AC600802396 /* CountryPickerVC.swift */,
+				33CF599B2C8343290046A7E9 /* SignInVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

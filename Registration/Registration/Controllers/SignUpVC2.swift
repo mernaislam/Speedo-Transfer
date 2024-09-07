@@ -136,29 +136,39 @@ class SignUpVC2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     }
     
     // Action when the user taps the "Continue" button
-    @IBAction func continueButtonTapped(_ sender: Any) {
-        // Check if we have the necessary data
-        guard let userData = userData,
-              let selectedCountry = selectedCountry else {
-            print("Missing data")
-            return
+    // Action when the user taps the "Continue" button
+        @IBAction func continueButtonTapped(_ sender: Any) {
+            // Check if we have the necessary data
+            guard let userData = userData,
+                  let selectedCountry = selectedCountry else {
+                print("Missing data")
+                return
+            }
+            
+            let selectedDate = datePicker.date
+            
+            // Combine all the data into a new User object
+            let newUser = User(
+                fullName: userData.fullName,
+                email: userData.email,
+                password: userData.password,
+                country: selectedCountry,
+                dateOfBirth: selectedDate
+            )
+            
+            // Save user data to UserDefaults
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(true, forKey: "isRegistered")
+            userDefaults.set(newUser.fullName, forKey: "fullName")
+            userDefaults.set(newUser.email, forKey: "email")
+            userDefaults.set(newUser.password, forKey: "password")
+            userDefaults.set(newUser.country, forKey: "country")
+            userDefaults.set(newUser.dateOfBirth, forKey: "dateOfBirth")
+
+            // Print the new user or pass it to the next step
+            print("User created and saved: \(newUser)")
+            // Navigate to the next screen or handle the registration
         }
-        
-        let selectedDate = datePicker.date
-        
-        // Combine all the data into a new User object
-        let newUser = User(
-            fullName: userData.fullName,
-            email: userData.email,
-            password: userData.password,
-            country: selectedCountry,
-            dateOfBirth: selectedDate
-        )
-        
-        // Print the new user or pass it to the next step
-        print("User created: \(newUser)")
-        // You can now navigate to the next screen or handle the registration
-    }
     
     // Configure sign-in button
     private func configureSignInButton() {
