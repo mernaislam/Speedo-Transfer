@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        } else {
 //            switchToRegisterScreen()
 //        }
-        switchToHomeScreen()
+        switchToRegisterScreen()
+//        switchToHomeScreen()
         return true
 
     }
@@ -49,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func switchToRegisterScreen(){
         let storyboard = UIStoryboard(name: Storyboard.Main, bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllersID.Register)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllersID.SignUp)
         self.window?.rootViewController = initialViewController
     }
        

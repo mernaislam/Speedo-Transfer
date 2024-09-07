@@ -8,7 +8,7 @@
 import Foundation
 
 struct ViewControllersID {
-    static let Register = "RegistrationVC"
+    static let SignUp = "SignUpVC1"
     static let OnBoarding = "OnBoardingVC"
 }
 
