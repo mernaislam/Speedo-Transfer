@@ -14,7 +14,8 @@ class CountryPickerVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         ("Egypt", "🇪🇬"),
         ("India", "🇮🇳"),
         ("Australia", "🇦🇺"),
-        ("Saudi", "🇸🇦")
+        ("Saudi Arabia", "🇸🇦"),
+        ("", "")
     ]
 
     var selectedCountryIndex: IndexPath?

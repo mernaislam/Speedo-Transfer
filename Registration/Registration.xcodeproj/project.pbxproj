@@ -15,8 +15,8 @@
 		33A372132C7E5A0F00EE834F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A372112C7E5A0F00EE834F /* Main.storyboard */; };
 		33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A372142C7E5A2500EE834F /* Assets.xcassets */; };
 		33A372182C7E5A2500EE834F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A372162C7E5A2500EE834F /* LaunchScreen.storyboard */; };
-		33CF59962C82690D0046A7E9 /* SignUpVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CF59952C82690D0046A7E9 /* SignUpVC2.swift */; };
 		33CF599C2C8343290046A7E9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CF599B2C8343290046A7E9 /* SignInVC.swift */; };
+		33F548DC2C8C58DF009A95AC /* SignUpVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F548DB2C8C58DF009A95AC /* SignUpVC2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		33A372192C7E5A2500EE834F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33A372252C7E672900EE834F /* Inter-Italic-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
 		33A372262C7E672F00EE834F /* Inter-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
-		33CF59952C82690D0046A7E9 /* SignUpVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpVC2.swift; path = ../../../../../../.Trash/SignUpVC2.swift; sourceTree = "<group>"; };
 		33CF599B2C8343290046A7E9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		33F548DB2C8C58DF009A95AC /* SignUpVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33074B2B2C8C524C00D2792A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				33A372142C7E5A2500EE834F /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		33866A4F2C7F4B01008F665E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,7 +88,7 @@
 				33A372212C7E5B5700EE834F /* Views */,
 				33A3721F2C7E5AB700EE834F /* Controllers */,
 				33A372202C7E5AD400EE834F /* Models */,
-				33A372142C7E5A2500EE834F /* Assets.xcassets */,
+				33074B2B2C8C524C00D2792A /* Assets */,
 				33A372192C7E5A2500EE834F /* Info.plist */,
 			);
 			path = Registration;
@@ -90,9 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				33621F172C80FE7900A12CD3 /* SignUpVC1.swift */,
-				33CF59952C82690D0046A7E9 /* SignUpVC2.swift */,
 				33CF599B2C8343290046A7E9 /* SignInVC.swift */,
 				332DF53C2C836AC600802396 /* CountryPickerVC.swift */,
+				33F548DB2C8C58DF009A95AC /* SignUpVC2.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -198,8 +206,8 @@
 				33621F182C80FE7900A12CD3 /* SignUpVC1.swift in Sources */,
 				33A372102C7E5A0F00EE834F /* ViewController.swift in Sources */,
 				33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */,
-				33CF59962C82690D0046A7E9 /* SignUpVC2.swift in Sources */,
 				33CF599C2C8343290046A7E9 /* SignInVC.swift in Sources */,
+				33F548DC2C8C58DF009A95AC /* SignUpVC2.swift in Sources */,
 				33621F162C80FD7500A12CD3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
