@@ -1,16 +1,20 @@
 PODS:
+  - IQKeyboardManagerSwift (7.1.1)
   - RAMAnimatedTabBarController (5.2.0)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - RAMAnimatedTabBarController
 
 SPEC REPOS:
   trunk:
+    - IQKeyboardManagerSwift
     - RAMAnimatedTabBarController
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: d7f3d3a562c237a0e7335e657cd598c452f57f1b
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
 
-PODFILE CHECKSUM: 4e70565f71ed5b13ea582564bbff554f5ab433fb
+PODFILE CHECKSUM: 122af239ec93645b9fa784736193cb209aceed12
 
 COCOAPODS: 1.15.2

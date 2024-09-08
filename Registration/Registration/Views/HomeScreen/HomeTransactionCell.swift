@@ -9,12 +9,17 @@ import UIKit
 
 class HomeTransactionCell: UITableViewCell {
 
+    // MARK: - IBOutlet
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var stateLabel: UILabel!
+    
+    // MARK: - Static Properities
     static var identifier: String = "HomeTransactionCell"
     static var nib: UINib = UINib(nibName: identifier, bundle: nil)
+    
+    // MARK: - LifeCycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -8,16 +8,15 @@
 import UIKit
 
 extension UIViewController {
-    func setupNavigationBar(title: String) {
+        
+    func setupNavigationBar(title: String, selector: Selector) {
         // Add back arrow in screens
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(goToHomeTab))
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: selector)
         backButton.tintColor = .black
         self.navigationItem.leftBarButtonItem = backButton
         
         self.navigationItem.title = title
     }
-    
-    @objc private func goToHomeTab() {
-        // TODO: Jump to Home Tab
-    }
 }
+
+

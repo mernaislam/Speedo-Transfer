@@ -8,11 +8,15 @@
 import UIKit
 
 class TransactionDetailsVC: UIViewController {
-
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.applyGradientBgYellowToRed()
-        self.setupNavigationBar(title: "Successful Trasactions")
+        self.setupNavigationBar(title: "Successful Trasactions", selector: #selector(self.goBack))
+    }
+    
+    @objc func goBack(){
+        self.navigationController?.popViewController(animated: true)
     }
 }
