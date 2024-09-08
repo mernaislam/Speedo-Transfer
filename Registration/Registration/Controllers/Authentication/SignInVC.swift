@@ -3,26 +3,31 @@ import UIKit
 class SignInVC: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var EmailTextField: UITextField!
+    @IBOutlet weak var PasswordTextField: UITextField!
+    let emailIcon = UIImageView(image: UIImage(named: "email"))
+    let eyeOpenIconPassword = UIImageView(image: UIImage(named: "eye open"))
+    
+    var isPasswordVisible = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let backButton = UIBarButtonItem()
         backButton.title = ""
         navigationItem.backBarButtonItem = backButton
-        // Do any additional setup after loading the view.
+
         configureSignUpButton()
+        setupIcons()
     }
     
     private func checkIfUserIsRegistered() -> Bool{
         let userDefaults = UserDefaults.standard
         if let isRegistered = userDefaults.value(forKey: "isRegistered") as? Bool, isRegistered {
-            // Retrieve and print user details
             if let fullName = userDefaults.value(forKey: "fullName") as? String,
                let email = userDefaults.value(forKey: "email") as? String {
                 print("User is registered")
                 print("Full Name: \(fullName)")
                 print("Email: \(email)")
-                // Print additional details if needed
             } else {
                 print("User details are missing")
                 return false
@@ -32,6 +37,35 @@ class SignInVC: UIViewController {
             return false
         }
         return true
+    }
+    
+    private func setupIcons() {
+        // Setup for Email text field
+        emailIcon.frame = CGRect(x: -14, y: 0, width: 24, height: 24)
+        let paddingEmail = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 24))
+        paddingEmail.addSubview(emailIcon)
+        EmailTextField.rightView = paddingEmail
+        EmailTextField.rightViewMode = .always
+        
+        // Setup for Password text field (eye open icon)
+        eyeOpenIconPassword.frame = CGRect(x: -14, y: 0, width: 24, height: 24)
+        let paddingEyePassword = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 24))
+        paddingEyePassword.addSubview(eyeOpenIconPassword)
+        PasswordTextField.rightView = paddingEyePassword
+        PasswordTextField.rightViewMode = .always
+        
+        // Add tap gesture recognizer to toggle password visibility
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility(_:)))
+        eyeOpenIconPassword.isUserInteractionEnabled = true
+        eyeOpenIconPassword.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    // MARK: - Toggle Password Visibility
+    
+    @objc func togglePasswordVisibility(_ sender: UITapGestureRecognizer) {
+        isPasswordVisible.toggle()
+        PasswordTextField.isSecureTextEntry = !isPasswordVisible
+        eyeOpenIconPassword.image = UIImage(named: isPasswordVisible ? "closed eye" : "eye open")
     }
     
     private func configureSignUpButton() {
@@ -55,14 +89,12 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func SignInButtonTapped(_ sender: Any) {
-        
         let registered = checkIfUserIsRegistered()
-        if registered{
+        if registered {
             print("User Found!")
-        }else{
+        } else {
             print("User wasn't found.")
         }
         self.navigationController?.pushViewController(HomeVC(), animated: true)
     }
-    
 }

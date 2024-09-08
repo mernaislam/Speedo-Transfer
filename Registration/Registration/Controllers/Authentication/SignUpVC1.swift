@@ -59,8 +59,8 @@ class SignUpVC1: UIViewController, UITextFieldDelegate {
         eyeOpenIconConfPassword.frame = CGRect(x: -14, y: 0, width: 24, height: 24)
         let paddingEyeConfPassword = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 24))
         paddingEyeConfPassword.addSubview(eyeOpenIconConfPassword)
-//        ConfPasswordTextField.rightView = paddingEyeConfPassword
-//        ConfPasswordTextField.rightViewMode = .always
+        ConfPasswordTextField.rightView = paddingEyeConfPassword
+        ConfPasswordTextField.rightViewMode = .always
         
         // Add tap gesture recognizers for eye icons to toggle password visibility
         let tapGesturePassword = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility(_:)))
