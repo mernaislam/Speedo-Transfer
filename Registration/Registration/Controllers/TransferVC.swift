@@ -136,9 +136,7 @@ extension TransferVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
 // MARK: - CellDelegate Extension
 extension TransferVC: CustomCellDelegate {
     func goToFavorites() {
-//        if let sheet = self.navigationController?.sheetPresentationController {
-//            sheet.detents = [.medium()]
-//        }
+        self.present(FavoriteSheetVC(), animated: true)
     }
     
     func goToHome() {
