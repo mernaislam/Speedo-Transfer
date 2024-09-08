@@ -19,6 +19,11 @@
 		0338366A2C8E3E2E000C8D33 /* FavoriteSheetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033836682C8E3E2E000C8D33 /* FavoriteSheetVC.xib */; };
 		0338366D2C8E40D3000C8D33 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0338366B2C8E40D2000C8D33 /* FavoriteViewCell.swift */; };
 		0338366E2C8E40D3000C8D33 /* FavoriteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0338366C2C8E40D2000C8D33 /* FavoriteViewCell.xib */; };
+		033836722C8E483B000C8D33 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836702C8E483B000C8D33 /* MoreVC.swift */; };
+		033836732C8E483B000C8D33 /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033836712C8E483B000C8D33 /* MoreVC.xib */; };
+		033836762C8E4938000C8D33 /* MoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836742C8E4938000C8D33 /* MoreViewCell.swift */; };
+		033836772C8E4938000C8D33 /* MoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033836752C8E4938000C8D33 /* MoreViewCell.xib */; };
+		033836792C8E4F69000C8D33 /* MoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836782C8E4F69000C8D33 /* MoreItem.swift */; };
 		0353B5CC2C8D0A2F00586A30 /* SignUpVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CB2C8D0A2F00586A30 /* SignUpVC1.swift */; };
 		0353B5CE2C8D0A6E00586A30 /* SignUpVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CD2C8D0A6E00586A30 /* SignUpVC2.swift */; };
 		0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */; };
@@ -68,6 +73,11 @@
 		033836682C8E3E2E000C8D33 /* FavoriteSheetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteSheetVC.xib; sourceTree = "<group>"; };
 		0338366B2C8E40D2000C8D33 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		0338366C2C8E40D2000C8D33 /* FavoriteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewCell.xib; sourceTree = "<group>"; };
+		033836702C8E483B000C8D33 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		033836712C8E483B000C8D33 /* MoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
+		033836742C8E4938000C8D33 /* MoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewCell.swift; sourceTree = "<group>"; };
+		033836752C8E4938000C8D33 /* MoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreViewCell.xib; sourceTree = "<group>"; };
+		033836782C8E4F69000C8D33 /* MoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreItem.swift; sourceTree = "<group>"; };
 		0353B5CB2C8D0A2F00586A30 /* SignUpVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC1.swift; sourceTree = "<group>"; };
 		0353B5CD2C8D0A6E00586A30 /* SignUpVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC2.swift; sourceTree = "<group>"; };
 		0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
@@ -167,6 +177,16 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		0338366F2C8E47EC000C8D33 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				033836712C8E483B000C8D33 /* MoreVC.xib */,
+				033836742C8E4938000C8D33 /* MoreViewCell.swift */,
+				033836752C8E4938000C8D33 /* MoreViewCell.xib */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		036597A12C8B7E2100E318C2 /* Transfer */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +198,6 @@
 				03E05E262C8C71770052DED8 /* SuccessCollectionCell.swift */,
 				03E05E272C8C71770052DED8 /* SuccessCollectionCell.xib */,
 				03E05E2A2C8C854B0052DED8 /* CustomCellDelegate.swift */,
-				033836672C8E3E2E000C8D33 /* FavoriteSheetVC.swift */,
 				033836682C8E3E2E000C8D33 /* FavoriteSheetVC.xib */,
 				0338366B2C8E40D2000C8D33 /* FavoriteViewCell.swift */,
 				0338366C2C8E40D2000C8D33 /* FavoriteViewCell.xib */,
@@ -241,6 +260,7 @@
 			children = (
 				03E05E442C8D02960052DED8 /* User.swift */,
 				0301282C2C80A357006ECA3F /* OnBoardingModel.swift */,
+				033836782C8E4F69000C8D33 /* MoreItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,8 +304,10 @@
 			isa = PBXGroup;
 			children = (
 				036597A22C8B7E3C00E318C2 /* TransferVC.swift */,
+				033836702C8E483B000C8D33 /* MoreVC.swift */,
 				03E05E3B2C8CE6490052DED8 /* Authentication */,
 				03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */,
+				033836672C8E3E2E000C8D33 /* FavoriteSheetVC.swift */,
 				038B16002C88FF7100BB4549 /* TransactionsVC.swift */,
 				037673082C86320C00301E6F /* HomeVC.swift */,
 				03B647D32C7F6886007F1F07 /* OnBoardingVC.swift */,
@@ -298,6 +320,7 @@
 		33A372212C7E5B5700EE834F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0338366F2C8E47EC000C8D33 /* More */,
 				036597A12C8B7E2100E318C2 /* Transfer */,
 				030128472C8105A7006ECA3F /* OnBoardingScreen */,
 				33A372162C7E5A2500EE834F /* LaunchScreen.storyboard */,
@@ -403,10 +426,12 @@
 				0338366A2C8E3E2E000C8D33 /* FavoriteSheetVC.xib in Resources */,
 				03B647D22C7F6846007F1F07 /* OnBoardingScreen.storyboard in Resources */,
 				33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */,
+				033836772C8E4938000C8D33 /* MoreViewCell.xib in Resources */,
 				033439B92C8DD5E600A81150 /* Main.storyboard in Resources */,
 				038B16022C88FF7100BB4549 /* TransactionsVC.xib in Resources */,
 				036597A42C8B7E3C00E318C2 /* TransferVC.xib in Resources */,
 				036597A82C8B8C1D00E318C2 /* AmountCollectionCell.xib in Resources */,
+				033836732C8E483B000C8D33 /* MoreVC.xib in Resources */,
 				036597AC2C8BA29100E318C2 /* ConfirmCollectionCell.xib in Resources */,
 				03E05E292C8C71770052DED8 /* SuccessCollectionCell.xib in Resources */,
 				0376730F2C863CF700301E6F /* HomeTransactionCell.xib in Resources */,
@@ -464,6 +489,7 @@
 			files = (
 				03B647D02C7F6741007F1F07 /* AppColors.swift in Sources */,
 				036597A92C8B8C1D00E318C2 /* AmountCollectionCell.swift in Sources */,
+				033836762C8E4938000C8D33 /* MoreViewCell.swift in Sources */,
 				038B16032C88FF7100BB4549 /* TransactionsVC.swift in Sources */,
 				03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */,
 				036597AD2C8BA29100E318C2 /* ConfirmCollectionCell.swift in Sources */,
@@ -472,6 +498,7 @@
 				03E05E282C8C71770052DED8 /* SuccessCollectionCell.swift in Sources */,
 				03A25CBD2C8772E40040DE60 /* UIViewController+Background.swift in Sources */,
 				0301282D2C80A357006ECA3F /* OnBoardingModel.swift in Sources */,
+				033836792C8E4F69000C8D33 /* MoreItem.swift in Sources */,
 				03B647D42C7F6886007F1F07 /* OnBoardingVC.swift in Sources */,
 				03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */,
 				030128462C810523006ECA3F /* UIView+cornerRadius.swift in Sources */,
@@ -481,6 +508,7 @@
 				036597A52C8B7E3C00E318C2 /* TransferVC.swift in Sources */,
 				0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */,
 				03A25CBB2C8738D60040DE60 /* AnimatedTabBarController.swift in Sources */,
+				033836722C8E483B000C8D33 /* MoreVC.swift in Sources */,
 				033439B72C8DAF7700A81150 /* TabSwitchProtocol.swift in Sources */,
 				0353B5D22C8D0AEC00586A30 /* SignInVC.swift in Sources */,
 				0353B5CC2C8D0A2F00586A30 /* SignUpVC1.swift in Sources */,

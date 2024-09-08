@@ -58,7 +58,7 @@ extension AnimatedTabBarController {
         self.cardNavigation.tabBarItem = customAnimatedTabBar(title: "My Cards", image: UIImage(named: "My Cards"), tag: 3, animation: RAMRightRotationAnimation())
         
         // More Tab
-        self.moreNavigation = UINavigationController(rootViewController: UIViewController())
+        self.moreNavigation = UINavigationController(rootViewController: MoreVC())
         self.moreNavigation.tabBarItem = customAnimatedTabBar(title: "More", image: UIImage(named: "More"), tag: 4, animation: RAMBounceAnimation())
     }
 
