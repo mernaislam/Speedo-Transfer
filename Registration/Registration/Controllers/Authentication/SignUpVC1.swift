@@ -22,7 +22,7 @@ class SignUpVC1: UIViewController, UITextFieldDelegate {
         let backButton = UIBarButtonItem()
         backButton.title = ""
         navigationItem.backBarButtonItem = backButton
-        
+        self.applyGradientBgWhiteToRed()
         setupIcons()
         
         FullNameTextField.delegate = self

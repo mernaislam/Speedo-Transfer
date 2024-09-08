@@ -40,6 +40,7 @@ class SignUpVC2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         countryPicker.dataSource = self
         countryPicker.delegate = self
         countryTextField.inputView = countryPicker
+        self.applyGradientBgWhiteToRed()
         
         // Setting up the date picker
         datePicker.datePickerMode = .date
@@ -168,6 +169,8 @@ class SignUpVC2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
             // Print the new user or pass it to the next step
             print("User created and saved: \(newUser)")
             // Navigate to the next screen or handle the registration
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            delegate?.switchToHomeScreen()
         }
     
     // Configure sign-in button

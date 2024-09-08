@@ -38,7 +38,7 @@ class CountryPickerVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CountryCell")
 
         tableView.separatorStyle = .none
-        
+        self.applyGradientBgWhiteToRed()
         // Configure bottom sheet presentation
         if let sheet = self.sheetPresentationController {
             sheet.detents = [.medium()] // Medium detent for the bottom sheet

@@ -15,7 +15,7 @@ class SignInVC: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = ""
         navigationItem.backBarButtonItem = backButton
-
+        self.applyGradientBgWhiteToRed()
         configureSignUpButton()
         setupIcons()
     }
@@ -95,6 +95,7 @@ class SignInVC: UIViewController {
         } else {
             print("User wasn't found.")
         }
-        self.navigationController?.pushViewController(HomeVC(), animated: true)
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        delegate?.switchToHomeScreen()
     }
 }

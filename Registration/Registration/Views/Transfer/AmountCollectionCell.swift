@@ -66,6 +66,8 @@ class AmountCollectionCell: UICollectionViewCell {
 // MARK: - Scroll Extension
 extension AmountCollectionCell: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.x = 0
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
     }
 }

@@ -42,7 +42,6 @@
 		03E05E282C8C71770052DED8 /* SuccessCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E05E262C8C71770052DED8 /* SuccessCollectionCell.swift */; };
 		03E05E292C8C71770052DED8 /* SuccessCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E05E272C8C71770052DED8 /* SuccessCollectionCell.xib */; };
 		03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E05E2A2C8C854B0052DED8 /* CustomCellDelegate.swift */; };
-		03E05E432C8D026F0052DED8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03E05E422C8D026F0052DED8 /* Main.storyboard */; };
 		03E05E452C8D02960052DED8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E05E442C8D02960052DED8 /* User.swift */; };
 		03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */; };
 		03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */; };
@@ -386,7 +385,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A372182C7E5A2500EE834F /* LaunchScreen.storyboard in Resources */,
-				03E05E432C8D026F0052DED8 /* Main.storyboard in Resources */,
 				038B16072C8900D800BB4549 /* TransactionsViewCell.xib in Resources */,
 				03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */,
 				0376730B2C86320C00301E6F /* HomeVC.xib in Resources */,
