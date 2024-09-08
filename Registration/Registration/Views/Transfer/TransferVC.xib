@@ -12,7 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransferVC" customModule="Registration" customModuleProvider="target">
             <connections>
                 <outlet property="firstStepView" destination="QuQ-fM-ZZJ" id="cxJ-If-uxW"/>
+                <outlet property="secondLabel" destination="3vh-rn-Y2s" id="baN-8Q-a4x"/>
+                <outlet property="secondLine" destination="nbe-EE-9bJ" id="BPz-PK-O5y"/>
                 <outlet property="secondStepView" destination="k7U-Ud-LeT" id="6Gd-uv-T7G"/>
+                <outlet property="thirdLabel" destination="ddC-0P-DuR" id="esm-xE-wwe"/>
                 <outlet property="thirdStepView" destination="kyL-ZW-gbA" id="Ad5-0B-XtL"/>
                 <outlet property="transferCollectionView" destination="61c-Gh-YuP" id="yvw-XN-fgH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -30,7 +33,7 @@
                             <rect key="frame" x="0.0" y="7.6666666666666714" width="35" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ji4-HG-UoZ">
-                                    <rect key="frame" x="9.6666666666666643" y="9" width="16" height="17"/>
+                                    <rect key="frame" x="9.3333333333333339" y="9" width="16.333333333333329" height="17"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                     <color key="textColor" red="0.52941179279999995" green="0.1176470518" blue="0.20784312490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
@@ -122,7 +125,7 @@
                     </subviews>
                 </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="61c-Gh-YuP">
-                    <rect key="frame" x="16" y="190" width="361" height="628"/>
+                    <rect key="frame" x="16" y="170" width="361" height="648"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="WIZ-Nc-2MN">
                         <size key="itemSize" width="128" height="128"/>
@@ -135,15 +138,16 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="61c-Gh-YuP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="0IH-FN-XMX"/>
                 <constraint firstItem="juX-f5-7dc" firstAttribute="top" secondItem="IOs-a2-E0F" secondAttribute="bottom" constant="10" id="Aps-P6-g1I"/>
                 <constraint firstItem="IOs-a2-E0F" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Bxt-Ml-KAu"/>
                 <constraint firstItem="juX-f5-7dc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="H6Y-wK-fkq"/>
-                <constraint firstItem="61c-Gh-YuP" firstAttribute="top" secondItem="juX-f5-7dc" secondAttribute="bottom" constant="34" id="KKY-Kg-aXa"/>
+                <constraint firstItem="61c-Gh-YuP" firstAttribute="top" secondItem="juX-f5-7dc" secondAttribute="bottom" constant="14" id="KKY-Kg-aXa"/>
                 <constraint firstItem="IOs-a2-E0F" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0586854" id="Khk-hP-f0f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="61c-Gh-YuP" secondAttribute="bottom" id="WEF-pc-DPq"/>
                 <constraint firstItem="IOs-a2-E0F" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fJv-bd-ksw"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="61c-Gh-YuP" secondAttribute="trailing" constant="16" id="rzh-QK-6QX"/>
+                <constraint firstItem="61c-Gh-YuP" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="h8S-Ow-LHe"/>
+                <constraint firstItem="61c-Gh-YuP" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.918575" id="wxa-pq-rQt"/>
+                <constraint firstItem="Ji4-HG-UoZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="52.333333333333329" id="x9u-Jw-PHl"/>
             </constraints>
             <point key="canvasLocation" x="23.664122137404579" y="19.718309859154932"/>
         </view>

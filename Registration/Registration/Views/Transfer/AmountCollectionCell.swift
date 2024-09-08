@@ -7,25 +7,28 @@
 
 import UIKit
 
-protocol CustomCollectionViewCellDelegate: AnyObject {
-    func goToNextCell(in cell: UICollectionViewCell)
-    func goToPreviousCell(in cell: UICollectionViewCell)
-}
-
 class AmountCollectionCell: UICollectionViewCell {
     
+    // MARK: - Properties
     static let identifier = "AmountCollectionCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
-    weak var delegate: CustomCollectionViewCellDelegate?
+    weak var delegate: CustomCellDelegate?
 
+    // MARK: - IBOutlet
     @IBOutlet var amountTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var accountTextField: UITextField!
+    @IBOutlet var favoriteStackView: UIStackView!
+    
+    // MARK: - LifeCycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setUpTextFieldBorder()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openFavoriteSheet))
+        favoriteStackView.addGestureRecognizer(tapGesture)
     }
     
+    // MARK: - Private Methods
     private func setUpTextFieldBorder(){
         // Amount
         self.amountTextField.borderStyle = .roundedRect
@@ -47,8 +50,22 @@ class AmountCollectionCell: UICollectionViewCell {
         
     }
     
-    @IBAction func continueBtnTapped(_ sender: Any) {
-        delegate?.goToNextCell(in: self)
+    @objc private func openFavoriteSheet() {
+        delegate?.goToFavorites()
     }
     
+    // MARK: - IBAction
+    @IBAction func continueBtnTapped(_ sender: Any) {
+        delegate?.goToCell(in: self, next: true)
+        delegate?.animateStepColorChange(step: 2)
+    }
+    
+}
+
+
+// MARK: - Scroll Extension
+extension AmountCollectionCell: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0
+    }
 }

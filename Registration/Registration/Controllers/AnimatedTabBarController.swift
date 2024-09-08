@@ -23,6 +23,7 @@ class AnimatedTabBarController: RAMAnimatedTabBarController {
         self.setUpViewControllers()
         self.setUpTabBar()
     }
+
 }
 
 // MARK: - Private Methods
@@ -41,11 +42,15 @@ extension AnimatedTabBarController {
         self.homeNavigation.tabBarItem = customAnimatedTabBar(title: "Home", image: UIImage(named: "Home"), tag: 0, animation: RAMBounceAnimation())
         
         // Transfer Tab
-        self.transferNavigation = UINavigationController(rootViewController: TransferVC())
+        let transferVC = TransferVC()
+        transferVC.tabSwitchDelegate = self
+        self.transferNavigation = UINavigationController(rootViewController: transferVC)
         self.transferNavigation.tabBarItem = customAnimatedTabBar(title: "Transfer", image: UIImage(named: "Transfer"), tag: 1, animation: RAMRotationAnimation())
         
         // Transactions Tab
-        self.transactionNavigation = UINavigationController(rootViewController: TransactionsVC())
+        let transactionVC = TransactionsVC()
+        transactionVC.tabSwitchDelegate = self
+        self.transactionNavigation = UINavigationController(rootViewController: transactionVC)
         self.transactionNavigation.tabBarItem = customAnimatedTabBar(title: "Transactions", image: UIImage(named: "Transactions"), tag: 2, animation: RAMBounceAnimation())
 
         // My Cards Tab
@@ -56,6 +61,7 @@ extension AnimatedTabBarController {
         self.moreNavigation = UINavigationController(rootViewController: UIViewController())
         self.moreNavigation.tabBarItem = customAnimatedTabBar(title: "More", image: UIImage(named: "More"), tag: 4, animation: RAMBounceAnimation())
     }
+
     
     private func customAnimatedTabBar(title: String, image: UIImage?, tag: Int, animation: RAMItemAnimation) -> RAMAnimatedTabBarItem{
         
@@ -70,10 +76,18 @@ extension AnimatedTabBarController {
                         
         return item
     }
-    
-    private func switchToHomeTab(){
-        self.navigationController?.tabBarController?.selectedIndex = 0
-        self.tabBar.setNeedsLayout()
-        self.tabBar.layoutIfNeeded()
+}
+
+extension AnimatedTabBarController: TabSwitchProtocol{
+    func switchToHomeTab(){
+        if let items = self.tabBar.items as? [RAMAnimatedTabBarItem?], let previousSelectedItem = items[self.selectedIndex] {
+            previousSelectedItem.deselectAnimation()
+        }
+        
+        self.selectedIndex = 0
+        
+        if let items = self.tabBar.items as? [RAMAnimatedTabBarItem?], let selectedItem = items[self.selectedIndex] {
+            selectedItem.playAnimation()
+        }
     }
 }

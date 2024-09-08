@@ -10,16 +10,21 @@ import UIKit
 class TransactionsVC: UIViewController {
 
     @IBOutlet var transactionTableView: UITableView!
+    var tabSwitchDelegate: TabSwitchProtocol?
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpTableView()
         self.applyGradientBgYellowToRed()
-        self.setupNavigationBar(title: "Transactions")
+        self.setupNavigationBar(title: "Transactions", selector: #selector(self.goBack))
     }
     
     // MARK: - Private Methods
+    @objc private func goBack(){
+        self.tabSwitchDelegate?.switchToHomeTab()
+    }
+    
     private func setUpTableView(){
         transactionTableView.register(TransactionsViewCell.nib, forCellReuseIdentifier: TransactionsViewCell.identifier)
         transactionTableView.delegate = self

@@ -18,8 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="381" height="669"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTi-LW-qWT">
-                        <rect key="frame" x="0.0" y="59" width="381" height="576"/>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTi-LW-qWT">
+                        <rect key="frame" x="0.0" y="79" width="381" height="556"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mze-3C-Y9q">
                                 <rect key="frame" x="0.0" y="0.0" width="381" height="601"/>
@@ -252,7 +252,7 @@
                 <constraint firstItem="gTi-LW-qWT" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="1AR-yV-5ez"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="gTi-LW-qWT" secondAttribute="bottom" id="ZKJ-HN-80y"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="gTi-LW-qWT" secondAttribute="trailing" id="rxd-Nx-uE7"/>
-                <constraint firstItem="gTi-LW-qWT" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="x3j-Wp-fEA"/>
+                <constraint firstItem="gTi-LW-qWT" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="20" id="x3j-Wp-fEA"/>
             </constraints>
             <size key="customSize" width="447" height="818"/>
             <connections>
