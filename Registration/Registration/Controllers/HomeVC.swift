@@ -20,8 +20,9 @@ class HomeVC: UIViewController {
         self.setUpTableView()
         self.applyGradientBgYellowToRed()
         profileView.cornerRadius = profileView.frame.width / 2
+        self.setUpNavigationBorder()
     }
-    
+
     // MARK: - Private Methods
     private func setUpTableView(){
         transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)

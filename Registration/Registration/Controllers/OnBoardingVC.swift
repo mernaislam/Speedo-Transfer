@@ -34,6 +34,7 @@ class OnBoardingVC: UIViewController {
         fillSlides()
         setupCollectionView()
         setVerticalSpace()
+        self.applyGradientBgWhiteToRed()
     }
     
     override func viewDidLayoutSubviews() {
