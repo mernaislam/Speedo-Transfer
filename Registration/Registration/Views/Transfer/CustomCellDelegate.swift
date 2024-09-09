@@ -11,5 +11,5 @@ protocol CustomCellDelegate: AnyObject {
     func goToCell(in cell: UICollectionViewCell, next: Bool)
     func animateStepColorChange(step: Int)
     func goToHome()
-    func goToFavorites()
+    func openFavoritesSheet()
 }

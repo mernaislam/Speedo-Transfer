@@ -16,7 +16,8 @@ class TransactionDetailsVC: UIViewController {
         self.setupNavigationBar(title: "Successful Trasactions", selector: #selector(self.goBack))
     }
     
-    @objc func goBack(){
+    // MARK: - Private Methods
+    @objc private func goBack(){
         self.navigationController?.popViewController(animated: true)
     }
 }

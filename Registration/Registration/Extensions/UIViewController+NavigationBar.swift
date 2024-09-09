@@ -9,16 +9,23 @@ import UIKit
 
 extension UIViewController {
         
-    func setupNavigationBar(title: String, selector: Selector?) {
-        self.navigationItem.title = title
-        self.setUpNavigationBorder()
+    func setupNavigationBar(title: String?, selector: Selector?) {
         
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: selector)
-        backButton.tintColor = .black
-        self.navigationItem.leftBarButtonItem = backButton
+        if let text = title {
+            self.navigationItem.title = text
+        }
+        
+        self.setupNavigationBorder()
+        
+        if let action = selector {
+            let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: action)
+            backButton.tintColor = .black
+            self.navigationItem.leftBarButtonItem = backButton
+        }
+        
     }
     
-    func setUpNavigationBorder(){
+    func setupNavigationBorder(){
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithTransparentBackground()

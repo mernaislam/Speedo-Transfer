@@ -14,13 +14,15 @@ class FavoriteSheetVC: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.favoriteTableView.register(FavoriteViewCell.nib, forCellReuseIdentifier: FavoriteViewCell.identifier)
-        self.createSheet()
-        self.setUpTableView()
-      
+        self.initiateVC()
     }
     
     // MARK: - Private Methods
+    private func initiateVC(){
+        self.createSheet()
+        self.setupTableView()
+    }
+    
     private func createSheet(){
         if let sheet = self.sheetPresentationController {
             sheet.detents = [.medium()]
@@ -28,7 +30,8 @@ class FavoriteSheetVC: UIViewController {
         }
     }
     
-    private func setUpTableView(){
+    private func setupTableView(){
+        self.favoriteTableView.register(FavoriteSheetViewCell.nib, forCellReuseIdentifier: FavoriteSheetViewCell.identifier)
         self.favoriteTableView.delegate = self
         self.favoriteTableView.dataSource = self
     }
@@ -41,10 +44,8 @@ extension FavoriteSheetVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteViewCell.identifier, for: indexPath) as! FavoriteViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteSheetViewCell.identifier, for: indexPath) as! FavoriteSheetViewCell
         
         return cell
     }
-    
-    
 }

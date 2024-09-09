@@ -10,5 +10,4 @@ import UIKit
 struct MoreItem {
     let prefixIcon: UIImage?
     let title: String
-    let action: () -> Void
 }

@@ -20,12 +20,17 @@ struct Storyboard {
 }
 
 let moreItems = [
-    MoreItem(prefixIcon: UIImage(named: "Website"), title: "Transfer From Website", action: {}),
-    MoreItem(prefixIcon: UIImage(named: "Favorite"), title: "Favourites", action: {}),
-    MoreItem(prefixIcon: UIImage(named: "Person"), title: "Profile", action: {}),
-    MoreItem(prefixIcon: UIImage(named: "Help"), title: "Help", action: {}),
-    MoreItem(prefixIcon: UIImage(named: "Logout"), title: "Logout", action: {
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.switchToLoginScreen()
-    })
+    MoreItem(prefixIcon: UIImage(named: "Website"), title: "Transfer From Website"),
+    MoreItem(prefixIcon: UIImage(named: "Favorite"), title: "Favourites"),
+    MoreItem(prefixIcon: UIImage(named: "Person"), title: "Profile"),
+    MoreItem(prefixIcon: UIImage(named: "Help"), title: "Help"),
+    MoreItem(prefixIcon: UIImage(named: "Logout"), title: "Logout")
+]
+
+let slides = [
+    OnBoardingModel(title: "Amount", description: "Send money fast with simple steps. Create account, Confirmation, Payment. Simple.", image: UIImage(imageLiteralResourceName: "Amount")),
+    
+    OnBoardingModel(title: "Confirmation", description: "Transfer funds instantly to friends and family worldwide, strong shield protecting a money.", image: UIImage(imageLiteralResourceName: "Confirmation")),
+    
+    OnBoardingModel(title: "Payment", description: "Enjoy peace of mind with our secure platform  Transfer funds instantly to friends.", image: UIImage(imageLiteralResourceName: "Payment"))
 ]

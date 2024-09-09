@@ -15,10 +15,13 @@
 		0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0301284E2C8112EA006ECA3F /* UserDefaultsManager.swift */; };
 		033439B72C8DAF7700A81150 /* TabSwitchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033439B62C8DAF7700A81150 /* TabSwitchProtocol.swift */; };
 		033439B92C8DD5E600A81150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033439B82C8DD5E600A81150 /* Main.storyboard */; };
+		033699AD2C8F42DE0031E047 /* FavoriteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033699AC2C8F42DE0031E047 /* FavoriteVC.xib */; };
+		033699B12C8F45F10031E047 /* FavoriteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033699B02C8F45F10031E047 /* FavoriteViewCell.xib */; };
+		033699B22C8F45F10031E047 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033699AF2C8F45F10031E047 /* FavoriteViewCell.swift */; };
 		033836692C8E3E2E000C8D33 /* FavoriteSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836672C8E3E2E000C8D33 /* FavoriteSheetVC.swift */; };
 		0338366A2C8E3E2E000C8D33 /* FavoriteSheetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033836682C8E3E2E000C8D33 /* FavoriteSheetVC.xib */; };
-		0338366D2C8E40D3000C8D33 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0338366B2C8E40D2000C8D33 /* FavoriteViewCell.swift */; };
-		0338366E2C8E40D3000C8D33 /* FavoriteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0338366C2C8E40D2000C8D33 /* FavoriteViewCell.xib */; };
+		0338366D2C8E40D3000C8D33 /* FavoriteSheetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0338366B2C8E40D2000C8D33 /* FavoriteSheetViewCell.swift */; };
+		0338366E2C8E40D3000C8D33 /* FavoriteSheetViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0338366C2C8E40D2000C8D33 /* FavoriteSheetViewCell.xib */; };
 		033836722C8E483B000C8D33 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836702C8E483B000C8D33 /* MoreVC.swift */; };
 		033836732C8E483B000C8D33 /* MoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033836712C8E483B000C8D33 /* MoreVC.xib */; };
 		033836762C8E4938000C8D33 /* MoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836742C8E4938000C8D33 /* MoreViewCell.swift */; };
@@ -28,6 +31,10 @@
 		0353B5CE2C8D0A6E00586A30 /* SignUpVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CD2C8D0A6E00586A30 /* SignUpVC2.swift */; };
 		0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */; };
 		0353B5D22C8D0AEC00586A30 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5D12C8D0AEC00586A30 /* SignInVC.swift */; };
+		0360B2A32C8FA6F40053D605 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2A12C8FA6F40053D605 /* FavoritesProtocol.swift */; };
+		0360B2A42C8FA6F40053D605 /* EditFavoriteSheetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0360B2A22C8FA6F40053D605 /* EditFavoriteSheetVC.xib */; };
+		0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2A52C8FA7740053D605 /* FavoriteVC.swift */; };
+		0360B2A82C8FA7740053D605 /* EditFavoriteSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2A62C8FA7740053D605 /* EditFavoriteSheetVC.swift */; };
 		036597A42C8B7E3C00E318C2 /* TransferVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036597A32C8B7E3C00E318C2 /* TransferVC.xib */; };
 		036597A52C8B7E3C00E318C2 /* TransferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036597A22C8B7E3C00E318C2 /* TransferVC.swift */; };
 		036597A82C8B8C1D00E318C2 /* AmountCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036597A72C8B8C1D00E318C2 /* AmountCollectionCell.xib */; };
@@ -69,10 +76,13 @@
 		0301284E2C8112EA006ECA3F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		033439B62C8DAF7700A81150 /* TabSwitchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSwitchProtocol.swift; sourceTree = "<group>"; };
 		033439B82C8DD5E600A81150 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		033699AC2C8F42DE0031E047 /* FavoriteVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteVC.xib; sourceTree = "<group>"; };
+		033699AF2C8F45F10031E047 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
+		033699B02C8F45F10031E047 /* FavoriteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewCell.xib; sourceTree = "<group>"; };
 		033836672C8E3E2E000C8D33 /* FavoriteSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSheetVC.swift; sourceTree = "<group>"; };
 		033836682C8E3E2E000C8D33 /* FavoriteSheetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteSheetVC.xib; sourceTree = "<group>"; };
-		0338366B2C8E40D2000C8D33 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
-		0338366C2C8E40D2000C8D33 /* FavoriteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewCell.xib; sourceTree = "<group>"; };
+		0338366B2C8E40D2000C8D33 /* FavoriteSheetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSheetViewCell.swift; sourceTree = "<group>"; };
+		0338366C2C8E40D2000C8D33 /* FavoriteSheetViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteSheetViewCell.xib; sourceTree = "<group>"; };
 		033836702C8E483B000C8D33 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		033836712C8E483B000C8D33 /* MoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreVC.xib; sourceTree = "<group>"; };
 		033836742C8E4938000C8D33 /* MoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewCell.swift; sourceTree = "<group>"; };
@@ -82,6 +92,10 @@
 		0353B5CD2C8D0A6E00586A30 /* SignUpVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC2.swift; sourceTree = "<group>"; };
 		0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
 		0353B5D12C8D0AEC00586A30 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		0360B2A12C8FA6F40053D605 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
+		0360B2A22C8FA6F40053D605 /* EditFavoriteSheetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditFavoriteSheetVC.xib; sourceTree = "<group>"; };
+		0360B2A52C8FA7740053D605 /* FavoriteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		0360B2A62C8FA7740053D605 /* EditFavoriteSheetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFavoriteSheetVC.swift; sourceTree = "<group>"; };
 		036597A22C8B7E3C00E318C2 /* TransferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferVC.swift; sourceTree = "<group>"; };
 		036597A32C8B7E3C00E318C2 /* TransferVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferVC.xib; sourceTree = "<group>"; };
 		036597A62C8B8C1D00E318C2 /* AmountCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountCollectionCell.swift; sourceTree = "<group>"; };
@@ -169,6 +183,18 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		033699AA2C8F41E00031E047 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				0360B2A22C8FA6F40053D605 /* EditFavoriteSheetVC.xib */,
+				0360B2A12C8FA6F40053D605 /* FavoritesProtocol.swift */,
+				033699AC2C8F42DE0031E047 /* FavoriteVC.xib */,
+				033699AF2C8F45F10031E047 /* FavoriteViewCell.swift */,
+				033699B02C8F45F10031E047 /* FavoriteViewCell.xib */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		033836662C8E3CE7000C8D33 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +206,7 @@
 		0338366F2C8E47EC000C8D33 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				033699AA2C8F41E00031E047 /* Favorites */,
 				033836712C8E483B000C8D33 /* MoreVC.xib */,
 				033836742C8E4938000C8D33 /* MoreViewCell.swift */,
 				033836752C8E4938000C8D33 /* MoreViewCell.xib */,
@@ -199,8 +226,8 @@
 				03E05E272C8C71770052DED8 /* SuccessCollectionCell.xib */,
 				03E05E2A2C8C854B0052DED8 /* CustomCellDelegate.swift */,
 				033836682C8E3E2E000C8D33 /* FavoriteSheetVC.xib */,
-				0338366B2C8E40D2000C8D33 /* FavoriteViewCell.swift */,
-				0338366C2C8E40D2000C8D33 /* FavoriteViewCell.xib */,
+				0338366B2C8E40D2000C8D33 /* FavoriteSheetViewCell.swift */,
+				0338366C2C8E40D2000C8D33 /* FavoriteSheetViewCell.xib */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -303,6 +330,8 @@
 		33A3721F2C7E5AB700EE834F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0360B2A62C8FA7740053D605 /* EditFavoriteSheetVC.swift */,
+				0360B2A52C8FA7740053D605 /* FavoriteVC.swift */,
 				036597A22C8B7E3C00E318C2 /* TransferVC.swift */,
 				033836702C8E483B000C8D33 /* MoreVC.swift */,
 				03E05E3B2C8CE6490052DED8 /* Authentication */,
@@ -417,13 +446,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0338366E2C8E40D3000C8D33 /* FavoriteViewCell.xib in Resources */,
+				0338366E2C8E40D3000C8D33 /* FavoriteSheetViewCell.xib in Resources */,
 				33A372182C7E5A2500EE834F /* LaunchScreen.storyboard in Resources */,
+				033699AD2C8F42DE0031E047 /* FavoriteVC.xib in Resources */,
+				0360B2A42C8FA6F40053D605 /* EditFavoriteSheetVC.xib in Resources */,
 				038B16072C8900D800BB4549 /* TransactionsViewCell.xib in Resources */,
 				03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */,
 				0376730B2C86320C00301E6F /* HomeVC.xib in Resources */,
 				030128432C80E10D006ECA3F /* OnBoardingViewCell.xib in Resources */,
 				0338366A2C8E3E2E000C8D33 /* FavoriteSheetVC.xib in Resources */,
+				033699B12C8F45F10031E047 /* FavoriteViewCell.xib in Resources */,
 				03B647D22C7F6846007F1F07 /* OnBoardingScreen.storyboard in Resources */,
 				33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */,
 				033836772C8E4938000C8D33 /* MoreViewCell.xib in Resources */,
@@ -507,6 +539,7 @@
 				0376730E2C863CF700301E6F /* HomeTransactionCell.swift in Sources */,
 				036597A52C8B7E3C00E318C2 /* TransferVC.swift in Sources */,
 				0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */,
+				0360B2A82C8FA7740053D605 /* EditFavoriteSheetVC.swift in Sources */,
 				03A25CBB2C8738D60040DE60 /* AnimatedTabBarController.swift in Sources */,
 				033836722C8E483B000C8D33 /* MoreVC.swift in Sources */,
 				033439B72C8DAF7700A81150 /* TabSwitchProtocol.swift in Sources */,
@@ -514,7 +547,10 @@
 				0353B5CC2C8D0A2F00586A30 /* SignUpVC1.swift in Sources */,
 				03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */,
 				0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */,
-				0338366D2C8E40D3000C8D33 /* FavoriteViewCell.swift in Sources */,
+				0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */,
+				033699B22C8F45F10031E047 /* FavoriteViewCell.swift in Sources */,
+				0360B2A32C8FA6F40053D605 /* FavoritesProtocol.swift in Sources */,
+				0338366D2C8E40D3000C8D33 /* FavoriteSheetViewCell.swift in Sources */,
 				03E05E452C8D02960052DED8 /* User.swift in Sources */,
 				0301284A2C810805006ECA3F /* Constants.swift in Sources */,
 				33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */,
