@@ -19,7 +19,7 @@ class OnBoardingVC: UIViewController {
     private var currentPage = 0 {
         didSet{
             self.pageControl.currentPage = currentPage
-            if currentPage == slides.count - 1 {
+            if currentPage == onBoardingSlides.count - 1 {
                 self.nextBtn.setTitle("Get Started", for: .normal)
             } else {
                 self.nextBtn.setTitle("Next", for: .normal)
@@ -44,12 +44,12 @@ class OnBoardingVC: UIViewController {
                 $0.transform = CGAffineTransform(scaleX: 2, y: 2)}
         }
         
-        self.pageControl.numberOfPages = slides.count
+        self.pageControl.numberOfPages = onBoardingSlides.count
     }
     
     // MARK: - IBAction
     @IBAction func nextBtnTapped(_ sender: UIButton) {
-        if currentPage == slides.count - 1 {
+        if currentPage == onBoardingSlides.count - 1 {
             self.goToRegisterScreen()
         } else {
             currentPage += 1
@@ -92,12 +92,12 @@ class OnBoardingVC: UIViewController {
 extension OnBoardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return slides.count
+        return onBoardingSlides.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnBoardingViewCell.identifier, for: indexPath) as! OnBoardingViewCell
-        cell.configureCell(slides[indexPath.item])
+        cell.configureCell(onBoardingSlides[indexPath.item])
         return cell
     }
     

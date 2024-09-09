@@ -8,6 +8,6 @@
 import UIKit
 
 struct MoreItem {
-    let prefixIcon: UIImage?
+    let prefixImage: UIImage?
     let title: String
 }

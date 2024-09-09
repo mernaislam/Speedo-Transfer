@@ -43,6 +43,8 @@ class MoreVC: UIViewController {
         switch item {
         case 1:
             self.navigationController?.pushViewController(FavoriteVC(), animated: true)
+        case 2:
+            self.navigationController?.pushViewController(ProfileVC(), animated: true)
         case 4:
             let delegate = UIApplication.shared.delegate as! AppDelegate
             delegate.switchToLoginScreen()
@@ -60,12 +62,7 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MoreViewCell.identifier, for: indexPath) as! MoreViewCell
-        let i = indexPath.row
-        cell.prefixICon.image = moreItems[i].prefixIcon
-        cell.titleLabel.text = moreItems[i].title
-        if i == moreItems.count - 1{
-            cell.separatorView.backgroundColor = .clear
-        }
+        cell.configureCell(i: indexPath.row)
         return cell
     }
     

@@ -28,4 +28,12 @@ class MoreViewCell: UITableViewCell {
 
     }
     
+    func configureCell(i: Int){
+        self.prefixICon.image = moreItems[i].prefixImage
+        self.titleLabel.text = moreItems[i].title
+        if i == moreItems.count - 1{
+            self.separatorView.backgroundColor = .clear
+        }
+    }
+    
 }

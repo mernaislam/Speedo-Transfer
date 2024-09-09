@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 
 //        switchToRegisterScreen()
-        showOnBoardingScreen()
-//         switchToHomeScreen()
+//        showOnBoardingScreen()
+         switchToHomeScreen()
 
         window?.makeKeyAndVisible() 
         return true
@@ -42,11 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationBarAppearance.configureWithOpaqueBackground()
             navigationBarAppearance.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.black,
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23, weight: .regular)
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .light)
             ]
             navigationBarAppearance.backgroundColor = UIColor.clear
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance // For scrolling edge appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }
     }
     
