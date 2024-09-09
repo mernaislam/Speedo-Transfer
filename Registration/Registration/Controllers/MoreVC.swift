@@ -21,7 +21,6 @@ class MoreVC: UIViewController {
         self.moreTableView.delegate = self
         self.moreTableView.dataSource = self
         self.moreTableView.backgroundColor = .clear
-        // Do any additional setup after loading the view.
     }
     
     @objc func goBack(){
@@ -39,7 +38,15 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource{
         let i = indexPath.row
         cell.prefixICon.image = moreItems[i].prefixIcon
         cell.titleLabel.text = moreItems[i].title
+        if i == moreItems.count - 1{
+            cell.separatorView.backgroundColor = .clear
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        moreItems[indexPath.row].action()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

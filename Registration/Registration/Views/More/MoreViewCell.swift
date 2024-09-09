@@ -11,6 +11,7 @@ class MoreViewCell: UITableViewCell {
     static let identifier = "MoreViewCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
 
+    @IBOutlet var separatorView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var prefixICon: UIImageView!
     override func awakeFromNib() {
