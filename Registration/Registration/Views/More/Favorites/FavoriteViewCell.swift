@@ -2,13 +2,12 @@
 //  FavoriteViewCell.swift
 //  Registration
 //
-//  Created by Merna Islam on 08/09/2024.
+//  Created by Merna Islam on 09/09/2024.
 //
 
 import UIKit
 
 class FavoriteViewCell: UITableViewCell {
-    
     static let identifier = "FavoriteViewCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
 

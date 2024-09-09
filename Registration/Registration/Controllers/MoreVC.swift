@@ -26,6 +26,19 @@ class MoreVC: UIViewController {
     @objc func goBack(){
         self.tabSwitchDelegate?.switchToHomeTab()
     }
+    
+    func pushViewController(for item: Int) {
+        switch item {
+        case 1:
+            self.navigationController?.pushViewController(FavoriteVC(), animated: true)
+        case 4:
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            delegate.switchToLoginScreen()
+            
+        default:
+            break
+        }
+    }
 }
 
 extension MoreVC: UITableViewDelegate, UITableViewDataSource{
@@ -45,7 +58,7 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        moreItems[indexPath.row].action()
+        self.pushViewController(for: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
