@@ -28,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 
         switchToRegisterScreen()
-        // Uncomment to go straight to the home screen
-        // switchToHomeScreen()
+//         switchToHomeScreen()
 
         window?.makeKeyAndVisible() 
         return true
@@ -53,9 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func showOnBoardingScreen() {
         let storyboard = UIStoryboard(name: Storyboard.OnBoardingScreen, bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllersID.OnBoarding)
-        
-        // Optionally, wrap this inside a UINavigationController
-        // let navigationController = UINavigationController(rootViewController: initialViewController)
         window?.rootViewController = initialViewController
     }
 
@@ -68,10 +64,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
     }
        
+    func switchToLoginScreen() {
+        let storyboard = UIStoryboard(name: Storyboard.Main, bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllersID.SignIn)
+        
+        // Embed in UINavigationController if navigation is required
+        let navigationController = UINavigationController(rootViewController: initialViewController)
+        window?.rootViewController = navigationController
+    }
+    
     func switchToHomeScreen() {
-        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = UIApplication.shared.delegate?.window else { return }
+        
         let initialViewController = AnimatedTabBarController()
-        window?.rootViewController = initialViewController
-        window?.makeKeyAndVisible()
+        
+        UIView.transition(with: window!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            window?.rootViewController = initialViewController
+        }, completion: nil)
     }
 }
