@@ -69,27 +69,27 @@ class TransferVC: UIViewController {
     
     // MARK: - Animation Setup
     private func setupGradientLayerForward(){
-        gradientLayer.frame = secondLine.bounds
-        gradientLayer.colors = [AppColors.primaryColor.cgColor, UIColor.lightGray.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        gradientLayer.locations = [0, 0]
-        secondLine.layer.addSublayer(gradientLayer)
+        self.gradientLayer.frame = self.secondLine.bounds
+        self.gradientLayer.colors = [AppColors.primaryColor.cgColor, UIColor.lightGray.cgColor]
+        self.gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        self.gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        self.gradientLayer.locations = [0, 0]
+        self.secondLine.layer.addSublayer(self.gradientLayer)
     }
     
     private func setupGradientLayerBackward(){
-        gradientLayer.frame = secondLine.bounds
-        gradientLayer.colors = [UIColor.lightGray.cgColor, AppColors.primaryColor.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 1, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.locations = [1, 1]
-        secondLine.layer.addSublayer(gradientLayer)
+        self.gradientLayer.frame = secondLine.bounds
+        self.gradientLayer.colors = [UIColor.lightGray.cgColor, AppColors.primaryColor.cgColor]
+        self.gradientLayer.startPoint = CGPoint(x: 1, y: 0.5)
+        self.gradientLayer.endPoint = CGPoint(x: 0, y: 0.5)
+        self.gradientLayer.locations = [1, 1]
+        self.secondLine.layer.addSublayer(self.gradientLayer)
     }
     
     private func resetState(){
         let indexPath = IndexPath(item: 0, section: 0)
         self.transferCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        animateStepColorChange(step: -1)
+        self.animateStepColorChange(step: -1)
         self.thirdStepView.layer.borderColor = UIColor.lightGray.cgColor
         self.thirdLabel.textColor = UIColor.lightGray
     }
@@ -100,7 +100,7 @@ class TransferVC: UIViewController {
             self.secondLabel.textColor = color
             self.secondStepView.layer.borderColor = color.cgColor
         })
-        let animation = CABasicAnimation(keyPath: nil)
+        let animation = CABasicAnimation(keyPath: "locations")
         animation.fromValue = [0, 0]
         animation.toValue = [1, 1]
         animation.duration = 1
