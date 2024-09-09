@@ -9,9 +9,11 @@ import UIKit
 
 class FavoriteSheetViewCell: UITableViewCell {
     
+    // MARK: - Static Properties
     static let identifier = "FavoriteSheetViewCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
 
+    // MARK: - Lifecycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,7 +22,6 @@ class FavoriteSheetViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
 }

@@ -14,17 +14,24 @@ class HomeVC: UIViewController {
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var transactionTableView: UITableView!
     
+    // MARK: - Properties
+    var tabSwitchDelegate: TabSwitchProtocol!
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUpTableView()
-        self.applyGradientBgYellowToRed()
-        profileView.cornerRadius = profileView.frame.width / 2
-        self.setUpNavigationBorder()
+        self.initiateVC()
     }
 
     // MARK: - Private Methods
-    private func setUpTableView(){
+    private func initiateVC(){
+        self.applyGradientBgYellowToRed()
+        self.setupNavigationBorder()
+        self.profileView.cornerRadius = profileView.frame.width / 2
+        self.setupTableView()
+    }
+    
+    private func setupTableView(){
         transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
@@ -32,7 +39,7 @@ class HomeVC: UIViewController {
     
     // MARK: - IBAction
     @IBAction func viewAllBtnTapped(_ sender: UIButton) {
-        self.navigationController?.pushViewController(TransactionsVC(), animated: true)
+        self.tabSwitchDelegate.switchToTransactionTab()
     }
 }
 

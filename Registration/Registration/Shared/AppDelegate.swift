@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            switchToRegisterScreen()
 //        }
 
-        switchToRegisterScreen()
+//        switchToRegisterScreen()
+        showOnBoardingScreen()
 //         switchToHomeScreen()
 
         window?.makeKeyAndVisible() 

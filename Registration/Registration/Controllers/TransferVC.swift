@@ -26,38 +26,32 @@ class TransferVC: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.applyGradientBgYellowToRed()
-        self.setupNavigationBar(title: "Transfer", selector: #selector(self.goBack))
-        self.setUpStepperViews()
-        self.setUpTableView()
+        self.initiateVC()
     }
     
     // MARK: - Private Methods
-    @objc func goBack(){
-        if let visibleIndexPath = self.transferCollectionView.indexPathsForVisibleItems.first {
-            let visibleCell = self.transferCollectionView.cellForItem(at: visibleIndexPath)
-            if visibleCell is ConfirmCollectionCell {
-                self.resetState()
-            } else {
-                self.resetState()
-                self.tabSwitchDelegate?.switchToHomeTab()
-
-            }
-        }
+    private func initiateVC(){
+        self.applyGradientBgYellowToRed()
+        self.setupNavigationBar(title: "Transfer", selector: #selector(self.goBack))
+        self.setupStepperViews()
+        self.cellsRegistration()
+        self.setupCollectionView()
     }
     
-    private func setUpTableView(){
-        // Cells Registration
+    // MARK: - Collection View Setup
+    private func cellsRegistration(){
         self.transferCollectionView.register(AmountCollectionCell.nib, forCellWithReuseIdentifier: AmountCollectionCell.identifier)
         self.transferCollectionView.register(ConfirmCollectionCell.nib, forCellWithReuseIdentifier: ConfirmCollectionCell.identifier)
         self.transferCollectionView.register(SuccessCollectionCell.nib, forCellWithReuseIdentifier: SuccessCollectionCell.identifier)
-        // Collection View Setup
+    }
+    
+    private func setupCollectionView(){
         self.transferCollectionView.delegate = self
         self.transferCollectionView.dataSource = self
         self.transferCollectionView.backgroundColor = .clear
     }
     
-    private func setUpStepperViews(){
+    private func setupStepperViews(){
         let sz = self.firstStepView.frame.width
         
         self.firstStepView.layer.borderWidth = 2
@@ -73,7 +67,8 @@ class TransferVC: UIViewController {
         self.thirdStepView.layer.cornerRadius = sz / 2
     }
     
-    private func setUpGradientLayer1(){
+    // MARK: - Animation Setup
+    private func setupGradientLayerForward(){
         gradientLayer.frame = secondLine.bounds
         gradientLayer.colors = [AppColors.primaryColor.cgColor, UIColor.lightGray.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
@@ -82,7 +77,7 @@ class TransferVC: UIViewController {
         secondLine.layer.addSublayer(gradientLayer)
     }
     
-    private func setUpGradientLayer2(){
+    private func setupGradientLayerBackward(){
         gradientLayer.frame = secondLine.bounds
         gradientLayer.colors = [UIColor.lightGray.cgColor, AppColors.primaryColor.cgColor]
         gradientLayer.startPoint = CGPoint(x: 1, y: 0.5)
@@ -97,6 +92,33 @@ class TransferVC: UIViewController {
         animateStepColorChange(step: -1)
         self.thirdStepView.layer.borderColor = UIColor.lightGray.cgColor
         self.thirdLabel.textColor = UIColor.lightGray
+    }
+    
+    private func startAnimation(color: UIColor){
+        self.gradientLayer.locations = [1, 1]
+        UIView.animate(withDuration: 0.5, animations: {
+            self.secondLabel.textColor = color
+            self.secondStepView.layer.borderColor = color.cgColor
+        })
+        let animation = CABasicAnimation(keyPath: nil)
+        animation.fromValue = [0, 0]
+        animation.toValue = [1, 1]
+        animation.duration = 1
+        self.gradientLayer.add(animation, forKey: nil)
+    }
+    
+    // MARK: - Navigation Function
+    @objc func goBack(){
+        if let visibleIndexPath = self.transferCollectionView.indexPathsForVisibleItems.first {
+            let visibleCell = self.transferCollectionView.cellForItem(at: visibleIndexPath)
+            if visibleCell is ConfirmCollectionCell {
+                self.resetState()
+            } else {
+                self.resetState()
+                self.tabSwitchDelegate?.switchToHomeTab()
+
+            }
+        }
     }
 }
 
@@ -135,7 +157,7 @@ extension TransferVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
 
 // MARK: - CellDelegate Extension
 extension TransferVC: CustomCellDelegate {
-    func goToFavorites() {
+    func openFavoritesSheet() {
         self.present(FavoriteSheetVC(), animated: true)
     }
     
@@ -148,35 +170,16 @@ extension TransferVC: CustomCellDelegate {
         let color = AppColors.primaryColor
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             if step == 2 {
-                self.setUpGradientLayer1()
-                self.gradientLayer.locations = [1, 1]
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.secondLabel.textColor = color
-                    self.secondStepView.layer.borderColor = color.cgColor
-                })
-                let animation = CABasicAnimation(keyPath: "locations")
-                animation.fromValue = [0, 0]
-                animation.toValue = [1, 1]
-                animation.duration = 1
-                self.gradientLayer.add(animation, forKey: nil)
-
+                self.setupGradientLayerForward()
+                self.startAnimation(color: color)
             } else if step == 3 {
                 UIView.animate(withDuration: 0.5, animations: {
                     self.thirdStepView.layer.borderColor = color.cgColor
                     self.thirdLabel.textColor = color
                 })
             } else if step == -1 {
-                self.setUpGradientLayer2()
-                UIView.animate(withDuration: 1, animations: {
-                    self.secondStepView.layer.borderColor = UIColor.lightGray.cgColor
-                    self.secondLabel.textColor = UIColor.lightGray
-                })
-                self.gradientLayer.locations = [1, 1]
-                let animation = CABasicAnimation(keyPath: "locations")
-                animation.fromValue = [0, 0]
-                animation.toValue = [1, 1]
-                animation.duration = 1
-                self.gradientLayer.add(animation, forKey: nil)
+                self.setupGradientLayerBackward()
+                self.startAnimation(color: UIColor.lightGray)
             }
         }
     }

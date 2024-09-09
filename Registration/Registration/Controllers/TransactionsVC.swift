@@ -9,23 +9,30 @@ import UIKit
 
 class TransactionsVC: UIViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet var transactionTableView: UITableView!
+    
+    // MARK: - Properties
     var tabSwitchDelegate: TabSwitchProtocol?
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUpTableView()
-        self.applyGradientBgYellowToRed()
-        self.setupNavigationBar(title: "Transactions", selector: #selector(self.goBack))
+        self.initiateVC()
     }
     
     // MARK: - Private Methods
+    private func initiateVC(){
+        self.applyGradientBgYellowToRed()
+        self.setupNavigationBar(title: "Transactions", selector: #selector(self.goBack))
+        self.setupTableView()
+    }
+    
     @objc private func goBack(){
         self.tabSwitchDelegate?.switchToHomeTab()
     }
     
-    private func setUpTableView(){
+    private func setupTableView(){
         transactionTableView.register(TransactionsViewCell.nib, forCellReuseIdentifier: TransactionsViewCell.identifier)
         transactionTableView.delegate = self
         transactionTableView.dataSource = self

@@ -26,3 +26,11 @@ let moreItems = [
     MoreItem(prefixIcon: UIImage(named: "Help"), title: "Help"),
     MoreItem(prefixIcon: UIImage(named: "Logout"), title: "Logout")
 ]
+
+let slides = [
+    OnBoardingModel(title: "Amount", description: "Send money fast with simple steps. Create account, Confirmation, Payment. Simple.", image: UIImage(imageLiteralResourceName: "Amount")),
+    
+    OnBoardingModel(title: "Confirmation", description: "Transfer funds instantly to friends and family worldwide, strong shield protecting a money.", image: UIImage(imageLiteralResourceName: "Confirmation")),
+    
+    OnBoardingModel(title: "Payment", description: "Enjoy peace of mind with our secure platform  Transfer funds instantly to friends.", image: UIImage(imageLiteralResourceName: "Payment"))
+]

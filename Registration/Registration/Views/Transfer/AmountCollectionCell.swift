@@ -23,13 +23,13 @@ class AmountCollectionCell: UICollectionViewCell {
     // MARK: - LifeCycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.setUpTextFieldBorder()
+        self.setupTextFieldBorder()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openFavoriteSheet))
         favoriteStackView.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - Private Methods
-    private func setUpTextFieldBorder(){
+    private func setupTextFieldBorder(){
         // Amount
         self.amountTextField.borderStyle = .roundedRect
         self.amountTextField.layer.borderColor = UIColor.lightGray.cgColor
@@ -51,7 +51,7 @@ class AmountCollectionCell: UICollectionViewCell {
     }
     
     @objc private func openFavoriteSheet() {
-        delegate?.goToFavorites()
+        delegate?.openFavoritesSheet()
     }
     
     // MARK: - IBAction
