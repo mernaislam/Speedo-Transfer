@@ -11,21 +11,7 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
     
     // The userData passed from SignUpVC1
     var userData: UserData?
-    
-    // Array of tuples for countries with flags
-    var countries: [(name: String, flag: String)] = [
-        ("United States", "🇺🇸"),
-        ("Canada", "🇨🇦"),
-        ("UK", "🇬🇧"),
-        ("Germany", "🇩🇪"),
-        ("France", "🇫🇷"),
-        ("Egypt", "🇪🇬"),
-        ("India", "🇮🇳"),
-        ("Australia", "🇦🇺"),
-        ("Saudi Arabia", "🇸🇦"),
-        ("", "")
-    ]
-    
+        
     var selectedCountry: String?
     
     // Picker view and date picker

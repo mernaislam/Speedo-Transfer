@@ -13,6 +13,7 @@ class HomeVC: UIViewController {
     @IBOutlet var profileView: UIView!
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var transactionTableView: UITableView!
+    @IBOutlet var notificationIcon: UIImageView!
     
     // MARK: - Properties
     var tabSwitchDelegate: TabSwitchProtocol!
@@ -29,12 +30,22 @@ class HomeVC: UIViewController {
         self.setupNavigationBorder()
         self.profileView.cornerRadius = profileView.frame.width / 2
         self.setupTableView()
+        self.addTapGesture()
     }
     
     private func setupTableView(){
         transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
+    }
+    
+    private func addTapGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.goToNotifications))
+        self.notificationIcon.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func goToNotifications(){
+        self.navigationController?.pushViewController(NotificationVC(), animated: true)
     }
     
     // MARK: - IBAction

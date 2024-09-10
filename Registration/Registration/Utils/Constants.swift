@@ -36,8 +36,26 @@ let onBoardingSlides = [
 ]
 
 let profileItems = [
-    ProfileItem(prefixImage: UIImage(named: "Profile Information"), title: "Personal Information", subTitle: "Your information"),
-    ProfileItem(prefixImage: UIImage(named: "Settings"), title: "Settings", subTitle: "Change your settings"),
-    ProfileItem(prefixImage: UIImage(named: "Payment History"), title: "Payment History", subTitle: "view your transactions"),
-    ProfileItem(prefixImage: UIImage(named: "Favorite List"), title: "My Favorite list", subTitle: "view your favorites")
+    ListItem(prefixImage: UIImage(named: "Profile Information"), title: "Personal Information", subTitle: "Your information"),
+    ListItem(prefixImage: UIImage(named: "Settings"), title: "Settings", subTitle: "Change your settings"),
+    ListItem(prefixImage: UIImage(named: "Payment History"), title: "Payment History", subTitle: "view your transactions"),
+    ListItem(prefixImage: UIImage(named: "Favorite List"), title: "My Favorite list", subTitle: "view your favorites")
+]
+
+let settingItems = [
+    ListItem(prefixImage: UIImage(named: "Change Password"), title: "Change Password", subTitle: "Change Password"),
+    ListItem(prefixImage: UIImage(named: "Edit Profile"), title: "Edit Profile", subTitle: "Change your information")
+]
+
+let countries: [(name: String, flag: String)] = [
+    ("United States", "🇺🇸"),
+    ("Canada", "🇨🇦"),
+    ("UK", "🇬🇧"),
+    ("Germany", "🇩🇪"),
+    ("France", "🇫🇷"),
+    ("Egypt", "🇪🇬"),
+    ("India", "🇮🇳"),
+    ("Australia", "🇦🇺"),
+    ("Saudi Arabia", "🇸🇦"),
+    ("", "")
 ]
