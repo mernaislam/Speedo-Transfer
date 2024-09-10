@@ -28,7 +28,7 @@
 		033836772C8E4938000C8D33 /* MoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033836752C8E4938000C8D33 /* MoreViewCell.xib */; };
 		033836792C8E4F69000C8D33 /* MoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836782C8E4F69000C8D33 /* MoreItem.swift */; };
 		0353B5CC2C8D0A2F00586A30 /* SignUpVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CB2C8D0A2F00586A30 /* SignUpVC1.swift */; };
-		0353B5CE2C8D0A6E00586A30 /* SignUpVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CD2C8D0A6E00586A30 /* SignUpVC2.swift */; };
+		0353B5CE2C8D0A6E00586A30 /* ContinueSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */; };
 		0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */; };
 		0353B5D22C8D0AEC00586A30 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5D12C8D0AEC00586A30 /* SignInVC.swift */; };
 		0360B2A32C8FA6F40053D605 /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2A12C8FA6F40053D605 /* FavoritesProtocol.swift */; };
@@ -95,7 +95,7 @@
 		033836752C8E4938000C8D33 /* MoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreViewCell.xib; sourceTree = "<group>"; };
 		033836782C8E4F69000C8D33 /* MoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreItem.swift; sourceTree = "<group>"; };
 		0353B5CB2C8D0A2F00586A30 /* SignUpVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC1.swift; sourceTree = "<group>"; };
-		0353B5CD2C8D0A6E00586A30 /* SignUpVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC2.swift; sourceTree = "<group>"; };
+		0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueSignUpVC.swift; sourceTree = "<group>"; };
 		0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
 		0353B5D12C8D0AEC00586A30 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		0360B2A12C8FA6F40053D605 /* FavoritesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
@@ -299,7 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				0353B5CB2C8D0A2F00586A30 /* SignUpVC1.swift */,
-				0353B5CD2C8D0A6E00586A30 /* SignUpVC2.swift */,
+				0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */,
 				0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */,
 				0353B5D12C8D0AEC00586A30 /* SignInVC.swift */,
 			);
@@ -564,7 +564,7 @@
 				03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */,
 				030128462C810523006ECA3F /* UIView+cornerRadius.swift in Sources */,
 				038B16082C8900D800BB4549 /* TransactionsViewCell.swift in Sources */,
-				0353B5CE2C8D0A6E00586A30 /* SignUpVC2.swift in Sources */,
+				0353B5CE2C8D0A6E00586A30 /* ContinueSignUpVC.swift in Sources */,
 				0376730E2C863CF700301E6F /* HomeTransactionCell.swift in Sources */,
 				036597A52C8B7E3C00E318C2 /* TransferVC.swift in Sources */,
 				0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */,
