@@ -85,17 +85,40 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func SignUpButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                // Call the switchToRegisterScreen method
+                appDelegate.switchToRegisterScreen()
+            }
     }
     
     @IBAction func SignInButtonTapped(_ sender: Any) {
-        let registered = checkIfUserIsRegistered()
-        if registered {
-            print("User Found!")
-        } else {
-            print("User wasn't found.")
-        }
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        delegate?.switchToHomeScreen()
+            guard let email = EmailTextField.text, !email.isEmpty,
+                  let password = PasswordTextField.text, !password.isEmpty else {
+                print("Missing email or password")
+                return
+            }
+
+            APIManager.shared.loginUser(email: email, password: password) { result in
+                switch result {
+                case .success(let response):
+                    print("Login successful: \(response)")
+                    DispatchQueue.main.async {
+                        let delegate = UIApplication.shared.delegate as? AppDelegate
+                        delegate?.switchToHomeScreen()
+                    }
+                case .failure(let error):
+                    print("Login failed: \(error.localizedDescription)")
+                    DispatchQueue.main.async {
+                                  self.showAlert(title: "Login Failed", message: "User is not registered or login details are incorrect.")
+                              }
+                }
+            }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

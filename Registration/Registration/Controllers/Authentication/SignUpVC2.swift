@@ -41,6 +41,7 @@ class SignUpVC2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         countryPicker.delegate = self
         countryTextField.inputView = countryPicker
         self.applyGradientBgWhiteToRed()
+        self.setupNavigationBar(title: "", selector: #selector(self.goBack))
         
         // Setting up the date picker
         datePicker.datePickerMode = .date
@@ -70,6 +71,9 @@ class SignUpVC2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         // Adding tap gesture to countryTextField to show country picker
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openCountryPicker))
         countryTextField.addGestureRecognizer(tapGesture)
+    }
+    @objc private func goBack(){
+        self.navigationController?.popViewController(animated: true)
     }
     private func setupIcons() {
         // Setup for Full Name text field
@@ -136,42 +140,41 @@ class SignUpVC2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         return countries.first(where: { $0.name == country })?.flag ?? "🏳️"
     }
     
-    // Action when the user taps the "Continue" button
-    // Action when the user taps the "Continue" button
-        @IBAction func continueButtonTapped(_ sender: Any) {
-            // Check if we have the necessary data
-            guard let userData = userData,
-                  let selectedCountry = selectedCountry else {
-                print("Missing data")
-                return
-            }
-            
-            let selectedDate = datePicker.date
-            
-            // Combine all the data into a new User object
-            let newUser = User(
-                fullName: userData.fullName,
-                email: userData.email,
-                password: userData.password,
-                country: selectedCountry,
-                dateOfBirth: selectedDate
-            )
-            
-            // Save user data to UserDefaults
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(true, forKey: "isRegistered")
-            userDefaults.set(newUser.fullName, forKey: "fullName")
-            userDefaults.set(newUser.email, forKey: "email")
-            userDefaults.set(newUser.password, forKey: "password")
-            userDefaults.set(newUser.country, forKey: "country")
-            userDefaults.set(newUser.dateOfBirth, forKey: "dateOfBirth")
-
-            // Print the new user or pass it to the next step
-            print("User created and saved: \(newUser)")
-            // Navigate to the next screen or handle the registration
-            let delegate = UIApplication.shared.delegate as? AppDelegate
-            delegate?.switchToHomeScreen()
+    @IBAction func continueButtonTapped(_ sender: Any) {
+        guard let userData = userData, let selectedCountry = selectedCountry else {
+            print("Missing data")
+            return
         }
+
+        let selectedDate = datePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        _ = dateFormatter.string(from: selectedDate)
+
+        // Create the User object with correct date format
+        let newUser = User(
+            name: userData.fullName,
+            email: userData.email,
+            password: userData.password,
+            confirmPassword: userData.password,
+            country: selectedCountry,
+            dateOfBirth: selectedDate
+        )
+        print("User created and saved: \(newUser)")
+        
+        APIManager.shared.registerUser(user: newUser) { result in
+            switch result {
+            case .success(let response):
+                print("Registration successful: \(response)")
+                DispatchQueue.main.async {
+                    let delegate = UIApplication.shared.delegate as? AppDelegate
+                    delegate?.switchToHomeScreen()
+                }
+            case .failure(let error):
+                print("Registration failed: \(error.localizedDescription)")
+            }
+        }
+    }
     
     // Configure sign-in button
     private func configureSignInButton() {

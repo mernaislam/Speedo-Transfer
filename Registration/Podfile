@@ -7,6 +7,6 @@ target 'Registration' do
 
   # Pods for Registration
 pod 'RAMAnimatedTabBarController'
-pod 'IQKeyboardManagerSwift'
+#pod 'IQKeyboardManagerSwift'
 
 end
