@@ -14,4 +14,5 @@ struct User {
     var password: String
     var country: String
     var dateOfBirth: Date
+    var bankAccount: String
 }

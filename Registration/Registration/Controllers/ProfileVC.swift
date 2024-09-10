@@ -1,5 +1,5 @@
 //
-//  ProfileVC.swift
+//  ProfileTestVC.swift
 //  Registration
 //
 //  Created by Merna Islam on 10/09/2024.
@@ -11,7 +11,6 @@ class ProfileVC: UIViewController {
 
     @IBOutlet var profileTableView: UITableView!
     @IBOutlet var profileView: UIView!
-
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -21,11 +20,10 @@ class ProfileVC: UIViewController {
     
     // MARK: - Private Methods
     private func initiateVC(){
-        self.applyGradientBgYellowToRed()
         self.setupNavigationBar(title: "Profile", selector: #selector(self.goBack))
         self.setupTableView()
         self.profileView.cornerRadius = profileView.frame.width / 2
-
+        self.applyGradientBgYellowToRed()
     }
     
     private func setupTableView(){
@@ -43,7 +41,7 @@ class ProfileVC: UIViewController {
     private func pushViewController(for item: Int) {
         switch item {
         case 0:
-            self.navigationController?.pushViewController(ProfileInformationVC(), animated: true)
+            self.navigationController?.pushViewController(ProfileInfoVC(), animated: true)
 //        case 2:
 //            self.navigationController?.pushViewController(ProfileVC(), animated: true)
 //        case 4:

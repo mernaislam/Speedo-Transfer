@@ -13,6 +13,12 @@
 		030128462C810523006ECA3F /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030128452C810523006ECA3F /* UIView+cornerRadius.swift */; };
 		0301284A2C810805006ECA3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030128492C810805006ECA3F /* Constants.swift */; };
 		0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0301284E2C8112EA006ECA3F /* UserDefaultsManager.swift */; };
+		031FC7BF2C907B8800EBDC37 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 031FC7BE2C907B8800EBDC37 /* ProfileVC.xib */; };
+		031FC7C02C907B8800EBDC37 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031FC7BD2C907B8800EBDC37 /* ProfileVC.swift */; };
+		031FC7C32C907F5D00EBDC37 /* ProfileInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 031FC7C22C907F5D00EBDC37 /* ProfileInfoVC.xib */; };
+		031FC7C42C907F5D00EBDC37 /* ProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031FC7C12C907F5D00EBDC37 /* ProfileInfoVC.swift */; };
+		031FC7C72C90807B00EBDC37 /* ProfileInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 031FC7C62C90807B00EBDC37 /* ProfileInfoViewCell.xib */; };
+		031FC7C82C90807B00EBDC37 /* ProfileInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031FC7C52C90807B00EBDC37 /* ProfileInfoViewCell.swift */; };
 		033439B72C8DAF7700A81150 /* TabSwitchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033439B62C8DAF7700A81150 /* TabSwitchProtocol.swift */; };
 		033439B92C8DD5E600A81150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033439B82C8DD5E600A81150 /* Main.storyboard */; };
 		033699AD2C8F42DE0031E047 /* FavoriteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033699AC2C8F42DE0031E047 /* FavoriteVC.xib */; };
@@ -35,8 +41,6 @@
 		0360B2A42C8FA6F40053D605 /* EditFavoriteSheetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0360B2A22C8FA6F40053D605 /* EditFavoriteSheetVC.xib */; };
 		0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2A52C8FA7740053D605 /* FavoriteVC.swift */; };
 		0360B2A82C8FA7740053D605 /* EditFavoriteSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2A62C8FA7740053D605 /* EditFavoriteSheetVC.swift */; };
-		0360B2AC2C8FB5050053D605 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0360B2AB2C8FB5050053D605 /* ProfileVC.xib */; };
-		0360B2AD2C8FB5050053D605 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2AA2C8FB5050053D605 /* ProfileVC.swift */; };
 		0360B2B02C8FB68D0053D605 /* ProfileViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0360B2AF2C8FB68D0053D605 /* ProfileViewCell.xib */; };
 		0360B2B12C8FB68D0053D605 /* ProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2AE2C8FB68D0053D605 /* ProfileViewCell.swift */; };
 		0360B2B32C8FBAA10053D605 /* ProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360B2B22C8FBAA10053D605 /* ProfileItem.swift */; };
@@ -66,10 +70,6 @@
 		03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */; };
 		03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */; };
 		03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */; };
-		33613CC42C9052A900082FA3 /* ProfileInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33613CC22C9052A900082FA3 /* ProfileInformationVC.swift */; };
-		33613CC52C9052A900082FA3 /* ProfileInformationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33613CC32C9052A900082FA3 /* ProfileInformationVC.xib */; };
-		33613CCA2C9052F600082FA3 /* ProfileInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33613CC82C9052F600082FA3 /* ProfileInformationCell.swift */; };
-		33613CCB2C9052F600082FA3 /* ProfileInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33613CC92C9052F600082FA3 /* ProfileInformationCell.xib */; };
 		33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */; };
 		33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A372142C7E5A2500EE834F /* Assets.xcassets */; };
 		33A372182C7E5A2500EE834F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A372162C7E5A2500EE834F /* LaunchScreen.storyboard */; };
@@ -83,6 +83,12 @@
 		030128452C810523006ECA3F /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
 		030128492C810805006ECA3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0301284E2C8112EA006ECA3F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		031FC7BD2C907B8800EBDC37 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		031FC7BE2C907B8800EBDC37 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		031FC7C12C907F5D00EBDC37 /* ProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVC.swift; sourceTree = "<group>"; };
+		031FC7C22C907F5D00EBDC37 /* ProfileInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInfoVC.xib; sourceTree = "<group>"; };
+		031FC7C52C90807B00EBDC37 /* ProfileInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoViewCell.swift; sourceTree = "<group>"; };
+		031FC7C62C90807B00EBDC37 /* ProfileInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInfoViewCell.xib; sourceTree = "<group>"; };
 		033439B62C8DAF7700A81150 /* TabSwitchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSwitchProtocol.swift; sourceTree = "<group>"; };
 		033439B82C8DD5E600A81150 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		033699AC2C8F42DE0031E047 /* FavoriteVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteVC.xib; sourceTree = "<group>"; };
@@ -105,8 +111,6 @@
 		0360B2A22C8FA6F40053D605 /* EditFavoriteSheetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditFavoriteSheetVC.xib; sourceTree = "<group>"; };
 		0360B2A52C8FA7740053D605 /* FavoriteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		0360B2A62C8FA7740053D605 /* EditFavoriteSheetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFavoriteSheetVC.swift; sourceTree = "<group>"; };
-		0360B2AA2C8FB5050053D605 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		0360B2AB2C8FB5050053D605 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		0360B2AE2C8FB68D0053D605 /* ProfileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewCell.swift; sourceTree = "<group>"; };
 		0360B2AF2C8FB68D0053D605 /* ProfileViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewCell.xib; sourceTree = "<group>"; };
 		0360B2B22C8FBAA10053D605 /* ProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItem.swift; sourceTree = "<group>"; };
@@ -138,10 +142,6 @@
 		03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsVC.swift; sourceTree = "<group>"; };
 		03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsVC.xib; sourceTree = "<group>"; };
 		2F1F3E175CDA11454CEE1B61 /* Pods-Registration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Registration.release.xcconfig"; path = "Target Support Files/Pods-Registration/Pods-Registration.release.xcconfig"; sourceTree = "<group>"; };
-		33613CC22C9052A900082FA3 /* ProfileInformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInformationVC.swift; sourceTree = "<group>"; };
-		33613CC32C9052A900082FA3 /* ProfileInformationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInformationVC.xib; sourceTree = "<group>"; };
-		33613CC82C9052F600082FA3 /* ProfileInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInformationCell.swift; sourceTree = "<group>"; };
-		33613CC92C9052F600082FA3 /* ProfileInformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInformationCell.xib; sourceTree = "<group>"; };
 		33A372082C7E5A0F00EE834F /* Registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Registration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33A372142C7E5A2500EE834F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -237,10 +237,9 @@
 			isa = PBXGroup;
 			children = (
 				33613CC12C90525600082FA3 /* PersonalInformation */,
-				33613CC02C90524300082FA3 /* Sitting */,
-				0360B2AB2C8FB5050053D605 /* ProfileVC.xib */,
 				0360B2AE2C8FB68D0053D605 /* ProfileViewCell.swift */,
 				0360B2AF2C8FB68D0053D605 /* ProfileViewCell.xib */,
+				031FC7BE2C907B8800EBDC37 /* ProfileVC.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -324,19 +323,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		33613CC02C90524300082FA3 /* Sitting */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sitting;
-			sourceTree = "<group>";
-		};
 		33613CC12C90525600082FA3 /* PersonalInformation */ = {
 			isa = PBXGroup;
 			children = (
-				33613CC32C9052A900082FA3 /* ProfileInformationVC.xib */,
-				33613CC82C9052F600082FA3 /* ProfileInformationCell.swift */,
-				33613CC92C9052F600082FA3 /* ProfileInformationCell.xib */,
+				031FC7C22C907F5D00EBDC37 /* ProfileInfoVC.xib */,
+				031FC7C52C90807B00EBDC37 /* ProfileInfoViewCell.swift */,
+				031FC7C62C90807B00EBDC37 /* ProfileInfoViewCell.xib */,
 			);
 			path = PersonalInformation;
 			sourceTree = "<group>";
@@ -379,9 +371,9 @@
 		33A3721F2C7E5AB700EE834F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				33613CC22C9052A900082FA3 /* ProfileInformationVC.swift */,
+				031FC7C12C907F5D00EBDC37 /* ProfileInfoVC.swift */,
+				031FC7BD2C907B8800EBDC37 /* ProfileVC.swift */,
 				03E05E3B2C8CE6490052DED8 /* Authentication */,
-				0360B2AA2C8FB5050053D605 /* ProfileVC.swift */,
 				0360B2A62C8FA7740053D605 /* EditFavoriteSheetVC.swift */,
 				0360B2A52C8FA7740053D605 /* FavoriteVC.swift */,
 				036597A22C8B7E3C00E318C2 /* TransferVC.swift */,
@@ -498,8 +490,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0338366E2C8E40D3000C8D33 /* FavoriteSheetViewCell.xib in Resources */,
-				33613CCB2C9052F600082FA3 /* ProfileInformationCell.xib in Resources */,
-				33613CC52C9052A900082FA3 /* ProfileInformationVC.xib in Resources */,
 				33A372182C7E5A2500EE834F /* LaunchScreen.storyboard in Resources */,
 				033699AD2C8F42DE0031E047 /* FavoriteVC.xib in Resources */,
 				0360B2A42C8FA6F40053D605 /* EditFavoriteSheetVC.xib in Resources */,
@@ -509,8 +499,10 @@
 				030128432C80E10D006ECA3F /* OnBoardingViewCell.xib in Resources */,
 				0338366A2C8E3E2E000C8D33 /* FavoriteSheetVC.xib in Resources */,
 				033699B12C8F45F10031E047 /* FavoriteViewCell.xib in Resources */,
-				0360B2AC2C8FB5050053D605 /* ProfileVC.xib in Resources */,
+				031FC7C32C907F5D00EBDC37 /* ProfileInfoVC.xib in Resources */,
+				031FC7BF2C907B8800EBDC37 /* ProfileVC.xib in Resources */,
 				0360B2B02C8FB68D0053D605 /* ProfileViewCell.xib in Resources */,
+				031FC7C72C90807B00EBDC37 /* ProfileInfoViewCell.xib in Resources */,
 				03B647D22C7F6846007F1F07 /* OnBoardingScreen.storyboard in Resources */,
 				33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */,
 				033836772C8E4938000C8D33 /* MoreViewCell.xib in Resources */,
@@ -576,7 +568,6 @@
 			files = (
 				03B647D02C7F6741007F1F07 /* AppColors.swift in Sources */,
 				036597A92C8B8C1D00E318C2 /* AmountCollectionCell.swift in Sources */,
-				0360B2AD2C8FB5050053D605 /* ProfileVC.swift in Sources */,
 				033836762C8E4938000C8D33 /* MoreViewCell.swift in Sources */,
 				038B16032C88FF7100BB4549 /* TransactionsVC.swift in Sources */,
 				03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */,
@@ -588,7 +579,6 @@
 				0301282D2C80A357006ECA3F /* OnBoardingModel.swift in Sources */,
 				033836792C8E4F69000C8D33 /* MoreItem.swift in Sources */,
 				03B647D42C7F6886007F1F07 /* OnBoardingVC.swift in Sources */,
-				33613CCA2C9052F600082FA3 /* ProfileInformationCell.swift in Sources */,
 				03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */,
 				030128462C810523006ECA3F /* UIView+cornerRadius.swift in Sources */,
 				038B16082C8900D800BB4549 /* TransactionsViewCell.swift in Sources */,
@@ -596,22 +586,24 @@
 				0376730E2C863CF700301E6F /* HomeTransactionCell.swift in Sources */,
 				036597A52C8B7E3C00E318C2 /* TransferVC.swift in Sources */,
 				0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */,
-				33613CC42C9052A900082FA3 /* ProfileInformationVC.swift in Sources */,
 				0360B2A82C8FA7740053D605 /* EditFavoriteSheetVC.swift in Sources */,
 				0360B2B12C8FB68D0053D605 /* ProfileViewCell.swift in Sources */,
 				03A25CBB2C8738D60040DE60 /* AnimatedTabBarController.swift in Sources */,
 				0360B2B32C8FBAA10053D605 /* ProfileItem.swift in Sources */,
 				033836722C8E483B000C8D33 /* MoreVC.swift in Sources */,
+				031FC7C02C907B8800EBDC37 /* ProfileVC.swift in Sources */,
 				033439B72C8DAF7700A81150 /* TabSwitchProtocol.swift in Sources */,
 				0353B5D22C8D0AEC00586A30 /* SignInVC.swift in Sources */,
 				0353B5CC2C8D0A2F00586A30 /* SignUpVC1.swift in Sources */,
 				03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */,
+				031FC7C42C907F5D00EBDC37 /* ProfileInfoVC.swift in Sources */,
 				0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */,
 				0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */,
 				033699B22C8F45F10031E047 /* FavoriteViewCell.swift in Sources */,
 				0360B2A32C8FA6F40053D605 /* FavoritesProtocol.swift in Sources */,
 				0338366D2C8E40D3000C8D33 /* FavoriteSheetViewCell.swift in Sources */,
 				03E05E452C8D02960052DED8 /* User.swift in Sources */,
+				031FC7C82C90807B00EBDC37 /* ProfileInfoViewCell.swift in Sources */,
 				0301284A2C810805006ECA3F /* Constants.swift in Sources */,
 				33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */,
 				030128442C80E10D006ECA3F /* OnBoardingViewCell.swift in Sources */,

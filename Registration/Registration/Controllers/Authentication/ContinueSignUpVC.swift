@@ -154,7 +154,8 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
                 email: userData.email,
                 password: userData.password,
                 country: selectedCountry,
-                dateOfBirth: selectedDate
+                dateOfBirth: selectedDate,
+                bankAccount: "1234xxxx"
             )
             
             // Save user data to UserDefaults
@@ -162,7 +163,7 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
             userDefaults.set(true, forKey: "isRegistered")
             userDefaults.set(newUser.fullName, forKey: "fullName")
             userDefaults.set(newUser.email, forKey: "email")
-            userDefaults.set(newUser.password, forKey: "password")
+            userDefaults.set(newUser.bankAccount, forKey: "password")
             userDefaults.set(newUser.country, forKey: "country")
             userDefaults.set(newUser.dateOfBirth, forKey: "dateOfBirth")
 

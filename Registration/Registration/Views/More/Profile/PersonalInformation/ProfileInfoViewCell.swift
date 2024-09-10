@@ -1,19 +1,20 @@
 //
-//  ProfileInformationCell.swift
+//  ProfileInfoViewCell.swift
 //  Registration
 //
-//  Created by Malak Mohamed on 10/09/2024.
+//  Created by Merna Islam on 10/09/2024.
 //
 
 import UIKit
 
-class ProfileInformationCell: UITableViewCell {
-    
-    static let identifier = "ProfileInformationCell"
+class ProfileInfoViewCell: UITableViewCell {
+
+    static let identifier = "ProfileInfoViewCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
+
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var subTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,4 +28,5 @@ class ProfileInformationCell: UITableViewCell {
         titleLabel.text = detailItem.title
         subTitleLabel.text = detailItem.subTitle
     }
+    
 }
