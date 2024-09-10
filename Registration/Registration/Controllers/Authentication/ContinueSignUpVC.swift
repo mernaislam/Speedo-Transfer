@@ -141,6 +141,7 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
+        guard CheckData() else { return }
         guard let userData = userData, let selectedCountry = selectedCountry else {
             print("Missing data")
             return
@@ -176,6 +177,43 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         }
     }
     
+       // Helper method to show alerts
+        private func showAlert(message: String) {
+            let alert = UIAlertController(title: "Validation Error", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+       
+       // Data validation checks
+        private func CheckData() -> Bool{
+        
+        guard selectedCountry != nil else {
+            showAlert(message: "Please select a country.")
+            return false
+        }
+        
+        guard let dateOfBirthText = dateOfBirthTextField.text, !dateOfBirthText.isEmpty else {
+            showAlert(message: "Please select your date of birth.")
+            return false
+        }
+        
+        // Convert the date string to a Date object (assuming the date picker format is valid)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd" // Adjust based on your date picker format
+            let dateOfBirth = datePicker.date // Directly use the selected date from the date picker
+
+            // Calculate the age based on the date of birth
+            let calendar = Calendar.current
+            let ageComponents = calendar.dateComponents([.year], from: dateOfBirth, to: Date())
+            // Check if the user is at least 18 years old
+            guard let age = ageComponents.year, age >= 18 else {
+                showAlert(message: "You must be at least 18 years old.")
+                return false
+            }
+        return true
+            
+    }
+
     // Configure sign-in button
     private func configureSignInButton() {
         let signUpButtonTitle = "Sign In"
