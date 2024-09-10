@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct ViewControllersID {
-    static let SignUp = "SignUpVC1"
+    static let SignUp = "SignUpVC"
     static let OnBoarding = "OnBoardingVC"
     static let SignIn = "SignInVC"
 }
