@@ -39,6 +39,20 @@ class ProfileVC: UIViewController {
     @objc private func goBack(){
         self.navigationController?.popViewController(animated: true)
     }
+    
+    private func pushViewController(for item: Int) {
+        switch item {
+        case 0:
+            self.navigationController?.pushViewController(ProfileInformationVC(), animated: true)
+//        case 2:
+//            self.navigationController?.pushViewController(ProfileVC(), animated: true)
+//        case 4:
+//            let delegate = UIApplication.shared.delegate as! AppDelegate
+//            delegate.switchToLoginScreen()
+        default:
+            break
+        }
+    }
 
 }
 
@@ -53,5 +67,9 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.pushViewController(for: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }

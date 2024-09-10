@@ -1,6 +1,6 @@
 import UIKit
 
-class SignUpVC1: UIViewController, UITextFieldDelegate {
+class SignUpVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var FullNameTextField: UITextField!
     @IBOutlet weak var EmailTextField: UITextField!
@@ -174,14 +174,14 @@ class SignUpVC1: UIViewController, UITextFieldDelegate {
             print("UserData: \(userData)")
             
             let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let signUpVC2 = sb.instantiateViewController(withIdentifier: "SignUpVC2") as? SignUpVC2 else {
+            guard let continueSignUpVC = sb.instantiateViewController(withIdentifier: "ContinueSignUpVC") as? ContinueSignUpVC else {
                 print("Error: Unable to instantiate SignUpVC2 from storyboard.")
                 return
             }
             
             // Pass data to SignUpVC2
-            signUpVC2.userData = userData
-            self.navigationController?.pushViewController(signUpVC2, animated: true)
+            continueSignUpVC.userData = userData
+            self.navigationController?.pushViewController(continueSignUpVC, animated: true)
         } else {
             print("Data is not valid")
         }
