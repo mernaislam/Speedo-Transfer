@@ -42,11 +42,12 @@ class ProfileVC: UIViewController {
         switch item {
         case 0:
             self.navigationController?.pushViewController(ProfileInfoVC(), animated: true)
-//        case 2:
-//            self.navigationController?.pushViewController(ProfileVC(), animated: true)
-//        case 4:
-//            let delegate = UIApplication.shared.delegate as! AppDelegate
-//            delegate.switchToLoginScreen()
+        case 1:
+            self.navigationController?.pushViewController(SettingsVC(), animated: true)
+        case 2:
+            self.navigationController?.pushViewController(TransactionsVC(), animated: true)
+        case 3:
+            self.navigationController?.pushViewController(FavoriteVC(), animated: true)
         default:
             break
         }
