@@ -174,7 +174,7 @@ class SignUpVC1: UIViewController, UITextFieldDelegate {
             print("UserData: \(userData)")
             
             let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let signUpVC2 = sb.instantiateViewController(withIdentifier: "SignUpVC2") as? SignUpVC2 else {
+            guard let signUpVC2 = sb.instantiateViewController(withIdentifier: "SignUpVC2") as? ContinueSignUpVC else {
                 print("Error: Unable to instantiate SignUpVC2 from storyboard.")
                 return
             }

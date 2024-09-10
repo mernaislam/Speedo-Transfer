@@ -1,6 +1,6 @@
 import UIKit
 
-class SignUpVC2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var dateOfBirthTextField: UITextField!
