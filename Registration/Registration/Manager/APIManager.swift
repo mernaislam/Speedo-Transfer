@@ -44,8 +44,6 @@ class APIManager {
             if let responseString = String(data: data, encoding: .utf8) {
                 print("Response Data: \(responseString)")
             }
-
-            // Handle response data if needed
             completion(.success(data))
         }
         task.resume()

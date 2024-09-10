@@ -1,6 +1,6 @@
 import UIKit
 
-class SignUpVC1: UIViewController, UITextFieldDelegate {
+class SignUpVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var FullNameTextField: UITextField!
     @IBOutlet weak var EmailTextField: UITextField!
@@ -155,7 +155,7 @@ class SignUpVC1: UIViewController, UITextFieldDelegate {
         }
         
         guard isValidPassword(password) else {
-            showAlert(message: "Password must be exactly 8 characters long, include at least one uppercase letter, one lowercase letter, and one special character.")
+            showAlert(message: "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, and one special character.")
             return false
         }
         
@@ -189,7 +189,7 @@ class SignUpVC1: UIViewController, UITextFieldDelegate {
 
 
     private func isValidPassword(_ password: String) -> Bool {
-        let passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[\\W_]).{8}$"
+        let passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[\\W_]).{8,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return predicate.evaluate(with: password)
     }
