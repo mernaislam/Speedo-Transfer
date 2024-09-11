@@ -46,6 +46,11 @@
 		033E31CE2C91AE79008C7FA2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31CD2C91AE79008C7FA2 /* TransactionModel.swift */; };
 		033E31D12C91B729008C7FA2 /* HomeEmptyTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31D02C91B729008C7FA2 /* HomeEmptyTransactionCell.xib */; };
 		033E31D22C91B729008C7FA2 /* HomeEmptyTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31CF2C91B729008C7FA2 /* HomeEmptyTransactionCell.swift */; };
+		033E31D82C91DEF8008C7FA2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31D52C91DEF8008C7FA2 /* NetworkManager.swift */; };
+		033E31D92C91DEF8008C7FA2 /* InternetErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31D62C91DEF8008C7FA2 /* InternetErrorVC.xib */; };
+		033E31DA2C91DEF8008C7FA2 /* InternetErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31D72C91DEF8008C7FA2 /* InternetErrorVC.swift */; };
+		033E31DE2C91DF15008C7FA2 /* ServerErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31DC2C91DF15008C7FA2 /* ServerErrorVC.xib */; };
+		033E31DF2C91DF15008C7FA2 /* ServerErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31DD2C91DF15008C7FA2 /* ServerErrorVC.swift */; };
 		0353B5CC2C8D0A2F00586A30 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CB2C8D0A2F00586A30 /* SignUpVC.swift */; };
 		0353B5CE2C8D0A6E00586A30 /* ContinueSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */; };
 		0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */; };
@@ -132,6 +137,11 @@
 		033E31CD2C91AE79008C7FA2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		033E31CF2C91B729008C7FA2 /* HomeEmptyTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyTransactionCell.swift; sourceTree = "<group>"; };
 		033E31D02C91B729008C7FA2 /* HomeEmptyTransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeEmptyTransactionCell.xib; sourceTree = "<group>"; };
+		033E31D52C91DEF8008C7FA2 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		033E31D62C91DEF8008C7FA2 /* InternetErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InternetErrorVC.xib; sourceTree = "<group>"; };
+		033E31D72C91DEF8008C7FA2 /* InternetErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetErrorVC.swift; sourceTree = "<group>"; };
+		033E31DC2C91DF15008C7FA2 /* ServerErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerErrorVC.xib; sourceTree = "<group>"; };
+		033E31DD2C91DF15008C7FA2 /* ServerErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerErrorVC.swift; sourceTree = "<group>"; };
 		0353B5CB2C8D0A2F00586A30 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueSignUpVC.swift; sourceTree = "<group>"; };
 		0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
@@ -343,6 +353,34 @@
 			path = More;
 			sourceTree = "<group>";
 		};
+		033E31D32C91DEBB008C7FA2 /* Error Screens */ = {
+			isa = PBXGroup;
+			children = (
+				033E31DB2C91DF09008C7FA2 /* Server Error */,
+				033E31D42C91DEC5008C7FA2 /* InternetConnectionError */,
+			);
+			path = "Error Screens";
+			sourceTree = "<group>";
+		};
+		033E31D42C91DEC5008C7FA2 /* InternetConnectionError */ = {
+			isa = PBXGroup;
+			children = (
+				033E31D72C91DEF8008C7FA2 /* InternetErrorVC.swift */,
+				033E31D62C91DEF8008C7FA2 /* InternetErrorVC.xib */,
+				033E31D52C91DEF8008C7FA2 /* NetworkManager.swift */,
+			);
+			path = InternetConnectionError;
+			sourceTree = "<group>";
+		};
+		033E31DB2C91DF09008C7FA2 /* Server Error */ = {
+			isa = PBXGroup;
+			children = (
+				033E31DD2C91DF15008C7FA2 /* ServerErrorVC.swift */,
+				033E31DC2C91DF15008C7FA2 /* ServerErrorVC.xib */,
+			);
+			path = "Server Error";
+			sourceTree = "<group>";
+		};
 		0360B2A92C8FB4C60053D605 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +534,7 @@
 		33A372212C7E5B5700EE834F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				033E31D32C91DEBB008C7FA2 /* Error Screens */,
 				030128472C8105A7006ECA3F /* OnBoardingScreen */,
 				037673102C863D0D00301E6F /* HomeScreen */,
 				036597A12C8B7E2100E318C2 /* Transfer */,
@@ -595,6 +634,7 @@
 			files = (
 				0338366E2C8E40D3000C8D33 /* FavoriteSheetViewCell.xib in Resources */,
 				031FC7E32C90D86B00EBDC37 /* NotificationViewCell.xib in Resources */,
+				033E31DE2C91DF15008C7FA2 /* ServerErrorVC.xib in Resources */,
 				33A372182C7E5A2500EE834F /* LaunchScreen.storyboard in Resources */,
 				033699AD2C8F42DE0031E047 /* FavoriteVC.xib in Resources */,
 				0360B2A42C8FA6F40053D605 /* EditFavoriteSheetVC.xib in Resources */,
@@ -609,6 +649,7 @@
 				031FC7BF2C907B8800EBDC37 /* ProfileVC.xib in Resources */,
 				0360B2B02C8FB68D0053D605 /* ProfileViewCell.xib in Resources */,
 				031FC7C72C90807B00EBDC37 /* ProfileInfoViewCell.xib in Resources */,
+				033E31D92C91DEF8008C7FA2 /* InternetErrorVC.xib in Resources */,
 				03B647D22C7F6846007F1F07 /* OnBoardingScreen.storyboard in Resources */,
 				33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */,
 				033836772C8E4938000C8D33 /* MoreViewCell.xib in Resources */,
@@ -690,8 +731,10 @@
 				03A25CBD2C8772E40040DE60 /* UIViewController+Background.swift in Sources */,
 				0301282D2C80A357006ECA3F /* OnBoardingModel.swift in Sources */,
 				031FC7D72C90C04B00EBDC37 /* EditProfileVC.swift in Sources */,
+				033E31DA2C91DEF8008C7FA2 /* InternetErrorVC.swift in Sources */,
 				033836792C8E4F69000C8D33 /* MoreItem.swift in Sources */,
 				03E1AAA62C910F5A0099A284 /* TokenManager.swift in Sources */,
+				033E31D82C91DEF8008C7FA2 /* NetworkManager.swift in Sources */,
 				03B647D42C7F6886007F1F07 /* OnBoardingVC.swift in Sources */,
 				03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */,
 				030128462C810523006ECA3F /* UIView+cornerRadius.swift in Sources */,
@@ -718,6 +761,7 @@
 				0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */,
 				33613CCD2C90754200082FA3 /* APIManager.swift in Sources */,
 				033699B22C8F45F10031E047 /* FavoriteViewCell.swift in Sources */,
+				033E31DF2C91DF15008C7FA2 /* ServerErrorVC.swift in Sources */,
 				0360B2A32C8FA6F40053D605 /* FavoritesProtocol.swift in Sources */,
 				0338366D2C8E40D3000C8D33 /* FavoriteSheetViewCell.swift in Sources */,
 				03E05E452C8D02960052DED8 /* User.swift in Sources */,
