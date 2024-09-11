@@ -12,6 +12,16 @@ class APIManager {
     
     private static let baseURL = "https://money-transfer-production.up.railway.app/api"
     
+    private static func getTokenHeader() -> HTTPHeaders? {
+        guard let token = TokenManager.shared.getToken() else { return nil }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: token),
+            .accept("application/json")
+        ]
+        return headers
+    }
+    
     static func registerUser(user: User, completion: @escaping (Result<Any, Error>) -> Void) {
         let url = URL(string: "\(baseURL)/register")!
         var request = URLRequest(url: url)
@@ -101,13 +111,7 @@ class APIManager {
     
     static func getBalance(completion: @escaping (Result<Double, Error>) -> Void) {
         let url = "\(self.baseURL)/balance"
-        guard let token = TokenManager.shared.getToken() else { return }
-        print(token)
-        
-        let headers: HTTPHeaders = [
-            .authorization(bearerToken: token),
-            .accept("application/json")
-        ]
+        guard let headers = self.getTokenHeader() else { return }
         
         AF.request(url, method: .get, headers: headers)
                .validate()
@@ -133,39 +137,33 @@ class APIManager {
     
     static func transfer(to accNum: String, amount: Double, completion: @escaping (Result<Data, Error>) -> Void){
         let url = "\(self.baseURL)/transfer"
-        guard let token = TokenManager.shared.getToken() else { return }
+        guard let headers = self.getTokenHeader() else { return }
         
-        let headers: HTTPHeaders = [
-            .authorization(bearerToken: token),
-            .accept("application/json")
+        let parameters: [String: Any] = [
+            "toAccount": accNum,
+            "amount": amount
         ]
         
-        AF.request(url, method: .get, headers: headers)
-               .validate()
-               .responseData { response in
-                   switch response.result {
-                   case .success(let data):
-                       completion(.success(data))
-                   case .failure(let error):
-                       completion(.failure(error))
-                   }
+        AF.request(url,
+                   method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: headers)
+            .validate()
+            .responseData { response in
+               switch response.result {
+               case .success(let data):
+                   completion(.success(data))
+               case .failure(let error):
+                   completion(.failure(error))
                }
+           }
     }
     
     static func getTransactions(completion: @escaping (Result<[TransactionModel], Error>) -> Void){
         let url = "\(self.baseURL)/transactions"
-                
-        guard let token = TokenManager.shared.getToken() else {
-            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not available"])))
-            return
-        }
+        guard let headers = self.getTokenHeader() else { return }
         
-        let headers: HTTPHeaders = [
-            .authorization(bearerToken: token),
-            .accept("application/json")
-        ]
-        
-        // Make the request
         AF.request(url, method: .get, headers: headers).responseDecodable(of: [TransactionModel].self) { response in
             switch response.result {
             case .success(let transactions):
@@ -175,5 +173,59 @@ class APIManager {
             }
         }
     }
-
+    
+    static func getFavorites(completion: @escaping (Result<[FavoriteModel], Error>) -> Void){
+        let url = "\(self.baseURL)/favorites"
+        guard let headers = self.getTokenHeader() else { return }
+        
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: [FavoriteModel].self) { response in
+            switch response.result {
+            case .success(let favorites):
+                completion(.success(favorites))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    static func deleteFavorite(id: Int, completion: @escaping (Result<Data, Error>) -> Void){
+        let url = "\(self.baseURL)/favorites/\(id)"
+        guard let headers = self.getTokenHeader() else { return }
+        
+        AF.request(url, method: .delete, headers: headers)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+    
+    static func addFavorite(to recipientName: String, withAccount accNum: String, completion: @escaping (Result<Data, Error>) -> Void){
+        let url = "\(self.baseURL)/favorites"
+        guard let headers = self.getTokenHeader() else { return }
+        
+        let parameters: [String: Any] = [
+            "recipientName": recipientName,
+            "recipientAccountNumber": accNum
+        ]
+        
+        AF.request(url,
+                   method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: headers)
+            .validate()
+            .responseData { response in
+               switch response.result {
+               case .success(let data):
+                   completion(.success(data))
+               case .failure(let error):
+                   completion(.failure(error))
+               }
+           }
+    }
 }

@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol HomeVCDelegate {
-    func goToTransfer()
-}
-
-
 class HomeVC: UIViewController {
 
     // MARK: - IBOutlet
@@ -19,7 +14,6 @@ class HomeVC: UIViewController {
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var transactionTableView: UITableView!
     @IBOutlet var notificationIcon: UIImageView!
-    
     // For hiding it
     @IBOutlet var profileStackView: UIStackView!
     @IBOutlet var balanceView: UIView!
@@ -28,7 +22,7 @@ class HomeVC: UIViewController {
     // MARK: - Properties
     var tabSwitchDelegate: TabSwitchProtocol!
     private let activityIndicator = UIActivityIndicatorView(style: .large)
-    var transactions: [TransactionModel] = []
+    private var transactions: [TransactionModel] = []
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -69,46 +63,6 @@ class HomeVC: UIViewController {
         self.notificationIcon.alpha = alpha
     }
     
-    private func getTransactions(){
-        APIManager.getTransactions { result in
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                UIView.animate(withDuration: 0.3) {
-                    self.toggleViewsVisibility(alpha: 1)
-                }
-        
-                switch result {
-                case .success(let transactions):
-                    self.transactions = transactions
-                    self.transactionTableView.reloadData()
-                    
-                case .failure(let error):
-                    self.balanceLabel.text = "Error"
-                    print("Error fetching balance: \(error.localizedDescription)")
-                }
-            }
-
-        }
-    }
-    
-    private func getBalance() {
-        APIManager.getBalance { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let balance):
-                    let balanceInt = Int(balance)
-                    self.balanceLabel.text = "\(balanceInt)"
-                    print("Balance: \(balanceInt)")
-                    
-                case .failure(_):
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.switchToLoginScreen()
-                }
-            }
-        }
-    }
-
-    
     private func setupTableView(){
         self.transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)
         self.transactionTableView.register(HomeEmptyTransactionCell.nib, forCellReuseIdentifier: HomeEmptyTransactionCell.identifier)
@@ -124,6 +78,44 @@ class HomeVC: UIViewController {
     
     @objc private func goToNotifications(){
         self.navigationController?.pushViewController(NotificationVC(), animated: true)
+    }
+    
+    // MARK: - API Methods
+    private func getTransactions(){
+        APIManager.getTransactions { result in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                UIView.animate(withDuration: 0.3) {
+                    self.toggleViewsVisibility(alpha: 1)
+                }
+        
+                switch result {
+                case .success(let transactions):
+                    self.transactions = transactions
+                    self.transactions = self.transactions.filter( {$0.amount != 0.1})
+                    self.transactionTableView.reloadData()
+                    
+                case .failure(_):
+                    print("Token expired")
+                }
+            }
+        }
+    }
+    
+    private func getBalance() {
+        APIManager.getBalance { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let balance):
+                    currentBalance = balance
+                    let balanceInt = Int(balance)
+                    self.balanceLabel.text = "\(balanceInt)"
+                case .failure(_):
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.switchToLoginScreen()
+                }
+            }
+        }
     }
     
     // MARK: - IBAction
@@ -162,7 +154,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-extension HomeVC: HomeVCDelegate {
+// MARK: - TransferVCDelegate Extension
+extension HomeVC: TransferVCDelegate {
     func goToTransfer() {
         self.tabSwitchDelegate.switchToTransferTab()
     }

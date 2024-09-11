@@ -178,22 +178,20 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
     }
     
        // Helper method to show alerts
-        private func showAlert(message: String) {
-            let alert = UIAlertController(title: "Validation Error", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        private func showMessage(message: String) {
+            self.showAlert(title: "Validation Error", message: message)
         }
        
        // Data validation checks
         private func CheckData() -> Bool{
         
         guard selectedCountry != nil else {
-            showAlert(message: "Please select a country.")
+            showMessage(message: "Please select a country.")
             return false
         }
         
         guard let dateOfBirthText = dateOfBirthTextField.text, !dateOfBirthText.isEmpty else {
-            showAlert(message: "Please select your date of birth.")
+            showMessage(message: "Please select your date of birth.")
             return false
         }
         
@@ -207,7 +205,7 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
             let ageComponents = calendar.dateComponents([.year], from: dateOfBirth, to: Date())
             // Check if the user is at least 18 years old
             guard let age = ageComponents.year, age >= 18 else {
-                showAlert(message: "You must be at least 18 years old.")
+                showMessage(message: "You must be at least 18 years old.")
                 return false
             }
         return true

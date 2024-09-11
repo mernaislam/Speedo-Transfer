@@ -9,9 +9,11 @@ import UIKit
 
 class AmountCollectionCell: UICollectionViewCell {
     
-    // MARK: - Properties
+    // MARK: - Static Properities
     static let identifier = "AmountCollectionCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
+    
+    // MARK: - Properties
     weak var delegate: CustomCellDelegate?
 
     // MARK: - IBOutlet
@@ -19,6 +21,7 @@ class AmountCollectionCell: UICollectionViewCell {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var accountTextField: UITextField!
     @IBOutlet var favoriteStackView: UIStackView!
+    @IBOutlet var continueBtn: UIButton!
     
     // MARK: - LifeCycle Methods
     override func awakeFromNib() {
@@ -30,38 +33,112 @@ class AmountCollectionCell: UICollectionViewCell {
     
     // MARK: - Private Methods
     private func setupTextFieldBorder(){
-        // Amount
+        self.setupAmountTextField()
+        self.setupNameTextField()
+        self.setupAccountTextField()
+    }
+    
+    private func setupAmountTextField(){
         self.amountTextField.borderStyle = .roundedRect
         self.amountTextField.layer.borderColor = UIColor.lightGray.cgColor
         self.amountTextField.layer.borderWidth = 1.5
         self.amountTextField.layer.cornerRadius = 10
-        
-        // Name
+    }
+    
+    private func setupNameTextField(){
         self.nameTextField.borderStyle = .roundedRect
         self.nameTextField.layer.borderColor = UIColor.lightGray.cgColor
         self.nameTextField.layer.borderWidth = 1.5
         self.nameTextField.layer.cornerRadius = 5
-        
-        // Account
+    }
+    
+    private func setupAccountTextField(){
         self.accountTextField.borderStyle = .roundedRect
         self.accountTextField.layer.borderColor = UIColor.lightGray.cgColor
         self.accountTextField.layer.borderWidth = 1.5
         self.accountTextField.layer.cornerRadius = 5
-        
     }
     
-    @objc private func openFavoriteSheet() {
-        delegate?.openFavoritesSheet()
+    private func fieldsNotEmpty() -> Bool {
+        if self.amountTextField.text == "" {
+            delegate?.showMessage(title: "Invalid Data", message: "You must write an amount to transfer")
+            return false
+        }
+        
+        if self.accountTextField.text == "" {
+            delegate?.showMessage(title: "Invalid Data", message: "You must write the account number of the recepient")
+            return false
+        }
+        
+        if Double(self.amountTextField.text!)! > currentBalance {
+            delegate?.showMessage(title: "Invalid Data", message: "Insuffient Balance,\nYour current balance is \(currentBalance!) EGP")
+            return false
+        }
+        
+        return true
+    }
+    
+    // MARK: - API Methods (Validation)
+    private func isValidAccount(completion: @escaping (Bool) -> Void) {
+        APIManager.transfer(to: accountTextField.text!, amount: 0.1) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    completion(true)
+                case .failure(_):
+                    self.delegate?.showMessage(title: "Invalid Transfer", message: "No such account number exist")
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    private func getDetails(){
+        APIManager.getTransactions { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let transactions):
+                    let last = transactions.count - 1
+                    let transaction = transactions[last]
+                    currentTransaction = transaction
+                    self.delegate?.goToCell(in: self, next: true)
+                    self.delegate?.animateStepColorChange(step: 2)
+                case .failure(_):
+                    print("Failed")
+                }
+            }
+        }
+    }
+    
+    private func canTransfer(completion: @escaping (Bool) -> Void) {
+        if self.fieldsNotEmpty() {
+            self.isValidAccount { isValid in
+                completion(isValid)
+            }
+        } else {
+            completion(false)
+        }
     }
     
     // MARK: - IBAction
     @IBAction func continueBtnTapped(_ sender: Any) {
-        delegate?.goToCell(in: self, next: true)
-        delegate?.animateStepColorChange(step: 2)
+        continueBtn.setTitle("Loading...", for: .normal)
+        continueBtn.isEnabled = false
+        self.canTransfer { canTransfer in
+            if canTransfer {
+                self.getDetails()
+                if let amountText = self.amountTextField.text, let amount = Double(amountText) {
+                   self.delegate?.transferAmount = amount
+               }
+            }
+            DispatchQueue.main.async {
+                self.continueBtn.setTitle("Continue", for: .normal)
+                self.continueBtn.isEnabled = true
+            }
+        }
     }
     
 }
-
 
 // MARK: - Scroll Extension
 extension AmountCollectionCell: UIScrollViewDelegate{
@@ -69,5 +146,21 @@ extension AmountCollectionCell: UIScrollViewDelegate{
         if scrollView.contentOffset.x != 0 {
             scrollView.contentOffset.x = 0
         }
+    }
+}
+
+// MARK: - FavoriteDelegate Extension
+extension AmountCollectionCell: FavoriteSelectionDelegate{
+    @objc private func openFavoriteSheet() {
+        if let viewController = delegate as? UIViewController {
+            let favoriteSheetVC = FavoriteSheetVC()
+            favoriteSheetVC.delegate = self
+            viewController.present(favoriteSheetVC, animated: true, completion: nil)
+        }
+    }
+    
+    func didSelectFavorite(_ favorite: FavoriteModel) {
+        self.nameTextField.text = favorite.recipientName
+        self.accountTextField.text = favorite.recipientAccountNumber
     }
 }

@@ -59,3 +59,7 @@ let countries: [(name: String, flag: String)] = [
     ("Saudi Arabia", "🇸🇦"),
     ("", "")
 ]
+
+var currentTransaction: TransactionModel!
+
+var currentBalance: Double!

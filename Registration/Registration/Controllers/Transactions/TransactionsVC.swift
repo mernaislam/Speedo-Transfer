@@ -15,7 +15,7 @@ class TransactionsVC: UIViewController {
     // MARK: - Properties
     var tabSwitchDelegate: TabSwitchProtocol?
     private let activityIndicator = UIActivityIndicatorView(style: .large)
-    var transactions: [TransactionModel] = []
+    private var transactions: [TransactionModel] = []
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -64,6 +64,7 @@ class TransactionsVC: UIViewController {
         transactionTableView.backgroundColor = .clear
     }
     
+    // MARK: - API Methods
     private func getTransactions(){
         APIManager.getTransactions { result in
             DispatchQueue.main.async {
@@ -75,6 +76,7 @@ class TransactionsVC: UIViewController {
                 switch result {
                 case .success(let transactions):
                     self.transactions = transactions
+                    self.transactions = self.transactions.filter { $0.amount != 0.1 }
                     self.transactionTableView.reloadData()
                     
                 case .failure(_):
@@ -122,7 +124,8 @@ extension TransactionsVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension TransactionsVC: HomeVCDelegate{
+// MARK: - TransferVCDelegate
+extension TransactionsVC: TransferVCDelegate{
     func goToTransfer() {
         self.tabSwitchDelegate?.switchToTransferTab()
     }

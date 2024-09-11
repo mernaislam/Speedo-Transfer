@@ -33,7 +33,7 @@ class TransactionsViewCell: UITableViewCell {
     func configureCell(transaction: TransactionModel){
         self.nameLabel.text = transaction.receiverAccount.name
         self.dateLabel.text = transaction.formatTimestamp(transaction.timestamp)
-        self.amountLabel.text = "EGP\(transaction.amount)"
+        self.amountLabel.text = "EGP\(Int(transaction.amount))"
     }
     
 }

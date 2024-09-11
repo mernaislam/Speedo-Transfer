@@ -13,10 +13,13 @@ class FavoriteSheetViewCell: UITableViewCell {
     static let identifier = "FavoriteSheetViewCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
 
+    // MARK: - IBOutlet
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var accountNumberLabel: UILabel!
+    
     // MARK: - Lifecycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,4 +27,9 @@ class FavoriteSheetViewCell: UITableViewCell {
 
     }
     
+    // MARK: - Methods
+    func configureCell(favorite: FavoriteModel){
+        self.nameLabel.text = favorite.recipientName
+        self.accountNumberLabel.text = favorite.recipientAccountNumber
+    }
 }

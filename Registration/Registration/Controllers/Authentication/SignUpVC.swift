@@ -112,6 +112,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    private func showMessage(message: String) {
+        self.showAlert(title: "Validation Error", message: message)
+    }
+    
     // Configure sign-in button
     private func configureSignInButton() {
         let signUpButtonTitle = "Sign In"
@@ -130,32 +134,32 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     
     private func isValidData() -> Bool {
         guard let fullName = FullNameTextField.text, !fullName.isEmpty else {
-            showAlert(message: "Full Name is required.")
+            showMessage(message: "Full Name is required.")
             return false
         }
         
         guard let email = EmailTextField.text, !email.isEmpty else {
-            showAlert(message: "Email is required.")
+            showMessage(message: "Email is required.")
             return false
         }
         
         guard let password = PasswordTextField.text, !password.isEmpty else {
-            showAlert(message: "Password is required.")
+            showMessage(message: "Password is required.")
             return false
         }
         
         guard let confPassword = ConfPasswordTextField.text, !confPassword.isEmpty else {
-            showAlert(message: "Confirm Password is required.")
+            showMessage(message: "Confirm Password is required.")
             return false
         }
         
         guard password == confPassword else {
-            showAlert(message: "Passwords do not match.")
+            showMessage(message: "Passwords do not match.")
             return false
         }
         
         guard isValidPassword(password) else {
-            showAlert(message: "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, and one special character.")
+            showMessage(message: "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, and one special character.")
             return false
         }
         
@@ -192,12 +196,6 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         let passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[\\W_]).{8,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return predicate.evaluate(with: password)
-    }
-    
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Validation Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func SignInButtonTapped(_ sender: Any) {

@@ -8,8 +8,9 @@
 import UIKit
 
 protocol CustomCellDelegate: AnyObject {
+    var transferAmount: Double { get set }
     func goToCell(in cell: UICollectionViewCell, next: Bool)
     func animateStepColorChange(step: Int)
     func goToHome()
-    func openFavoritesSheet()
+    func showMessage(title: String, message: String)
 }

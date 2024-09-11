@@ -42,7 +42,7 @@
                                                         <color key="textColor" red="0.1411764771" green="0.13333332540000001" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIL-pO-Ngg">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount in EGP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIL-pO-Ngg">
                                                         <rect key="frame" x="0.0" y="40.333333333333343" width="345" height="46"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="46" id="ZHy-GJ-neC"/>
@@ -104,8 +104,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bte-JW-9VK">
                                         <rect key="frame" x="0.0" y="289.66666666666669" width="339" height="172.66666666666669"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipient Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXZ-Sa-gRQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="20.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipient Name (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXZ-Sa-gRQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="200.66666666666666" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.17335371826161616" green="0.1629325978673084" blue="0.14547908709882779" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -201,6 +201,7 @@
             <connections>
                 <outlet property="accountTextField" destination="7aN-fl-IHR" id="owW-wm-JPh"/>
                 <outlet property="amountTextField" destination="sIL-pO-Ngg" id="hPS-d3-SU8"/>
+                <outlet property="continueBtn" destination="wuA-kc-Gnr" id="Cwy-IR-vwp"/>
                 <outlet property="favoriteStackView" destination="Auq-vM-LCd" id="xgZ-et-nmc"/>
                 <outlet property="nameTextField" destination="64F-lC-Afv" id="4xD-AY-fcd"/>
             </connections>
