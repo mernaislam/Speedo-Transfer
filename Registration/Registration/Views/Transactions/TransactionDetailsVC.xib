@@ -11,6 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionDetailsVC" customModule="Registration" customModuleProvider="target">
             <connections>
+                <outlet property="amount" destination="Fna-Xv-r2l" id="hac-mF-sZD"/>
+                <outlet property="amountLabel" destination="O0h-XY-D85" id="V2y-GW-S2s"/>
+                <outlet property="dateLabel" destination="NQR-gK-T0m" id="SiC-6t-JqQ"/>
+                <outlet property="receiverAccount" destination="p1Z-F4-ToH" id="ZvW-UH-qgM"/>
+                <outlet property="receiverName" destination="UG8-YV-mFT" id="uno-b3-6XA"/>
+                <outlet property="senderAccount" destination="bbu-dh-97t" id="3qb-7a-jZ5"/>
+                <outlet property="senderName" destination="wVJ-vI-DZe" id="zl4-bA-YRz"/>
+                <outlet property="transactionID" destination="2rE-R4-KMA" id="IzS-lV-d2Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -174,14 +182,14 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u00-7B-rTR">
                                                             <rect key="frame" x="0.0" y="0.0" width="329" height="20.333333333333332"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Transfer amount amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-Fy-Y6r">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="20.333333333333332"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Transfer amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-Fy-Y6r">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.2352941036" green="0.22745099660000001" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="48.4220 EGP" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fna-Xv-r2l">
-                                                                    <rect key="frame" x="197" y="0.0" width="132" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="135" y="0.0" width="194" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                     <nil key="highlightedColor"/>

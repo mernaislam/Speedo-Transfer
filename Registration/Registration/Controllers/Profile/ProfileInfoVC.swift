@@ -37,16 +37,16 @@ class ProfileInfoVC: UIViewController {
     
     private func setupProfileDetails() {
 //        guard let user = user else { return }
-        user = User(fullName: "Malak", email: "Malak brdo", password: "ajksjaks", country: "Egypt", dateOfBirth: Date(), bankAccount: "1234xxx")
+        user = User(name: "Malak", email: "Malak brdo", password: "ajksjaks", confirmPassword: "ajksjaks", country: "Egypt", dateOfBirth: Date())
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
         profileDetails = [
-            DetailItem(title: "Full Name", subTitle: user!.fullName),
+            DetailItem(title: "Full Name", subTitle: user!.name),
             DetailItem(title: "Email", subTitle: user!.email),
-            DetailItem(title: "Date Of Birth", subTitle: dateFormatter.string(from: user!.dateOfBirth)),
+//            DetailItem(title: "Date Of Birth", subTitle: dateFormatter.string(from: user!.dateOfBirth)),
             DetailItem(title: "Country", subTitle: user!.country),
-            DetailItem(title: "Bank Account", subTitle: user!.bankAccount)
+//            DetailItem(title: "Bank Account", subTitle: user!.bankAccount)
         ]
         
         detailsTableView.reloadData()

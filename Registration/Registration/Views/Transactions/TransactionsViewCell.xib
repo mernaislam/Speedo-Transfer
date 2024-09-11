@@ -154,7 +154,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="amountLabel" destination="D2v-Go-QlG" id="OpG-Bb-yIl"/>
                 <outlet property="cellView" destination="EcQ-LS-Mos" id="PF5-KQ-Chm"/>
+                <outlet property="dateLabel" destination="cj7-Jc-iAq" id="RwL-bQ-a6f"/>
+                <outlet property="nameLabel" destination="gaA-OO-P7w" id="PEh-LU-ohh"/>
             </connections>
             <point key="canvasLocation" x="38.931297709923662" y="11.619718309859156"/>
         </tableViewCell>

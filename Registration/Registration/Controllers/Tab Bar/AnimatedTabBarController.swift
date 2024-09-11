@@ -97,27 +97,33 @@ extension AnimatedTabBarController {
 
 // MARK: - TabSwitchProtocol Extension
 extension AnimatedTabBarController: TabSwitchProtocol{
-    func switchToHomeTab(){
+    func deselectAnimation(){
         if let items = self.tabBar.items as? [RAMAnimatedTabBarItem?], let previousSelectedItem = items[self.selectedIndex] {
             previousSelectedItem.deselectAnimation()
         }
-        
-        self.selectedIndex = 0
-        
+    }
+    
+    func playAnimation(){
         if let items = self.tabBar.items as? [RAMAnimatedTabBarItem?], let selectedItem = items[self.selectedIndex] {
             selectedItem.playAnimation()
         }
     }
     
+    func switchToTransferTab() {
+        self.deselectAnimation()
+        self.selectedIndex = 1
+        self.playAnimation()
+    }
+    
+    func switchToHomeTab(){
+        self.deselectAnimation()
+        self.selectedIndex = 0
+        self.playAnimation()
+    }
+    
     func switchToTransactionTab(){
-        if let items = self.tabBar.items as? [RAMAnimatedTabBarItem?], let previousSelectedItem = items[self.selectedIndex] {
-            previousSelectedItem.deselectAnimation()
-        }
-        
+        self.deselectAnimation()
         self.selectedIndex = 2
-        
-        if let items = self.tabBar.items as? [RAMAnimatedTabBarItem?], let selectedItem = items[self.selectedIndex] {
-            selectedItem.playAnimation()
-        }
+        self.playAnimation()
     }
 }

@@ -18,7 +18,7 @@ class NotificationVC: UIViewController {
     // MARK: - Private Methods
     private func initiateVC(){
         self.applyGradientBgYellowToRed()
-        self.setupNavigationBar(title: "More", selector: #selector(self.goBack))
+        self.setupNavigationBar(title: "Notifications", selector: #selector(self.goBack))
         self.setupTableView()
     }
     

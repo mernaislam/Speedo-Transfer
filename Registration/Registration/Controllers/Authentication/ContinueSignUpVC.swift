@@ -11,7 +11,21 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
     
     // The userData passed from SignUpVC1
     var userData: UserData?
-        
+    
+    // Array of tuples for countries with flags
+    var countries: [(name: String, flag: String)] = [
+        ("United States", "🇺🇸"),
+        ("Canada", "🇨🇦"),
+        ("UK", "🇬🇧"),
+        ("Germany", "🇩🇪"),
+        ("France", "🇫🇷"),
+        ("Egypt", "🇪🇬"),
+        ("India", "🇮🇳"),
+        ("Australia", "🇦🇺"),
+        ("Saudi Arabia", "🇸🇦"),
+        ("", "")
+    ]
+    
     var selectedCountry: String?
     
     // Picker view and date picker
@@ -126,42 +140,11 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         return countries.first(where: { $0.name == country })?.flag ?? "🏳️"
     }
     
-    // Action when the user taps the "Continue" button
-    // Action when the user taps the "Continue" button
-        @IBAction func continueButtonTapped(_ sender: Any) {
-            // Check if we have the necessary data
-            guard let userData = userData,
-                  let selectedCountry = selectedCountry else {
-                print("Missing data")
-                return
-            }
-            
-            let selectedDate = datePicker.date
-            
-            // Combine all the data into a new User object
-            let newUser = User(
-                fullName: userData.fullName,
-                email: userData.email,
-                password: userData.password,
-                country: selectedCountry,
-                dateOfBirth: selectedDate,
-                bankAccount: "1234xxxx"
-            )
-            
-            // Save user data to UserDefaults
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(true, forKey: "isRegistered")
-            userDefaults.set(newUser.fullName, forKey: "fullName")
-            userDefaults.set(newUser.email, forKey: "email")
-            userDefaults.set(newUser.bankAccount, forKey: "password")
-            userDefaults.set(newUser.country, forKey: "country")
-            userDefaults.set(newUser.dateOfBirth, forKey: "dateOfBirth")
-
-            // Print the new user or pass it to the next step
-            print("User created and saved: \(newUser)")
-            // Navigate to the next screen or handle the registration
-            let delegate = UIApplication.shared.delegate as? AppDelegate
-            delegate?.switchToHomeScreen()
+    @IBAction func continueButtonTapped(_ sender: Any) {
+        guard CheckData() else { return }
+        guard let userData = userData, let selectedCountry = selectedCountry else {
+            print("Missing data")
+            return
         }
 
         let selectedDate = datePicker.date

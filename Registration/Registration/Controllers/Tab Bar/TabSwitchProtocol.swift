@@ -9,4 +9,5 @@ import Foundation
 protocol TabSwitchProtocol {
     func switchToHomeTab()
     func switchToTransactionTab()
+    func switchToTransferTab()
 }

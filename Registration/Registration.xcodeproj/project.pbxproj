@@ -43,6 +43,9 @@
 		033836762C8E4938000C8D33 /* MoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836742C8E4938000C8D33 /* MoreViewCell.swift */; };
 		033836772C8E4938000C8D33 /* MoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033836752C8E4938000C8D33 /* MoreViewCell.xib */; };
 		033836792C8E4F69000C8D33 /* MoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033836782C8E4F69000C8D33 /* MoreItem.swift */; };
+		033E31CE2C91AE79008C7FA2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31CD2C91AE79008C7FA2 /* TransactionModel.swift */; };
+		033E31D12C91B729008C7FA2 /* HomeEmptyTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31D02C91B729008C7FA2 /* HomeEmptyTransactionCell.xib */; };
+		033E31D22C91B729008C7FA2 /* HomeEmptyTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31CF2C91B729008C7FA2 /* HomeEmptyTransactionCell.swift */; };
 		0353B5CC2C8D0A2F00586A30 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CB2C8D0A2F00586A30 /* SignUpVC.swift */; };
 		0353B5CE2C8D0A6E00586A30 /* ContinueSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */; };
 		0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */; };
@@ -82,7 +85,6 @@
 		03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */; };
 		03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */; };
 		03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */; };
-		168A12D2073418E43DA60E20 /* Pods_Registration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1024E05A07474747759C3F06 /* Pods_Registration.framework */; };
 		33613CCD2C90754200082FA3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33613CCC2C90754200082FA3 /* APIManager.swift */; };
 		33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */; };
 		33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A372142C7E5A2500EE834F /* Assets.xcassets */; };
@@ -127,6 +129,9 @@
 		033836742C8E4938000C8D33 /* MoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewCell.swift; sourceTree = "<group>"; };
 		033836752C8E4938000C8D33 /* MoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreViewCell.xib; sourceTree = "<group>"; };
 		033836782C8E4F69000C8D33 /* MoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreItem.swift; sourceTree = "<group>"; };
+		033E31CD2C91AE79008C7FA2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		033E31CF2C91B729008C7FA2 /* HomeEmptyTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyTransactionCell.swift; sourceTree = "<group>"; };
+		033E31D02C91B729008C7FA2 /* HomeEmptyTransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeEmptyTransactionCell.xib; sourceTree = "<group>"; };
 		0353B5CB2C8D0A2F00586A30 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueSignUpVC.swift; sourceTree = "<group>"; };
 		0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
@@ -167,9 +172,8 @@
 		03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsVC.swift; sourceTree = "<group>"; };
 		03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsVC.xib; sourceTree = "<group>"; };
-		1024E05A07474747759C3F06 /* Pods_Registration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Registration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		33613CCC2C90754200082FA3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2F1F3E175CDA11454CEE1B61 /* Pods-Registration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Registration.release.xcconfig"; path = "Target Support Files/Pods-Registration/Pods-Registration.release.xcconfig"; sourceTree = "<group>"; };
+		33613CCC2C90754200082FA3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		33A372082C7E5A0F00EE834F /* Registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Registration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33A372142C7E5A2500EE834F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,7 +181,6 @@
 		33A372192C7E5A2500EE834F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33A372252C7E672900EE834F /* Inter-Italic-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
 		33A372262C7E672F00EE834F /* Inter-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
-		8FD7317C2042BB228DAD9646 /* Pods-Registration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Registration.release.xcconfig"; path = "Target Support Files/Pods-Registration/Pods-Registration.release.xcconfig"; sourceTree = "<group>"; };
 		61FE2364D82C43C0C785C3C2 /* Pods-Registration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Registration.debug.xcconfig"; path = "Target Support Files/Pods-Registration/Pods-Registration.debug.xcconfig"; sourceTree = "<group>"; };
 		E0425842B3D3871CE9553A80 /* Pods_Registration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Registration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -370,6 +373,8 @@
 				037673092C86320C00301E6F /* HomeVC.xib */,
 				0376730C2C863CF700301E6F /* HomeTransactionCell.swift */,
 				0376730D2C863CF700301E6F /* HomeTransactionCell.xib */,
+				033E31CF2C91B729008C7FA2 /* HomeEmptyTransactionCell.swift */,
+				033E31D02C91B729008C7FA2 /* HomeEmptyTransactionCell.xib */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				0301282C2C80A357006ECA3F /* OnBoardingModel.swift */,
 				033836782C8E4F69000C8D33 /* MoreItem.swift */,
 				0360B2B22C8FBAA10053D605 /* ListItem.swift */,
+				033E31CD2C91AE79008C7FA2 /* TransactionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -609,6 +615,7 @@
 				031FC7DF2C90D7D300EBDC37 /* NotificationVC.xib in Resources */,
 				033439B92C8DD5E600A81150 /* Main.storyboard in Resources */,
 				038B16022C88FF7100BB4549 /* TransactionsVC.xib in Resources */,
+				033E31D12C91B729008C7FA2 /* HomeEmptyTransactionCell.xib in Resources */,
 				036597A42C8B7E3C00E318C2 /* TransferVC.xib in Resources */,
 				036597A82C8B8C1D00E318C2 /* AmountCollectionCell.xib in Resources */,
 				033836732C8E483B000C8D33 /* MoreVC.xib in Resources */,
@@ -623,23 +630,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		29D65042DDB12C3EE6B969B3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Registration/Pods-Registration-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Registration/Pods-Registration-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Registration/Pods-Registration-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		348C748374DB98A566041021 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -706,6 +696,7 @@
 				03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */,
 				030128462C810523006ECA3F /* UIView+cornerRadius.swift in Sources */,
 				038B16082C8900D800BB4549 /* TransactionsViewCell.swift in Sources */,
+				033E31CE2C91AE79008C7FA2 /* TransactionModel.swift in Sources */,
 				0353B5CE2C8D0A6E00586A30 /* ContinueSignUpVC.swift in Sources */,
 				0376730E2C863CF700301E6F /* HomeTransactionCell.swift in Sources */,
 				036597A52C8B7E3C00E318C2 /* TransferVC.swift in Sources */,
@@ -731,6 +722,7 @@
 				0338366D2C8E40D3000C8D33 /* FavoriteSheetViewCell.swift in Sources */,
 				03E05E452C8D02960052DED8 /* User.swift in Sources */,
 				031FC7C82C90807B00EBDC37 /* ProfileInfoViewCell.swift in Sources */,
+				033E31D22C91B729008C7FA2 /* HomeEmptyTransactionCell.swift in Sources */,
 				0301284A2C810805006ECA3F /* Constants.swift in Sources */,
 				33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */,
 				030128442C80E10D006ECA3F /* OnBoardingViewCell.swift in Sources */,

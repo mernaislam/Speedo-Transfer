@@ -94,7 +94,7 @@ class SignInVC: UIViewController {
     @IBAction func SignInButtonTapped(_ sender: Any) {
         guard let email = EmailTextField.text, !email.isEmpty,
               let password = PasswordTextField.text, !password.isEmpty else {
-            print("Missing email or password")
+            self.showAlert(title: "Missing Data", message: "Please enter your credientials.")
             return
         }
 

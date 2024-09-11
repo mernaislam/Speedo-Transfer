@@ -10,11 +10,8 @@ import Alamofire
 
 class APIManager {
     
-//    static let shared = APIManager() // Singleton instance
-
     private static let baseURL = "https://money-transfer-production.up.railway.app/api"
     
-    // Function to register a user
     static func registerUser(user: User, completion: @escaping (Result<Any, Error>) -> Void) {
         let url = URL(string: "\(baseURL)/register")!
         var request = URLRequest(url: url)
@@ -51,7 +48,6 @@ class APIManager {
     }
     
     
-    // Function to log in a user
     static func loginUser(email: String, password: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/login") else { return }
         var request = URLRequest(url: url)
@@ -106,6 +102,7 @@ class APIManager {
     static func getBalance(completion: @escaping (Result<Double, Error>) -> Void) {
         let url = "\(self.baseURL)/balance"
         guard let token = TokenManager.shared.getToken() else { return }
+        print(token)
         
         let headers: HTTPHeaders = [
             .authorization(bearerToken: token),
@@ -132,6 +129,51 @@ class APIManager {
                        completion(.failure(error))
                    }
                }
+    }
+    
+    static func transfer(to accNum: String, amount: Double, completion: @escaping (Result<Data, Error>) -> Void){
+        let url = "\(self.baseURL)/transfer"
+        guard let token = TokenManager.shared.getToken() else { return }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: token),
+            .accept("application/json")
+        ]
+        
+        AF.request(url, method: .get, headers: headers)
+               .validate()
+               .responseData { response in
+                   switch response.result {
+                   case .success(let data):
+                       completion(.success(data))
+                   case .failure(let error):
+                       completion(.failure(error))
+                   }
+               }
+    }
+    
+    static func getTransactions(completion: @escaping (Result<[TransactionModel], Error>) -> Void){
+        let url = "\(self.baseURL)/transactions"
+                
+        guard let token = TokenManager.shared.getToken() else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not available"])))
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: token),
+            .accept("application/json")
+        ]
+        
+        // Make the request
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: [TransactionModel].self) { response in
+            switch response.result {
+            case .success(let transactions):
+                completion(.success(transactions))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 
 }

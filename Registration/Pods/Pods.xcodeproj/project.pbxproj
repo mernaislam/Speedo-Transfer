@@ -331,9 +331,9 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				099F3DC21363FF556C65EB9437F95040 /* Pods */,
-				267B30B58E5807874C43FC65F0B1BEA6 /* Products */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				89F53C587BCD672E4FF24404878911D9 /* Pods */,
+				BDE4E7811C83D1B32646484AFE46EC63 /* Products */,
 				C436C4CA76A97E444CE0522CBA0656BA /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -390,12 +390,12 @@
 /* Begin PBXNativeTarget section */
 		74E970B72B65184A20E161AE6C6F9866 /* Pods-Registration */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FFA3476B303B2881D5DA832AE320FED0 /* Build configuration list for PBXNativeTarget "Pods-Registration" */;
+			buildConfigurationList = C19E0403437BB743B79AE4363E7E5FCE /* Build configuration list for PBXNativeTarget "Pods-Registration" */;
 			buildPhases = (
-				7704028C05A383AB87AE75A77FD22C40 /* Headers */,
-				A2C193A11BDBF89C2790BA724080E6D7 /* Sources */,
-				2533BA93E38DD19CDE77E8F5EEA121C9 /* Frameworks */,
-				01C45F1228F5EF2D849C7B4B9BBF35CA /* Resources */,
+				B453F30EBFFE6068DD5E1E99F06C5C2D /* Headers */,
+				873BFFF1888517EB6F750FC97091C27B /* Sources */,
+				9F1BAF717DBABE90BBB506665A0B0E57 /* Frameworks */,
+				8555939EB48941DE3670692A97D51417 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -474,13 +474,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		01C45F1228F5EF2D849C7B4B9BBF35CA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		46FCD5B237DE572E0477941498FC05F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -594,7 +587,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3BD3603BE8D2F0C28D4353CE81432E44 /* Release */ = {
+		2FDE0648FD541E17339A5A3446DCF1E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E5052CA0092FECDA5BAB338C0A593C9 /* Pods-Registration.release.xcconfig */;
 			buildSettings = {
@@ -634,7 +627,7 @@
 		};
 		544FA9B71766493681557D5BF9116396 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05CB053A63A7A09111EA8F6BAE50D9D5 /* RAMAnimatedTabBarController.debug.xcconfig */;
+			baseConfigurationReference = FBC34A89876516C721905F0AFF8D0A95 /* RAMAnimatedTabBarController.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -668,7 +661,7 @@
 		};
 		792BF7B6DAE90C58398964D2ACCFE131 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CBD7148B283546BEF83EA533ABB677F /* RAMAnimatedTabBarController.release.xcconfig */;
+			baseConfigurationReference = 164CE82C736277557E7E91149C2EE564 /* RAMAnimatedTabBarController.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -864,7 +857,7 @@
 			};
 			name = Debug;
 		};
-		E9FA18AA00E6001AD8F3A7B469D3EE6B /* Debug */ = {
+		9A13A53FF1B7766FC77BC6ADCA588125 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 06EF089557000E2474DDCCA8420C6646 /* Pods-Registration.debug.xcconfig */;
 			buildSettings = {
@@ -972,15 +965,6 @@
 			buildConfigurations = (
 				544FA9B71766493681557D5BF9116396 /* Debug */,
 				792BF7B6DAE90C58398964D2ACCFE131 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FFA3476B303B2881D5DA832AE320FED0 /* Build configuration list for PBXNativeTarget "Pods-Registration" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E9FA18AA00E6001AD8F3A7B469D3EE6B /* Debug */,
-				3BD3603BE8D2F0C28D4353CE81432E44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

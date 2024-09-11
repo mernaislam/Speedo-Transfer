@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol HomeVCDelegate {
+    func goToTransfer()
+}
+
+
 class HomeVC: UIViewController {
 
     // MARK: - IBOutlet
@@ -23,6 +28,7 @@ class HomeVC: UIViewController {
     // MARK: - Properties
     var tabSwitchDelegate: TabSwitchProtocol!
     private let activityIndicator = UIActivityIndicatorView(style: .large)
+    var transactions: [TransactionModel] = []
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -32,7 +38,9 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.activityIndicator.startAnimating()
+        self.toggleViewsVisibility(alpha: 0)
         self.getBalance()
+        self.getTransactions()
     }
 
     // MARK: - Private Methods
@@ -42,7 +50,6 @@ class HomeVC: UIViewController {
         self.profileView.cornerRadius = profileView.frame.width / 2
         self.setupTableView()
         self.setupActivityIndicator()
-        self.toggleViewsVisibility(alpha: 0)
         self.addTapGesture()
     }
     
@@ -59,11 +66,11 @@ class HomeVC: UIViewController {
         self.balanceView.alpha = alpha
         self.viewAllStackView.alpha = alpha
         self.profileView.alpha = alpha
-//        self.
+        self.notificationIcon.alpha = alpha
     }
     
-    private func getBalance() {
-        APIManager.getBalance { result in
+    private func getTransactions(){
+        APIManager.getTransactions { result in
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 UIView.animate(withDuration: 0.3) {
@@ -71,14 +78,31 @@ class HomeVC: UIViewController {
                 }
         
                 switch result {
+                case .success(let transactions):
+                    self.transactions = transactions
+                    self.transactionTableView.reloadData()
+                    
+                case .failure(let error):
+                    self.balanceLabel.text = "Error"
+                    print("Error fetching balance: \(error.localizedDescription)")
+                }
+            }
+
+        }
+    }
+    
+    private func getBalance() {
+        APIManager.getBalance { result in
+            DispatchQueue.main.async {
+                switch result {
                 case .success(let balance):
                     let balanceInt = Int(balance)
                     self.balanceLabel.text = "\(balanceInt)"
                     print("Balance: \(balanceInt)")
                     
-                case .failure(let error):
-                    self.balanceLabel.text = "Error"
-                    print("Error fetching balance: \(error.localizedDescription)")
+                case .failure(_):
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.switchToLoginScreen()
                 }
             }
         }
@@ -86,9 +110,11 @@ class HomeVC: UIViewController {
 
     
     private func setupTableView(){
-        transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)
-        transactionTableView.delegate = self
-        transactionTableView.dataSource = self
+        self.transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)
+        self.transactionTableView.register(HomeEmptyTransactionCell.nib, forCellReuseIdentifier: HomeEmptyTransactionCell.identifier)
+        self.transactionTableView.delegate = self
+        self.transactionTableView.dataSource = self
+        self.transactionTableView.backgroundColor = .clear
     }
     
     private func addTapGesture(){
@@ -109,15 +135,35 @@ class HomeVC: UIViewController {
 // MARK: - UITableView Extension
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        let cnt = self.transactions.count
+        if cnt == 0 {
+            return cnt + 1
+        }
+        return cnt
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if self.transactions.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeEmptyTransactionCell.identifier, for: indexPath) as! HomeEmptyTransactionCell
+            cell.delegate = self
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTransactionCell.identifier, for: indexPath) as! HomeTransactionCell
+        cell.configureCell(transaction: self.transactions[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.transactions.isEmpty {
+            return tableView.frame.height
+        }
         return 85
+    }
+}
+
+
+extension HomeVC: HomeVCDelegate {
+    func goToTransfer() {
+        self.tabSwitchDelegate.switchToTransferTab()
     }
 }
