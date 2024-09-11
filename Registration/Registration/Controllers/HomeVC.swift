@@ -14,6 +14,11 @@ class HomeVC: UIViewController {
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var transactionTableView: UITableView!
     
+    // For hiding it
+    @IBOutlet var profileStackView: UIStackView!
+    @IBOutlet var balanceView: UIView!
+    @IBOutlet var viewAllStackView: UIStackView!
+    
     // MARK: - Properties
     var tabSwitchDelegate: TabSwitchProtocol!
     private let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -36,7 +41,7 @@ class HomeVC: UIViewController {
         self.profileView.cornerRadius = profileView.frame.width / 2
         self.setupTableView()
         self.setupActivityIndicator()
-        self.toggleViewsVisibility(alpa: 0)
+        self.toggleViewsVisibility(alpha: 0)
     }
     
     private func setupActivityIndicator(){
@@ -46,10 +51,13 @@ class HomeVC: UIViewController {
         self.view.addSubview(activityIndicator)
     }
     
-    private func toggleViewsVisibility(alpa: Double){
-        self.profileView.alpha = alpa
-        self.balanceLabel.alpha = alpa
-        self.transactionTableView.alpha = alpa
+    private func toggleViewsVisibility(alpha: Double){
+        self.transactionTableView.alpha = alpha
+        self.profileStackView.alpha = alpha
+        self.balanceView.alpha = alpha
+        self.viewAllStackView.alpha = alpha
+        self.profileView.alpha = alpha
+//        self.
     }
     
     private func getBalance() {
@@ -57,7 +65,7 @@ class HomeVC: UIViewController {
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 UIView.animate(withDuration: 0.3) {
-                    self.toggleViewsVisibility(alpa: 1)
+                    self.toggleViewsVisibility(alpha: 1)
                 }
         
                 switch result {
