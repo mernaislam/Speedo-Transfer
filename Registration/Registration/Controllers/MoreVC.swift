@@ -1,16 +1,10 @@
-//
-//  MoreVC.swift
-//  Registration
-//
-//  Created by Merna Islam on 09/09/2024.
-//
-
 import UIKit
 
 class MoreVC: UIViewController {
-
+    
     // MARK: - IBOutlet
     @IBOutlet var moreTableView: UITableView!
+    @IBOutlet weak var contactUsSelected: UILabel! // Change to UILabel if you use UILabel
     
     // MARK: - Properties
     var tabSwitchDelegate: TabSwitchProtocol?
@@ -44,7 +38,6 @@ class MoreVC: UIViewController {
         UserDefaults.standard.removeObject(forKey: "userId") // Example if userId is stored
         UserDefaults.standard.synchronize()
     }
-
     
     private func pushViewController(for item: Int) {
         switch item {
@@ -52,39 +45,47 @@ class MoreVC: UIViewController {
             self.navigationController?.pushViewController(FavoriteVC(), animated: true)
         case 2:
             self.navigationController?.pushViewController(ProfileVC(), animated: true)
+        case 3:
+            openContactMethodPicker()
         case 4:
-                let delegate = UIApplication.shared.delegate as! AppDelegate
-                APIManager.logoutUser { result in
-                    DispatchQueue.main.async {
-                        switch result {
-                        case .success(let message):
-                            print("Logout successful: \(message)")
-                            // Clear session data
-                            self.clearUserSession()
-                            
-                            let alert = UIAlertController(title: "Logged Out", message: "You have successfully logged out.", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                                delegate.switchToLoginScreen() // Redirect to login screen
-                            }))
-                            self.present(alert, animated: true, completion: nil)
-                            
-                        case .failure(let error):
-                            print("Logout failed: \(error.localizedDescription)")
-                            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                        }
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            APIManager.logoutUser { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let message):
+                        print("Logout successful: \(message)")
+                        self.clearUserSession()
+                        let alert = UIAlertController(title: "Logged Out", message: "You have successfully logged out.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                            delegate.switchToLoginScreen()
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                        
+                    case .failure(let error):
+                        print("Logout failed: \(error.localizedDescription)")
+                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
+            }
         default:
             break
         }
     }
+    
+    @objc private func openContactMethodPicker() {
+        let contactMethodPickerVC = ContactMethodPickerVC(nibName: "ContactMethodPickerVC", bundle: nil)
+        
+        contactMethodPickerVC.didSelectMethod = { [weak self] selectedMethod in
+            self?.contactUsSelected.text = selectedMethod
+        }
+        present(contactMethodPickerVC, animated: true, completion: nil)
+    }
 }
 
-
 // MARK: - UITableView Extension
-extension MoreVC: UITableViewDelegate, UITableViewDataSource{
+extension MoreVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moreItems.count
     }

@@ -92,6 +92,8 @@
 		03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */; };
 		03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */; };
 		03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */; };
+		335E07852C924ACC004D3814 /* ContactMethodPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335E07832C924ACC004D3814 /* ContactMethodPickerVC.swift */; };
+		335E07862C924ACC004D3814 /* ContactMethodPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335E07842C924ACC004D3814 /* ContactMethodPickerVC.xib */; };
 		33613CCD2C90754200082FA3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33613CCC2C90754200082FA3 /* APIManager.swift */; };
 		33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */; };
 		33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A372142C7E5A2500EE834F /* Assets.xcassets */; };
@@ -187,6 +189,8 @@
 		03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsVC.swift; sourceTree = "<group>"; };
 		03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsVC.xib; sourceTree = "<group>"; };
 		2F1F3E175CDA11454CEE1B61 /* Pods-Registration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Registration.release.xcconfig"; path = "Target Support Files/Pods-Registration/Pods-Registration.release.xcconfig"; sourceTree = "<group>"; };
+		335E07832C924ACC004D3814 /* ContactMethodPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMethodPickerVC.swift; sourceTree = "<group>"; };
+		335E07842C924ACC004D3814 /* ContactMethodPickerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactMethodPickerVC.xib; sourceTree = "<group>"; };
 		33613CCC2C90754200082FA3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		33A372082C7E5A0F00EE834F /* Registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Registration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -348,6 +352,7 @@
 		0338366F2C8E47EC000C8D33 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				335E077A2C9238BA004D3814 /* Help */,
 				0360B2A92C8FB4C60053D605 /* Profile */,
 				033699AA2C8F41E00031E047 /* Favorites */,
 				033836712C8E483B000C8D33 /* MoreVC.xib */,
@@ -480,6 +485,15 @@
 				033E31CD2C91AE79008C7FA2 /* TransactionModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		335E077A2C9238BA004D3814 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				335E07832C924ACC004D3814 /* ContactMethodPickerVC.swift */,
+				335E07842C924ACC004D3814 /* ContactMethodPickerVC.xib */,
+			);
+			path = Help;
 			sourceTree = "<group>";
 		};
 		33613CC12C90525600082FA3 /* PersonalInformation */ = {
@@ -649,6 +663,7 @@
 				0338366E2C8E40D3000C8D33 /* FavoriteSheetViewCell.xib in Resources */,
 				031FC7E32C90D86B00EBDC37 /* NotificationViewCell.xib in Resources */,
 				033E31DE2C91DF15008C7FA2 /* ServerErrorVC.xib in Resources */,
+				335E07862C924ACC004D3814 /* ContactMethodPickerVC.xib in Resources */,
 				33A372182C7E5A2500EE834F /* LaunchScreen.storyboard in Resources */,
 				033699AD2C8F42DE0031E047 /* FavoriteVC.xib in Resources */,
 				0360B2A42C8FA6F40053D605 /* EditFavoriteSheetVC.xib in Resources */,
@@ -758,6 +773,7 @@
 				0353B5CE2C8D0A6E00586A30 /* ContinueSignUpVC.swift in Sources */,
 				0376730E2C863CF700301E6F /* HomeTransactionCell.swift in Sources */,
 				036597A52C8B7E3C00E318C2 /* TransferVC.swift in Sources */,
+				335E07852C924ACC004D3814 /* ContactMethodPickerVC.swift in Sources */,
 				0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */,
 				0360B2A82C8FA7740053D605 /* EditFavoriteSheetVC.swift in Sources */,
 				0360B2B12C8FB68D0053D605 /* ProfileViewCell.swift in Sources */,
