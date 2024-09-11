@@ -63,6 +63,8 @@
 		03E05E292C8C71770052DED8 /* SuccessCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E05E272C8C71770052DED8 /* SuccessCollectionCell.xib */; };
 		03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E05E2A2C8C854B0052DED8 /* CustomCellDelegate.swift */; };
 		03E05E452C8D02960052DED8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E05E442C8D02960052DED8 /* User.swift */; };
+		03E1AAA42C910A450099A284 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1AAA32C910A450099A284 /* KeychainManager.swift */; };
+		03E1AAA62C910F5A0099A284 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1AAA52C910F5A0099A284 /* TokenManager.swift */; };
 		03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */; };
 		03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */; };
 		03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */; };
@@ -131,6 +133,8 @@
 		03E05E2A2C8C854B0052DED8 /* CustomCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDelegate.swift; sourceTree = "<group>"; };
 		03E05E422C8D026F0052DED8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		03E05E442C8D02960052DED8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		03E1AAA32C910A450099A284 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		03E1AAA52C910F5A0099A284 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsVC.swift; sourceTree = "<group>"; };
 		03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsVC.xib; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			children = (
 				0301284E2C8112EA006ECA3F /* UserDefaultsManager.swift */,
 				33613CCC2C90754200082FA3 /* APIManager.swift */,
+				03E1AAA32C910A450099A284 /* KeychainManager.swift */,
+				03E1AAA52C910F5A0099A284 /* TokenManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -560,6 +566,7 @@
 				03A25CBD2C8772E40040DE60 /* UIViewController+Background.swift in Sources */,
 				0301282D2C80A357006ECA3F /* OnBoardingModel.swift in Sources */,
 				033836792C8E4F69000C8D33 /* MoreItem.swift in Sources */,
+				03E1AAA62C910F5A0099A284 /* TokenManager.swift in Sources */,
 				03B647D42C7F6886007F1F07 /* OnBoardingVC.swift in Sources */,
 				03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */,
 				030128462C810523006ECA3F /* UIView+cornerRadius.swift in Sources */,
@@ -577,6 +584,7 @@
 				0353B5D22C8D0AEC00586A30 /* SignInVC.swift in Sources */,
 				0353B5CC2C8D0A2F00586A30 /* SignUpVC.swift in Sources */,
 				03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */,
+				03E1AAA42C910A450099A284 /* KeychainManager.swift in Sources */,
 				0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */,
 				0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */,
 				33613CCD2C90754200082FA3 /* APIManager.swift in Sources */,

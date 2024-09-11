@@ -163,7 +163,7 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         )
         print("User created and saved: \(newUser)")
         
-        APIManager.shared.registerUser(user: newUser) { result in
+        APIManager.registerUser(user: newUser) { result in
             switch result {
             case .success(let response):
                 print("Registration successful: \(response)")
