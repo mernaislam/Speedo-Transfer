@@ -51,6 +51,8 @@
 		033E31DA2C91DEF8008C7FA2 /* InternetErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31D72C91DEF8008C7FA2 /* InternetErrorVC.swift */; };
 		033E31DE2C91DF15008C7FA2 /* ServerErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31DC2C91DF15008C7FA2 /* ServerErrorVC.xib */; };
 		033E31DF2C91DF15008C7FA2 /* ServerErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31DD2C91DF15008C7FA2 /* ServerErrorVC.swift */; };
+		033E31E32C91E1EE008C7FA2 /* TimeOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31E12C91E1EE008C7FA2 /* TimeOutVC.swift */; };
+		033E31E42C91E1EE008C7FA2 /* TimeOutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31E22C91E1EE008C7FA2 /* TimeOutVC.xib */; };
 		0353B5CC2C8D0A2F00586A30 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CB2C8D0A2F00586A30 /* SignUpVC.swift */; };
 		0353B5CE2C8D0A6E00586A30 /* ContinueSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */; };
 		0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */; };
@@ -142,6 +144,8 @@
 		033E31D72C91DEF8008C7FA2 /* InternetErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetErrorVC.swift; sourceTree = "<group>"; };
 		033E31DC2C91DF15008C7FA2 /* ServerErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerErrorVC.xib; sourceTree = "<group>"; };
 		033E31DD2C91DF15008C7FA2 /* ServerErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerErrorVC.swift; sourceTree = "<group>"; };
+		033E31E12C91E1EE008C7FA2 /* TimeOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOutVC.swift; sourceTree = "<group>"; };
+		033E31E22C91E1EE008C7FA2 /* TimeOutVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeOutVC.xib; sourceTree = "<group>"; };
 		0353B5CB2C8D0A2F00586A30 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueSignUpVC.swift; sourceTree = "<group>"; };
 		0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerVC.swift; sourceTree = "<group>"; };
@@ -381,6 +385,14 @@
 			path = "Server Error";
 			sourceTree = "<group>";
 		};
+		033E31E02C91E1D2008C7FA2 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				033E31E22C91E1EE008C7FA2 /* TimeOutVC.xib */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		0360B2A92C8FB4C60053D605 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +461,7 @@
 		03E05E3B2C8CE6490052DED8 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				033E31E12C91E1EE008C7FA2 /* TimeOutVC.swift */,
 				0353B5CB2C8D0A2F00586A30 /* SignUpVC.swift */,
 				0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */,
 				0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */,
@@ -534,6 +547,7 @@
 		33A372212C7E5B5700EE834F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				033E31E02C91E1D2008C7FA2 /* Authentication */,
 				033E31D32C91DEBB008C7FA2 /* Error Screens */,
 				030128472C8105A7006ECA3F /* OnBoardingScreen */,
 				037673102C863D0D00301E6F /* HomeScreen */,
@@ -646,6 +660,7 @@
 				033699B12C8F45F10031E047 /* FavoriteViewCell.xib in Resources */,
 				031FC7C32C907F5D00EBDC37 /* ProfileInfoVC.xib in Resources */,
 				031FC7DA2C90CC7B00EBDC37 /* ChangePasswordVC.xib in Resources */,
+				033E31E42C91E1EE008C7FA2 /* TimeOutVC.xib in Resources */,
 				031FC7BF2C907B8800EBDC37 /* ProfileVC.xib in Resources */,
 				0360B2B02C8FB68D0053D605 /* ProfileViewCell.xib in Resources */,
 				031FC7C72C90807B00EBDC37 /* ProfileInfoViewCell.xib in Resources */,
@@ -760,6 +775,7 @@
 				0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */,
 				0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */,
 				33613CCD2C90754200082FA3 /* APIManager.swift in Sources */,
+				033E31E32C91E1EE008C7FA2 /* TimeOutVC.swift in Sources */,
 				033699B22C8F45F10031E047 /* FavoriteViewCell.swift in Sources */,
 				033E31DF2C91DF15008C7FA2 /* ServerErrorVC.swift in Sources */,
 				0360B2A32C8FA6F40053D605 /* FavoritesProtocol.swift in Sources */,
