@@ -29,6 +29,10 @@ class TransactionsVC: UIViewController {
     }
     
     @objc private func goBack(){
+        if self.tabSwitchDelegate == nil {
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
         self.tabSwitchDelegate?.switchToHomeTab()
     }
     

@@ -6,7 +6,7 @@
 //
 import UIKit
 
-struct ProfileItem {
+struct ListItem {
     let prefixImage: UIImage?
     let title: String
     let subTitle: String

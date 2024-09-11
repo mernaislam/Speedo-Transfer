@@ -23,7 +23,7 @@ class ProfileViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configureCell(profileItem: ProfileItem){
+    func configureCell(profileItem: ListItem){
         titleLabel.text = profileItem.title
         subTitleLabel.text = profileItem.subTitle
         prefixImageView.image = profileItem.prefixImage
