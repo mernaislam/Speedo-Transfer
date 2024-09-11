@@ -99,6 +99,58 @@ class APIManager {
         }.resume()
     }
     
+    static func logoutUser(completion: @escaping (Result<String, Error>) -> Void) {
+        let urlString = "https://money-transfer-production.up.railway.app/api/logout"
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        guard let token = TokenManager.shared.getToken() else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not available"])))
+            return
+        }
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Logout request error: \(error.localizedDescription)")
+                completion(.failure(error))
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                let errorMessage = "Invalid response from server"
+                print(errorMessage)
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])))
+                return
+            }
+
+            print("HTTP Status Code: \(httpResponse.statusCode)")
+
+            if !(200...299).contains(httpResponse.statusCode) {
+                let errorMessage = "Unexpected server response: \(httpResponse.statusCode)"
+                print("Response Data: \(String(data: data ?? Data(), encoding: .utf8) ?? "No response data")")
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])))
+                return
+            }
+
+            if let data = data, let message = String(data: data, encoding: .utf8) {
+                print("Response Data: \(message)")
+                completion(.success(message))
+            } else {
+                let errorMessage = "No data received or unable to parse data"
+                print(errorMessage)
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])))
+            }
+        }
+
+        task.resume()
+    }
+
+    
     static func getBalance(completion: @escaping (Result<Double, Error>) -> Void) {
         let url = "\(self.baseURL)/balance"
         guard let token = TokenManager.shared.getToken() else { return }

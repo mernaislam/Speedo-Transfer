@@ -39,6 +39,13 @@ class MoreVC: UIViewController {
         self.tabSwitchDelegate?.switchToHomeTab()
     }
     
+    private func clearUserSession() {
+        UserDefaults.standard.removeObject(forKey: "userToken")
+        UserDefaults.standard.removeObject(forKey: "userId") // Example if userId is stored
+        UserDefaults.standard.synchronize()
+    }
+
+    
     private func pushViewController(for item: Int) {
         switch item {
         case 1:
@@ -46,13 +53,35 @@ class MoreVC: UIViewController {
         case 2:
             self.navigationController?.pushViewController(ProfileVC(), animated: true)
         case 4:
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            delegate.switchToLoginScreen()
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                APIManager.logoutUser { result in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(let message):
+                            print("Logout successful: \(message)")
+                            // Clear session data
+                            self.clearUserSession()
+                            
+                            let alert = UIAlertController(title: "Logged Out", message: "You have successfully logged out.", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                                delegate.switchToLoginScreen() // Redirect to login screen
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                            
+                        case .failure(let error):
+                            print("Logout failed: \(error.localizedDescription)")
+                            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                }
         default:
             break
         }
     }
 }
+
 
 // MARK: - UITableView Extension
 extension MoreVC: UITableViewDelegate, UITableViewDataSource{

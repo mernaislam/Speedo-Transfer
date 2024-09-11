@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
       //  IQKeyboardManager.shared.enable = true
         navBarSetup()
-        
+        checkIfUserIsLoggedIn()
         // Check if it's the first time opening the app
 //        let isFirstOpen = UserDefaultsManager.shared().isFirstOpen
 //        if isFirstOpen {
@@ -83,4 +83,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = initialViewController
         }, completion: nil)
     }
+    
+    func checkIfUserIsLoggedIn() {
+        let token = UserDefaults.standard.string(forKey: "authToken")
+        if token == nil {
+            switchToLoginScreen()
+        } else {
+            // Proceed to main app
+        }
+    }
+
 }

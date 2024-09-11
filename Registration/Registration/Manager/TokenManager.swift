@@ -22,5 +22,10 @@ class TokenManager {
         }
         return token
     }
+    
+    func clearToken() {
+            token = nil
+            KeychainManager.deleteTokenFromKeychain()
+        }
 }
 
