@@ -11,17 +11,7 @@ class APIManager {
 
     private static let baseURL = "https://money-transfer-production.up.railway.app/api"
     
-    // Handle token expiration and present TimeOutVC
-    private static func handleTokenExpiration() {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            if let rootViewController = windowScene.windows.first?.rootViewController {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let timeOutVC = storyboard.instantiateViewController(withIdentifier: "TimeOutVC") as? TimeOutVC {
-                    rootViewController.present(timeOutVC, animated: true, completion: nil)
-                }
-            }
-        }
-    }
+
 
     
     static func registerUser(user: User, completion: @escaping (Result<Any, Error>) -> Void) {
@@ -164,12 +154,7 @@ class APIManager {
                     } catch {
                         completion(.failure(error))
                     }
-                    
                 case .failure(let error):
-                    // Check if the error is related to authentication
-                    if let afError = error.asAFError, afError.responseCode == 401 {
-                        handleTokenExpiration()
-                    }
                     completion(.failure(error))
                 }
             }
@@ -191,10 +176,6 @@ class APIManager {
                 case .success(let data):
                     completion(.success(data))
                 case .failure(let error):
-                    // Check if the error is related to authentication
-                    if let afError = error.asAFError, afError.responseCode == 401 {
-                        handleTokenExpiration()
-                    }
                     completion(.failure(error))
                 }
             }
@@ -219,10 +200,6 @@ class APIManager {
             case .success(let transactions):
                 completion(.success(transactions))
             case .failure(let error):
-                // Check if the error is related to authentication
-                if let afError = error.asAFError, afError.responseCode == 401 {
-                    handleTokenExpiration()
-                }
                 completion(.failure(error))
             }
         }

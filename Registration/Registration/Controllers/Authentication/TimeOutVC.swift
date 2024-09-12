@@ -10,8 +10,7 @@ import UIKit
 class TimeOutVC: UIViewController {
 
     @IBOutlet weak var notificationView: UIView!
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var closeButton: UIImageView!
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
     let emailIcon = UIImageView(image: UIImage(named: "email"))
@@ -20,18 +19,20 @@ class TimeOutVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        navigationItem.backBarButtonItem = backButton
         self.applyGradientBgWhiteToRed()
-        configureSignUpButton()
         setupIcons()
-        closeButton.addTarget(self, action: #selector(closeNotification), for: .touchUpInside)
-    }
+        closeButton.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeNotification))
+           closeButton.addGestureRecognizer(tapGesture)
+       }
 
     @objc func closeNotification() {
-        self.dismiss(animated: true, completion: nil)
-    }
+               UIView.animate(withDuration: 0.3) {
+                   self.notificationView.alpha = 0
+               } completion: { _ in
+                   self.notificationView.removeFromSuperview()
+               }
+       }
     
     
     private func checkIfUserIsRegistered() -> Bool{
@@ -80,29 +81,6 @@ class TimeOutVC: UIViewController {
         isPasswordVisible.toggle()
         PasswordTextField.isSecureTextEntry = !isPasswordVisible
         eyeOpenIconPassword.image = UIImage(named: isPasswordVisible ? "closed eye" : "eye open")
-    }
-    
-    private func configureSignUpButton() {
-        let signUpButtonTitle = "Sign Up"
-        let attributedTitle = NSMutableAttributedString(string: signUpButtonTitle)
-        let range = NSRange(location: 0, length: attributedTitle.length)
-        
-        // Set font, color, and underline style
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: signUpButton.titleLabel?.font ?? UIFont.systemFont(ofSize: 16),
-            .foregroundColor: signUpButton.titleLabel?.textColor ?? UIColor.systemBlue,
-            .underlineStyle: NSUnderlineStyle.single.rawValue
-        ]
-        attributedTitle.addAttributes(attributes, range: range)
-        
-        signUpButton.setAttributedTitle(attributedTitle, for: .normal)
-    }
-    
-    @IBAction func SignUpButtonTapped(_ sender: Any) {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                // Call the switchToRegisterScreen method
-                appDelegate.switchToRegisterScreen()
-            }
     }
     
     @IBAction func SignInButtonTapped(_ sender: Any) {

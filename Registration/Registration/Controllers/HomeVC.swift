@@ -69,6 +69,17 @@ class HomeVC: UIViewController {
         self.notificationIcon.alpha = alpha
     }
     
+    // Handle token expiration and replace the root view with TimeOutVC
+    private static func handleTokenExpiration() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let window = windowScene.windows.first {
+                let timeOutVC = TimeOutVC(nibName: "TimeOutVC", bundle: nil)	
+                window.rootViewController = timeOutVC
+            }
+        }
+    }
+
+    
     private func getTransactions(){
         APIManager.getTransactions { result in
             DispatchQueue.main.async {
@@ -85,6 +96,7 @@ class HomeVC: UIViewController {
                 case .failure(let error):
                     self.balanceLabel.text = "Error"
                     print("Error fetching balance: \(error.localizedDescription)")
+                    HomeVC.handleTokenExpiration()
                 }
             }
 
@@ -101,8 +113,7 @@ class HomeVC: UIViewController {
                     print("Balance: \(balanceInt)")
                     
                 case .failure(_):
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.switchToLoginScreen()
+                    HomeVC.handleTokenExpiration()
                 }
             }
         }
