@@ -6,15 +6,31 @@
 
 import UIKit
 
+// MARK: - FavoriteSelectionDelegate
+protocol FavoriteSelectionDelegate: AnyObject {
+    func didSelectFavorite(_ favorite: FavoriteModel)
+}
+
 class FavoriteSheetVC: UIViewController {
 
     // MARK: - IBOutlet
     @IBOutlet var favoriteTableView: UITableView!
     
+    // MARK: - Properties
+    private var favorites: [FavoriteModel] = []
+    weak var delegate: FavoriteSelectionDelegate?
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initiateVC()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        if shouldUpdateFavoriteSheet {
+            self.getFavorites()
+            shouldUpdateFavoriteSheet = false
+//        }
     }
     
     // MARK: - Private Methods
@@ -35,17 +51,39 @@ class FavoriteSheetVC: UIViewController {
         self.favoriteTableView.delegate = self
         self.favoriteTableView.dataSource = self
     }
+    
+    // MARK: - API Methods
+    private func getFavorites(){
+        APIManager.getFavorites { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let favorites):
+                    self.favorites = favorites
+                    self.favoriteTableView.reloadData()
+                    
+                case .failure(_):
+                    self.showAlert(title: "Failure", message: "Failed to get your favorite list")
+                }
+            }
+        }
+    }
 }
 
 // MARK: - UITableView Extension
 extension FavoriteSheetVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return favorites.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteSheetViewCell.identifier, for: indexPath) as! FavoriteSheetViewCell
-        
+        cell.configureCell(favorite: favorites[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedFavorite = favorites[indexPath.row]
+        delegate?.didSelectFavorite(selectedFavorite)
+        dismiss(animated: true, completion: nil)
     }
 }

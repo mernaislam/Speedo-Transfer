@@ -256,7 +256,14 @@
             </constraints>
             <size key="customSize" width="447" height="818"/>
             <connections>
+                <outlet property="cellView" destination="mze-3C-Y9q" id="WlJ-mh-1j0"/>
                 <outlet property="previousBtn" destination="cmE-gN-8oE" id="fpT-8D-PRA"/>
+                <outlet property="receiverAccountNum" destination="vHQ-iM-2T9" id="I1r-Ko-ea0"/>
+                <outlet property="receiverName" destination="K22-b8-6SC" id="20T-5d-8wz"/>
+                <outlet property="senderAccountNum" destination="xcB-63-Lxz" id="FKV-W1-TXL"/>
+                <outlet property="senderName" destination="8q2-JA-1vm" id="IKk-qo-XKx"/>
+                <outlet property="totalAmount" destination="eAa-Is-aQf" id="D92-ry-TGM"/>
+                <outlet property="transferAmount" destination="XZj-Ux-Iaj" id="twy-qd-Pel"/>
             </connections>
             <point key="canvasLocation" x="220.61068702290075" y="15.140845070422536"/>
         </collectionViewCell>

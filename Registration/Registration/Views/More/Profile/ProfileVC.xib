@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="Registration" customModuleProvider="target">
             <connections>
+                <outlet property="nameLabel" destination="5X2-UU-lH6" id="FDJ-Tt-CnO"/>
+                <outlet property="nameProfile" destination="qwx-uC-Y5d" id="qOH-bN-KpK"/>
                 <outlet property="profileTableView" destination="7dt-aH-Lep" id="CM6-Pb-WTh"/>
                 <outlet property="profileView" destination="u0f-IN-zEw" id="qkB-NM-Xpe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

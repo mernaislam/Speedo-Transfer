@@ -250,6 +250,11 @@
             <size key="customSize" width="367" height="840"/>
             <connections>
                 <outlet property="addToFavoritesBtn" destination="viw-p9-dHR" id="6Ab-jI-2BK"/>
+                <outlet property="receiverAccountNum" destination="uzA-WU-e1F" id="NBg-OV-miZ"/>
+                <outlet property="receiverName" destination="1rD-Nj-wco" id="6RB-Fo-2Zi"/>
+                <outlet property="senderAccountNum" destination="0W4-rr-8SG" id="QaO-Ms-wDI"/>
+                <outlet property="senderName" destination="6Ex-VF-b0V" id="Mup-oJ-ZS8"/>
+                <outlet property="transferAmount" destination="meS-hp-h1T" id="vC9-WL-yC3"/>
             </connections>
             <point key="canvasLocation" x="28.244274809160306" y="28.87323943661972"/>
         </collectionViewCell>

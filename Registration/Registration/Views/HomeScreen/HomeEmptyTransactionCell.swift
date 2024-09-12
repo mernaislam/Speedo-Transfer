@@ -12,7 +12,7 @@ class HomeEmptyTransactionCell: UITableViewCell {
     static let identifier = "HomeEmptyTransactionCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
     
-    var delegate: HomeVCDelegate!
+    var delegate: TransferVCDelegate!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -9,23 +9,29 @@ import UIKit
 
 class ProfileInfoVC: UIViewController {
 
-    
+    // MARK: - IBOutlet
     @IBOutlet var detailsTableView: UITableView!
+    
+    // MARK: - Properties
     var user: User?
-
     var profileDetails: [DetailItem] = []
 
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupProfileDetails()
-        setupTableView()
-        self.setupNavigationBar(title: "Profile Information", selector: #selector(self.goBack))
-        self.applyGradientBgYellowToRed()
-        
+        self.initiateVC()
     }
     
+    // MARK: - Private Methods
     @objc private func goBack(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func initiateVC(){
+        self.setupTableView()
+        self.setupNavigationBar(title: "Profile Information", selector: #selector(self.goBack))
+        self.applyGradientBgYellowToRed()
+        self.setupProfileDetails()
     }
     
     private func setupTableView() {
@@ -36,17 +42,12 @@ class ProfileInfoVC: UIViewController {
     }
     
     private func setupProfileDetails() {
-//        guard let user = user else { return }
-        user = User(name: "Malak", email: "Malak brdo", password: "ajksjaks", confirmPassword: "ajksjaks", country: "Egypt", dateOfBirth: Date())
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        
         profileDetails = [
-            DetailItem(title: "Full Name", subTitle: user!.name),
-            DetailItem(title: "Email", subTitle: user!.email),
-//            DetailItem(title: "Date Of Birth", subTitle: dateFormatter.string(from: user!.dateOfBirth)),
-            DetailItem(title: "Country", subTitle: user!.country),
-//            DetailItem(title: "Bank Account", subTitle: user!.bankAccount)
+            DetailItem(title: "Full Name", subTitle: currentUser.name),
+            DetailItem(title: "Email", subTitle: currentUser.email),
+            DetailItem(title: "Date Of Birth", subTitle: currentUser.dateOfBirth),
+            DetailItem(title: "Country", subTitle: currentUser.country),
+            DetailItem(title: "Bank Account", subTitle: currentUser.bankAccount)
         ]
         
         detailsTableView.reloadData()
@@ -54,9 +55,9 @@ class ProfileInfoVC: UIViewController {
     
 }
 
+// MARK: - UITableView Extension
 extension ProfileInfoVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(profileDetails.count)
         return profileDetails.count
     }
     
@@ -70,9 +71,4 @@ extension ProfileInfoVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
-}
-
-struct DetailItem {
-    let title: String
-    let subTitle: String
 }

@@ -7,6 +7,11 @@
 
 import UIKit
 
+// MARK: - TransferVCDelegate
+protocol TransferVCDelegate {
+    func goToTransfer()
+}
+
 class TransferVC: UIViewController {
     
     // MARK: - IBOutlet
@@ -19,10 +24,11 @@ class TransferVC: UIViewController {
     @IBOutlet var transferCollectionView: UICollectionView!
    
     // MARK: - Properities
-    let gradientLayer = CAGradientLayer()
     var tabSwitchDelegate: TabSwitchProtocol?
+    private let gradientLayer = CAGradientLayer()
+    private var amountValue: Double = 0.0
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     
-
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,18 @@ class TransferVC: UIViewController {
         self.setupStepperViews()
         self.cellsRegistration()
         self.setupCollectionView()
+    }
+    
+    private func setupActivityIndicator(){
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.color = .gray
+        self.view.addSubview(activityIndicator)
+        self.view.bringSubviewToFront(activityIndicator)
+    }
+    
+    private func toggleViewsVisibility(alpha: Double){
+        self.transferCollectionView.alpha = alpha
     }
     
     // MARK: - Collection View Setup
@@ -107,6 +125,11 @@ class TransferVC: UIViewController {
         self.gradientLayer.add(animation, forKey: nil)
     }
     
+    func getConfirmCollectionCell() -> ConfirmCollectionCell? {
+        let indexPath = IndexPath(item: 1, section: 0)
+        return self.transferCollectionView.cellForItem(at: indexPath) as? ConfirmCollectionCell
+    }
+    
     // MARK: - Navigation Function
     @objc func goBack(){
         if let visibleIndexPath = self.transferCollectionView.indexPathsForVisibleItems.first {
@@ -138,11 +161,13 @@ extension TransferVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ConfirmCollectionCell.identifier, for: indexPath) as! ConfirmCollectionCell
             cell.delegate = self
+            cell.amount = self.amountValue
             return cell
                         
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuccessCollectionCell.identifier, for: indexPath) as! SuccessCollectionCell
             cell.delegate = self
+            cell.amount = self.amountValue
             return cell
         }
     }
@@ -157,8 +182,19 @@ extension TransferVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
 
 // MARK: - CellDelegate Extension
 extension TransferVC: CustomCellDelegate {
-    func openFavoritesSheet() {
-        self.present(FavoriteSheetVC(), animated: true)
+    var transferAmount: Double {
+        get {
+            return amountValue
+        }
+        set {
+            self.amountValue = newValue
+            let indexPath = IndexPath(item: 1, section: 0)
+            transferCollectionView.reloadItems(at: [indexPath])
+        }
+    }
+    
+    func showMessage(title: String, message: String) {
+        self.showAlert(title: title, message: message)
     }
     
     func goToHome() {

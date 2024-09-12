@@ -59,3 +59,25 @@ let countries: [(name: String, flag: String)] = [
     ("Saudi Arabia", "🇸🇦"),
     ("", "")
 ]
+
+var currentTransaction: TransactionModel?
+
+var currentBalance: Double!
+
+struct CurrentUser {
+    var name: String
+    var balance: Double
+    var email: String
+    var dateOfBirth: String
+    var country: String
+    var bankAccount: String
+}
+
+var currentUser = CurrentUser(name: "", balance: 0, email: "", dateOfBirth: "", country: "", bankAccount: "")
+
+
+var shouldUpdateHomeTransactions: Bool = true
+var shouldUpdateTransactionsScreen: Bool = true
+var shouldUpdateFavoriteScreen: Bool = true
+var shouldUpdateFavoriteSheet: Bool = true
+
