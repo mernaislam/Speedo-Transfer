@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import IQKeyboardManagerSwift
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().delegate = self
         askNotificationPermission()
       
-        //  IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enable = true
         navBarSetup()
         checkIfUserIsLoggedIn()
         // Check if it's the first time opening the app

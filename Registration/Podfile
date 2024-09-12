@@ -8,6 +8,6 @@ target 'Registration' do
   # Pods for Registration
 pod 'RAMAnimatedTabBarController'
 pod 'Alamofire', '~> 5.6.4'
-#pod 'IQKeyboardManagerSwift'
+pod 'IQKeyboardManagerSwift'
 
 end
