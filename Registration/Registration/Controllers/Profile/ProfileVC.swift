@@ -9,8 +9,11 @@ import UIKit
 
 class ProfileVC: UIViewController {
 
+    // MARK: - IBOutlets
     @IBOutlet var profileTableView: UITableView!
     @IBOutlet var profileView: UIView!
+    @IBOutlet var nameProfile: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -24,6 +27,8 @@ class ProfileVC: UIViewController {
         self.setupTableView()
         self.profileView.cornerRadius = profileView.frame.width / 2
         self.applyGradientBgYellowToRed()
+        self.nameLabel.text = currentUser.name
+        self.nameProfile.text = AppHelper.getInitials(from: currentUser.name)
     }
     
     private func setupTableView(){
@@ -55,6 +60,7 @@ class ProfileVC: UIViewController {
 
 }
 
+// MARK: - UITableView Extension
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return profileItems.count

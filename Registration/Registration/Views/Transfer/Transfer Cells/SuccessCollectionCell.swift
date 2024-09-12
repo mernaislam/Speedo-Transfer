@@ -40,10 +40,10 @@ class SuccessCollectionCell: UICollectionViewCell {
     // MARK: - Private Methods
     private func fillDetails(){
         self.transferAmount.text = "\(amount!) EGP"
-        self.senderName.text = currentTransaction.senderAccount.name
-        self.senderAccountNum.text = currentTransaction.senderAccount.accountNumber
-        self.receiverName.text = currentTransaction.receiverAccount.name
-        self.receiverAccountNum.text = currentTransaction.receiverAccount.accountNumber
+        self.senderName.text = currentTransaction!.senderAccount.name
+        self.senderAccountNum.text = currentTransaction!.senderAccount.accountNumber
+        self.receiverName.text = currentTransaction!.receiverAccount.name
+        self.receiverAccountNum.text = currentTransaction!.receiverAccount.accountNumber
     }
     
     // MARK: - API Methods
@@ -72,6 +72,8 @@ class SuccessCollectionCell: UICollectionViewCell {
         self.addToFavoritesBtn.setTitle("Loading...", for: .normal)
         self.addToFavoritesBtn.isEnabled = false
         self.addFavorite()
+        shouldUpdateFavoriteSheet = true
+        shouldUpdateFavoriteScreen = true
     }
     
 }

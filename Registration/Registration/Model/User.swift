@@ -26,4 +26,13 @@ struct User: Codable {
         self.country = country
         self.dateOfBirth = dateFormatter.string(from: dateOfBirth)
     }
+    
+    init(name: String, email: String, password: String, confirmPassword: String, country: String, dateOfBirth: String){
+        self.name = name
+        self.email = email
+        self.password = password
+        self.confirmPassword = confirmPassword
+        self.country = country
+        self.dateOfBirth = dateOfBirth
+    }
 }

@@ -43,10 +43,10 @@ class ConfirmCollectionCell: UICollectionViewCell {
     private func fillDetails(){
         self.transferAmount.text = "\(amount!) EGP"
         self.totalAmount.text = "\(amount!) EGP"
-        self.senderName.text = currentTransaction.senderAccount.name
-        self.senderAccountNum.text = currentTransaction.senderAccount.accountNumber
-        self.receiverName.text = currentTransaction.receiverAccount.name
-        self.receiverAccountNum.text = currentTransaction.receiverAccount.accountNumber
+        self.senderName.text = currentTransaction!.senderAccount.name
+        self.senderAccountNum.text = currentTransaction!.senderAccount.accountNumber
+        self.receiverName.text = currentTransaction!.receiverAccount.name
+        self.receiverAccountNum.text = currentTransaction!.receiverAccount.accountNumber
         
     }
     
@@ -69,6 +69,8 @@ class ConfirmCollectionCell: UICollectionViewCell {
         self.transfer()
         delegate?.goToCell(in: self, next: true)
         delegate?.animateStepColorChange(step: 3)
+        shouldUpdateHomeTransactions = true
+        shouldUpdateTransactionsScreen = true
     }
     
     @IBAction func previousBtnTapped(_ sender: Any) {

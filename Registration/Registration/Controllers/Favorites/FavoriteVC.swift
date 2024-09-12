@@ -21,12 +21,20 @@ class FavoriteVC: UIViewController {
         self.initiateVC()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        print("Favorites")
+//        print(self.favorites)
+//        if shouldUpdateFavoriteScreen {
+            self.getFavorites()
+//            shouldUpdateFavoriteScreen = false
+//        }
+    }
+    
     // MARK: - Private Methods
     private func initiateVC(){
         self.applyGradientBgYellowToRed()
         self.setupNavigationBar(title: "Favorites", selector: #selector(self.goBack))
         self.setupTableView()
-        self.getFavorites()
     }
     
     private func setupTableView(){

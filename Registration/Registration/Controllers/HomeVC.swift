@@ -12,6 +12,8 @@ class HomeVC: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet var profileView: UIView!
     @IBOutlet var balanceLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var nameProfile: UILabel!
     @IBOutlet var transactionTableView: UITableView!
     @IBOutlet var notificationIcon: UIImageView!
     // For hiding it
@@ -31,10 +33,14 @@ class HomeVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.activityIndicator.startAnimating()
-        self.toggleViewsVisibility(alpha: 0)
-        self.getBalance()
-        self.getTransactions()
+        if shouldUpdateHomeTransactions {
+            self.activityIndicator.startAnimating()
+            self.toggleViewsVisibility(alpha: 0)
+            self.getBalance()
+            self.getTransactions()
+            shouldUpdateHomeTransactions = false
+        }
+        
     }
 
     // MARK: - Private Methods
@@ -88,6 +94,11 @@ class HomeVC: UIViewController {
                 UIView.animate(withDuration: 0.3) {
                     self.toggleViewsVisibility(alpha: 1)
                 }
+                print(currentUser.name)
+                print(self.transactions.count)
+                if currentUser.name == "" && self.transactions.count != 0{
+                    self.fillCurrentUserData()
+                }
         
                 switch result {
                 case .success(let transactions):
@@ -100,6 +111,18 @@ class HomeVC: UIViewController {
                 }
             }
         }
+    }
+    
+    private func fillCurrentUserData(){
+        let user = self.transactions[0].senderAccount
+        currentUser.name = user.name
+        currentUser.email = user.email
+        currentUser.bankAccount = user.accountNumber
+        currentUser.country = user.country
+        currentUser.balance = user.balance
+        currentUser.dateOfBirth = user.dateOfBirth
+        self.nameLabel.text = user.name
+        self.nameProfile.text = AppHelper.getInitials(from: user.name)
     }
     
     private func getBalance() {

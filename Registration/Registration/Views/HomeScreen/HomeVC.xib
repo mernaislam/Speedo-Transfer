@@ -13,8 +13,10 @@
             <connections>
                 <outlet property="balanceLabel" destination="JWZ-oF-j1p" id="KS4-m4-Uik"/>
                 <outlet property="balanceView" destination="Uqz-sz-Bm4" id="T7x-LR-CkP"/>
-                <outlet property="profileStackView" destination="7f4-SF-FAh" id="7iB-TB-pm3"/>
+                <outlet property="nameLabel" destination="tCj-rf-fPO" id="Grp-ZL-9cr"/>
+                <outlet property="nameProfile" destination="xrR-w8-Mkv" id="euG-vk-zhi"/>
                 <outlet property="notificationIcon" destination="4fo-iM-wFU" id="p7t-yM-7Qu"/>
+                <outlet property="profileStackView" destination="7f4-SF-FAh" id="7iB-TB-pm3"/>
                 <outlet property="profileView" destination="ATM-is-R5g" id="Usy-gO-wFc"/>
                 <outlet property="transactionTableView" destination="COg-KM-yfA" id="48M-q4-COH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -26,11 +26,17 @@ class FavoriteSheetVC: UIViewController {
         self.initiateVC()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        if shouldUpdateFavoriteSheet {
+            self.getFavorites()
+            shouldUpdateFavoriteSheet = false
+//        }
+    }
+    
     // MARK: - Private Methods
     private func initiateVC(){
         self.createSheet()
         self.setupTableView()
-        self.getFavorites()
     }
     
     private func createSheet(){
@@ -55,7 +61,7 @@ class FavoriteSheetVC: UIViewController {
                     self.favorites = favorites
                     self.favoriteTableView.reloadData()
                     
-                case .failure(let error):
+                case .failure(_):
                     self.showAlert(title: "Failure", message: "Failed to get your favorite list")
                 }
             }

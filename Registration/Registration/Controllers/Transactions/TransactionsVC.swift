@@ -24,9 +24,12 @@ class TransactionsVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.activityIndicator.startAnimating()
-        self.toggleViewsVisibility(alpha: 0)
-        self.getTransactions()
+//        if shouldUpdateTransactionsScreen {
+            self.activityIndicator.startAnimating()
+            self.toggleViewsVisibility(alpha: 0)
+            self.getTransactions()
+//            shouldUpdateTransactionsScreen = false
+//        }
     }
     
     // MARK: - Private Methods
