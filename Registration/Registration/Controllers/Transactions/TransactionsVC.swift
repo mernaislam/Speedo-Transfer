@@ -24,12 +24,12 @@ class TransactionsVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        if shouldUpdateTransactionsScreen {
+        if shouldUpdateTransactionsScreen {
             self.activityIndicator.startAnimating()
             self.toggleViewsVisibility(alpha: 0)
             self.getTransactions()
-//            shouldUpdateTransactionsScreen = false
-//        }
+            shouldUpdateTransactionsScreen = false
+        }
     }
     
     // MARK: - Private Methods
@@ -79,7 +79,8 @@ class TransactionsVC: UIViewController {
                 switch result {
                 case .success(let transactions):
                     self.transactions = transactions
-                    self.transactions = self.transactions.filter { $0.amount != 0.1 }
+                    self.transactions = self.transactions.filter { $0.amount > 1}
+                    self.transactions = Array(self.transactions.reversed())
                     self.transactionTableView.reloadData()
                     
                 case .failure(_):

@@ -14,6 +14,8 @@ class HomeTransactionCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var stateLabel: UILabel!
+    @IBOutlet var visaDetails: UILabel!
+    @IBOutlet var receivedOrSent: UILabel!
     
     // MARK: - Static Properities
     static var identifier: String = "HomeTransactionCell"
@@ -28,10 +30,25 @@ class HomeTransactionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    private func checkSenderOrReceiver(transaction: TransactionModel){
+        var accNum: String
+        if currentUser.name == transaction.senderAccount.name {
+            self.receivedOrSent.text = "- Sent"
+            self.nameLabel.text = transaction.receiverAccount.name
+            accNum = transaction.receiverAccount.accountNumber
+        } else {
+            self.receivedOrSent.text = "- Received"
+            self.nameLabel.text = transaction.senderAccount.name
+            accNum = transaction.senderAccount.accountNumber
+        }
+        let lastFourDigits = String(accNum.suffix(4))
+        self.visaDetails.text = "Visa . Master Card . \(lastFourDigits)"
+        self.dateLabel.text = transaction.formatTimestamp()
+        self.balanceLabel.text = "\(Int(transaction.amount)) EGP"
+    }
+    
     func configureCell(transaction: TransactionModel){
-        self.nameLabel.text = transaction.receiverAccount.name
-        self.dateLabel.text = transaction.formatTimestamp(transaction.timestamp)
-        self.balanceLabel.text = "\(transaction.amount)"
+        self.checkSenderOrReceiver(transaction: transaction)
     }
     
 }

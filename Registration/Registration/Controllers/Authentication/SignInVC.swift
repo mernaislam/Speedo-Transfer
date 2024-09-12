@@ -20,6 +20,10 @@ class SignInVC: UIViewController {
         setupIcons()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loggedOut = true
+    }
+    
     private func checkIfUserIsRegistered() -> Bool{
         let userDefaults = UserDefaults.standard
         if let isRegistered = userDefaults.value(forKey: "isRegistered") as? Bool, isRegistered {

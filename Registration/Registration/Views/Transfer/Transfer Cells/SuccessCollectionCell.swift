@@ -39,7 +39,7 @@ class SuccessCollectionCell: UICollectionViewCell {
     
     // MARK: - Private Methods
     private func fillDetails(){
-        self.transferAmount.text = "\(amount!) EGP"
+        self.transferAmount.text = "\(Int(amount!)) EGP"
         self.senderName.text = currentTransaction!.senderAccount.name
         self.senderAccountNum.text = currentTransaction!.senderAccount.accountNumber
         self.receiverName.text = currentTransaction!.receiverAccount.name

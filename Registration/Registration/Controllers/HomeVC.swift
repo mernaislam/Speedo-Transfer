@@ -30,15 +30,23 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initiateVC()
+        self.dummyTransfer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if shouldUpdateHomeTransactions {
+        if shouldUpdateHomeTransactions || loggedOut {
             self.activityIndicator.startAnimating()
             self.toggleViewsVisibility(alpha: 0)
             self.getBalance()
             self.getTransactions()
             shouldUpdateHomeTransactions = false
+        }
+        
+        if loggedOut {
+            print("ana logged out")
+            self.dummyTransfer()
+            loggedOut = false
+            shouldUpdateTransactionsScreen = true
         }
         
     }
@@ -86,35 +94,9 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(NotificationVC(), animated: true)
     }
     
-    // MARK: - API Methods
-    private func getTransactions(){
-        APIManager.getTransactions { result in
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                UIView.animate(withDuration: 0.3) {
-                    self.toggleViewsVisibility(alpha: 1)
-                }
-                print(currentUser.name)
-                print(self.transactions.count)
-                if currentUser.name == "" && self.transactions.count != 0{
-                    self.fillCurrentUserData()
-                }
-        
-                switch result {
-                case .success(let transactions):
-                    self.transactions = transactions
-                    self.transactions = self.transactions.filter( {$0.amount != 0.1})
-                    self.transactionTableView.reloadData()
-                    
-                case .failure(_):
-                    print("Token expired")
-                }
-            }
-        }
-    }
-    
     private func fillCurrentUserData(){
-        let user = self.transactions[0].senderAccount
+        let i = self.transactions.count - 1
+        let user = self.transactions[i].senderAccount
         currentUser.name = user.name
         currentUser.email = user.email
         currentUser.bankAccount = user.accountNumber
@@ -123,6 +105,42 @@ class HomeVC: UIViewController {
         currentUser.dateOfBirth = user.dateOfBirth
         self.nameLabel.text = user.name
         self.nameProfile.text = AppHelper.getInitials(from: user.name)
+    }
+    
+    // MARK: - API Methods
+    private func getTransactions(){
+        APIManager.getTransactions { result in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                UIView.animate(withDuration: 0.3) {
+                    self.toggleViewsVisibility(alpha: 1)
+                }
+                switch result {
+                case .success(let transactions):
+                    self.transactions = transactions
+                    self.fillCurrentUserData()
+                    self.transactions = self.transactions.filter( {$0.amount > 1})
+                    self.transactions = Array(self.transactions.reversed())
+                    self.transactionTableView.reloadData()
+                case .failure(_):
+                    print("Token expired")
+                }
+            }
+        }
+    }
+    
+    // Workaround to get current user details (No API exist for this)
+    private func dummyTransfer(){
+        APIManager.transfer(to: "0890675435", amount: 0.0001) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    self.getTransactions()
+                case .failure(_):
+                    print("failure")
+                }
+            }
+        }
     }
     
     private func getBalance() {

@@ -89,7 +89,9 @@
                 <outlet property="balanceLabel" destination="JrJ-fo-pS0" id="nhF-TO-Ve1"/>
                 <outlet property="dateLabel" destination="pU5-Q9-FK5" id="WRV-tp-erB"/>
                 <outlet property="nameLabel" destination="UhS-Pf-F3z" id="7DF-35-OcH"/>
+                <outlet property="receivedOrSent" destination="Eq7-7z-Yqx" id="AA1-bP-cIA"/>
                 <outlet property="stateLabel" destination="Eq7-7z-Yqx" id="cyj-Gy-Zd7"/>
+                <outlet property="visaDetails" destination="wsb-dP-yAS" id="E1x-Bq-tkC"/>
             </connections>
             <point key="canvasLocation" x="196.94656488549617" y="54.929577464788736"/>
         </tableViewCell>

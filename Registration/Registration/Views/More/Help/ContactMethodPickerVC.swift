@@ -35,7 +35,7 @@ class ContactMethodPickerVC: UIViewController, UITableViewDelegate, UITableViewD
         self.applyGradientBgWhiteToRed()
         // Configure bottom sheet presentation
         if let sheet = self.sheetPresentationController {
-            sheet.detents = [.medium()()] // Medium detent for the bottom sheet
+            sheet.detents = [.medium()] // Medium detent for the bottom sheet
             sheet.prefersGrabberVisible = false // Hide the default grabber
             sheet.preferredCornerRadius = 50 // Set corner radius
         }

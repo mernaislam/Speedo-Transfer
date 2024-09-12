@@ -41,13 +41,27 @@ class ConfirmCollectionCell: UICollectionViewCell {
     
     // MARK: - Private Methods
     private func fillDetails(){
-        self.transferAmount.text = "\(amount!) EGP"
-        self.totalAmount.text = "\(amount!) EGP"
+        self.transferAmount.text = "\(Int(amount!)) EGP"
+        self.totalAmount.text = "\(Int(amount!)) EGP"
         self.senderName.text = currentTransaction!.senderAccount.name
         self.senderAccountNum.text = currentTransaction!.senderAccount.accountNumber
         self.receiverName.text = currentTransaction!.receiverAccount.name
         self.receiverAccountNum.text = currentTransaction!.receiverAccount.accountNumber
         
+    }
+    
+    private func sendNotifications(){
+        let content = UNMutableNotificationContent()
+        content.title = "Successful Transaction"
+        content.subtitle = currentTransaction!.senderAccount.name
+        content.body = "You sent money to \(currentTransaction!.receiverAccount.name)"
+        content.sound = .default
+        content.badge = 0
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(1),
+                                                        repeats: false)
+        let request = UNNotificationRequest(identifier: "testID", content: content,
+                                            trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
     }
     
     // MARK: - API Methods
@@ -71,6 +85,7 @@ class ConfirmCollectionCell: UICollectionViewCell {
         delegate?.animateStepColorChange(step: 3)
         shouldUpdateHomeTransactions = true
         shouldUpdateTransactionsScreen = true
+        self.sendNotifications()
     }
     
     @IBAction func previousBtnTapped(_ sender: Any) {

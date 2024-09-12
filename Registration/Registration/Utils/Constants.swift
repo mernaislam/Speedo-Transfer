@@ -75,6 +75,9 @@ struct CurrentUser {
 
 var currentUser = CurrentUser(name: "", balance: 0, email: "", dateOfBirth: "", country: "", bankAccount: "")
 
+var sendNotifications: Bool = false
+
+var loggedOut: Bool = false
 
 var shouldUpdateHomeTransactions: Bool = true
 var shouldUpdateTransactionsScreen: Bool = true

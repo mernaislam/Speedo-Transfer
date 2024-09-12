@@ -46,31 +46,35 @@ class MoreVC: UIViewController {
         case 2:
             self.navigationController?.pushViewController(ProfileVC(), animated: true)
         case 3:
-            openContactMethodPicker()
+            self.openContactMethodPicker()
         case 4:
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            APIManager.logoutUser { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let message):
-                        print("Logout successful: \(message)")
-                        self.clearUserSession()
-                        let alert = UIAlertController(title: "Logged Out", message: "You have successfully logged out.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                            delegate.switchToLoginScreen()
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                        
-                    case .failure(let error):
-                        print("Logout failed: \(error.localizedDescription)")
-                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                }
-            }
+            self.logout()
         default:
             break
+        }
+    }
+    
+    private func logout(){
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        APIManager.logoutUser { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let message):
+                    print("Logout successful: \(message)")
+                    self.clearUserSession()
+                    let alert = UIAlertController(title: "Logged Out", message: "You have successfully logged out.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        delegate.switchToLoginScreen()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                case .failure(let error):
+                    print("Logout failed: \(error.localizedDescription)")
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
     

@@ -33,6 +33,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         configureSignInButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loggedOut = true
+    }
+    
     private func setupIcons() {
         // Setup for Full Name text field
         userIcon.frame = CGRect(x: -14, y: 0, width: 24, height: 24)
