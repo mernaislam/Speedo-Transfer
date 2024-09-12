@@ -29,4 +29,15 @@ class UserDefaultsManager {
         }
     }
     
+    var isLoggedIn: Bool {
+        set {
+            def.setValue(newValue, forKey: "isLoggedIn")
+        } get {
+            if def.object(forKey: "isLoggedIn") == nil {
+                return true
+            }
+            return false
+        }
+    }
+    
 }

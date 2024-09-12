@@ -14,28 +14,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.initializeApp()
         
+        return true
+    }
+    
+    private func initializeApp(){
         window = UIWindow(frame: UIScreen.main.bounds)
         UNUserNotificationCenter.current().delegate = self
         askNotificationPermission()
       
         IQKeyboardManager.shared.enable = true
         navBarSetup()
-        checkIfUserIsLoggedIn()
-        // Check if it's the first time opening the app
-//        let isFirstOpen = UserDefaultsManager.shared().isFirstOpen
-//        if isFirstOpen {
-//            showOnBoardingScreen()
-//        } else {
-//            switchToRegisterScreen()
-//        }
+        
 
-//        switchToRegisterScreen()
-//        showOnBoardingScreen()
-         switchToHomeScreen()
-
-        window?.makeKeyAndVisible() 
-        return true
+        let isFirstOpen = UserDefaultsManager.shared().isFirstOpen
+        
+        if isFirstOpen {
+            self.showOnBoardingScreen()
+        } else {
+            self.checkIfUserIsLoggedIn()
+        }
+        
+        window?.makeKeyAndVisible()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -44,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         self.switchToNotificationsScreen()
-        print("switched")
     }
     
     func askNotificationPermission(){
@@ -120,11 +120,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func checkIfUserIsLoggedIn() {
-        let token = UserDefaults.standard.string(forKey: "authToken")
-        if token == nil {
-            switchToLoginScreen()
+        if UserDefaultsManager.shared().isLoggedIn {
+            switchToHomeScreen()
         } else {
-            // Proceed to main app
+            switchToLoginScreen()
         }
     }
 

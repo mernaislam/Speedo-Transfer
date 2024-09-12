@@ -21,6 +21,7 @@ class SignInVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        UserDefaultsManager.shared().isLoggedIn = false
         loggedOut = true
     }
     

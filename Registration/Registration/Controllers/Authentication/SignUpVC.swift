@@ -19,6 +19,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserDefaultsManager.shared().isFirstOpen = false
+        UserDefaultsManager.shared().isLoggedIn = false
         let backButton = UIBarButtonItem()
         backButton.title = ""
         navigationItem.backBarButtonItem = backButton
@@ -34,6 +36,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        UserDefaultsManager.shared().isLoggedIn = false
         loggedOut = true
     }
     

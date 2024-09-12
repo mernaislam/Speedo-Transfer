@@ -34,6 +34,7 @@ class HomeVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        UserDefaultsManager.shared().isLoggedIn = true
         if shouldUpdateHomeTransactions || loggedOut {
             self.activityIndicator.startAnimating()
             self.toggleViewsVisibility(alpha: 0)
