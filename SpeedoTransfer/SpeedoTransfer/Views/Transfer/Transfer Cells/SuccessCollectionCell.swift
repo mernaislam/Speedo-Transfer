@@ -55,7 +55,6 @@ class SuccessCollectionCell: UICollectionViewCell {
                     self.addToFavoritesBtn.setTitle("Add to Favorites", for: .normal)
                     self.addToFavoritesBtn.isEnabled = true
                 case .failure(let error):
-                    print(error)
                     self.addToFavoritesBtn.setTitle("Add to Favorites", for: .normal)
                     self.addToFavoritesBtn.isEnabled = true
                 }

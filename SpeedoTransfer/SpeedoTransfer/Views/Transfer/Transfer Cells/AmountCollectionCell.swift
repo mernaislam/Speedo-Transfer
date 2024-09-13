@@ -104,7 +104,7 @@ class AmountCollectionCell: UICollectionViewCell {
                     self.delegate?.goToCell(in: self, next: true)
                     self.delegate?.animateStepColorChange(step: 2)
                 case .failure(_):
-                    print("Failed")
+                    return
                 }
             }
         }

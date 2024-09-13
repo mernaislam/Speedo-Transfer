@@ -161,18 +161,18 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
             country: selectedCountry,
             dateOfBirth: selectedDate
         )
-        print("User created and saved: \(newUser)")
         
         APIManager.registerUser(user: newUser) { result in
-            switch result {
-            case .success(let response):
-                print("Registration successful: \(response)")
-                DispatchQueue.main.async {
-                    let delegate = UIApplication.shared.delegate as? AppDelegate
-                    delegate?.switchToHomeScreen()
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    DispatchQueue.main.async {
+                        let delegate = UIApplication.shared.delegate as? AppDelegate
+                        delegate?.switchToLoginScreen()
+                    }
+                case .failure(let error):
+                    self.showAlert(title: "Registration Failed", message: error.localizedDescription.description)
                 }
-            case .failure(let error):
-                print("Registration failed: \(error.localizedDescription)")
             }
         }
     }

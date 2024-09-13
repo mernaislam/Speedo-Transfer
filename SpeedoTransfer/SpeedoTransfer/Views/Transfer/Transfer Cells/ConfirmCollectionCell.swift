@@ -70,9 +70,9 @@ class ConfirmCollectionCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
-                    print("Transfer successful")
+                    return
                 case .failure(let error):
-                    print("Transfer failed: \(error.localizedDescription)")
+                    return
                 }
             }
         }

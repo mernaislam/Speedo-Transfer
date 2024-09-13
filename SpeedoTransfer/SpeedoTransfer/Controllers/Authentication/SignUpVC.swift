@@ -170,23 +170,24 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             return false
         }
         
+        guard isValidEmail(email) else {
+            showMessage(message: "Email must be in the form of name@example.anything")
+            return false
+        }
+        
         return true
     }
     
     @IBAction func SignUpButtonTapped(_ sender: Any) {
-        print("Sign Up button tapped")
         if isValidData() {
-            print("Data is valid, Going to next page")
             
             // Print the user data to verify
             let userData = UserData(fullName: FullNameTextField.text!,
                                         email: EmailTextField.text!,
                                         password: PasswordTextField.text!)
-            print("UserData: \(userData)")
             
             let sb = UIStoryboard(name: "Main", bundle: nil)
             guard let continueSignUpVC = sb.instantiateViewController(withIdentifier: "ContinueSignUpVC") as? ContinueSignUpVC else {
-                print("Error: Unable to instantiate SignUpVC2 from storyboard.")
                 return
             }
             
@@ -198,6 +199,11 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
 
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return predicate.evaluate(with: email)
+    }
 
     private func isValidPassword(_ password: String) -> Bool {
         let passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[\\W_]).{8,}$"
@@ -206,7 +212,6 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func SignInButtonTapped(_ sender: Any) {
-        print("sign in btnnnnn")
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let signInVC = sb.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
         self.navigationController?.pushViewController(signInVC, animated: true)

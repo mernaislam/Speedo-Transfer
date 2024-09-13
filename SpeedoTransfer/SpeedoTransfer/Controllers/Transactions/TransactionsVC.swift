@@ -84,7 +84,7 @@ class TransactionsVC: UIViewController {
                     self.transactionTableView.reloadData()
                     
                 case .failure(_):
-                    print("Error fetching transactions:")
+                    return
                 }
             }
 

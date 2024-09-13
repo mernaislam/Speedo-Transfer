@@ -25,25 +25,6 @@ class SignInVC: UIViewController {
         loggedOut = true
     }
     
-    private func checkIfUserIsRegistered() -> Bool{
-        let userDefaults = UserDefaults.standard
-        if let isRegistered = userDefaults.value(forKey: "isRegistered") as? Bool, isRegistered {
-            if let fullName = userDefaults.value(forKey: "fullName") as? String,
-               let email = userDefaults.value(forKey: "email") as? String {
-                print("User is registered")
-                print("Full Name: \(fullName)")
-                print("Email: \(email)")
-            } else {
-                print("User details are missing")
-                return false
-            }
-        } else {
-            print("User is not registered")
-            return false
-        }
-        return true
-    }
-    
     private func setupIcons() {
         // Setup for Email text field
         emailIcon.frame = CGRect(x: -14, y: 0, width: 24, height: 24)

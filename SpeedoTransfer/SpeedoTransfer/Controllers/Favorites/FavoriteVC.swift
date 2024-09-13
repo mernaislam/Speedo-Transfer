@@ -22,12 +22,8 @@ class FavoriteVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        print("Favorites")
-//        print(self.favorites)
-//        if shouldUpdateFavoriteScreen {
-            self.getFavorites()
-//            shouldUpdateFavoriteScreen = false
-//        }
+        self.getFavorites()
+        shouldUpdateFavoriteScreen = false
     }
     
     // MARK: - Private Methods

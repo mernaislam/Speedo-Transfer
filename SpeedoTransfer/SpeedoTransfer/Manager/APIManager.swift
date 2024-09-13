@@ -10,8 +10,10 @@ import Alamofire
 
 class APIManager {
     
+    // MARK: - Private Base URL
     private static let baseURL = "https://money-transfer-production.up.railway.app/api"
     
+    // MARK: - Get Token
     private static func getTokenHeader() -> HTTPHeaders? {
         guard let token = TokenManager.shared.getToken() else { return nil }
         
@@ -22,6 +24,7 @@ class APIManager {
         return headers
     }
     
+    // MARK: - Register
     static func registerUser(user: User, completion: @escaping (Result<Any, Error>) -> Void) {
         let url = URL(string: "\(baseURL)/register")!
         var request = URLRequest(url: url)
@@ -38,13 +41,40 @@ class APIManager {
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                let invalidResponseError = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])
+                DispatchQueue.main.async {
+                    completion(.failure(invalidResponseError))
+                }
+                return
+            }
+
+            // Check for HTTP status code
+            guard (200...299).contains(httpResponse.statusCode) else {
+                // Extract error message from the response body if available
+                var errorMessage = "Unknown error"
+                if let data = data, let responseText = String(data: data, encoding: .utf8) {
+                    errorMessage = responseText
+                }
+
+                let statusCodeError = NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                DispatchQueue.main.async {
+                    completion(.failure(statusCodeError))
+                }
                 return
             }
 
             guard let data = data else {
                 let noDataError = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data returned"])
-                completion(.failure(noDataError))
+                DispatchQueue.main.async {
+                    completion(.failure(noDataError))
+                }
                 return
             }
 
@@ -52,12 +82,15 @@ class APIManager {
             if let responseString = String(data: data, encoding: .utf8) {
                 print("Response Data: \(responseString)")
             }
-            completion(.success(data))
+
+            DispatchQueue.main.async {
+                completion(.success(data))
+            }
         }
         task.resume()
     }
     
-    
+    // MARK: - Login
     static func loginUser(email: String, password: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/login") else { return }
         var request = URLRequest(url: url)
@@ -94,6 +127,7 @@ class APIManager {
                     // Extract the token from the JSON response
                     if let token = jsonResponse["token"] as? String {
                         // Save the token to the Keychain
+                        print(token)
                         TokenManager.shared.setToken(token)
                         
                         completion(.success(jsonResponse))
@@ -108,6 +142,8 @@ class APIManager {
             }
         }.resume()
     }
+    
+    // MARK: - Logout
     static func logoutUser(completion: @escaping (Result<String, Error>) -> Void) {
             let url = "\(baseURL)/logout"
             
@@ -139,7 +175,7 @@ class APIManager {
                 }
         }
 
-    
+    // MARK: - Get Balance
     static func getBalance(completion: @escaping (Result<Double, Error>) -> Void) {
         let url = "\(self.baseURL)/balance"
         guard let headers = self.getTokenHeader() else { return }
@@ -166,6 +202,7 @@ class APIManager {
                }
     }
     
+    // MARK: - Transfer
     static func transfer(to accNum: String, amount: Double, completion: @escaping (Result<Data, Error>) -> Void){
         let url = "\(self.baseURL)/transfer"
         guard let headers = self.getTokenHeader() else { return }
@@ -191,6 +228,7 @@ class APIManager {
            }
     }
     
+    // MARK: - Get Transactions
     static func getTransactions(completion: @escaping (Result<[TransactionModel], Error>) -> Void){
         let url = "\(self.baseURL)/transactions"
         guard let headers = self.getTokenHeader() else { return }
@@ -205,6 +243,7 @@ class APIManager {
         }
     }
     
+    // MARK: - Get Favorites
     static func getFavorites(completion: @escaping (Result<[FavoriteModel], Error>) -> Void){
         let url = "\(self.baseURL)/favorites"
         guard let headers = self.getTokenHeader() else { return }
@@ -219,6 +258,7 @@ class APIManager {
         }
     }
     
+    // MARK: - Delete Favorite
     static func deleteFavorite(id: Int, completion: @escaping (Result<Data, Error>) -> Void){
         let url = "\(self.baseURL)/favorites/\(id)"
         guard let headers = self.getTokenHeader() else { return }
@@ -235,6 +275,7 @@ class APIManager {
         }
     }
     
+    // MARK: - Add Favorite
     static func addFavorite(to recipientName: String, withAccount accNum: String, completion: @escaping (Result<Data, Error>) -> Void){
         let url = "\(self.baseURL)/favorites"
         guard let headers = self.getTokenHeader() else { return }

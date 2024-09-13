@@ -11,7 +11,6 @@ import Foundation
 class KeychainManager {
     
     static func saveTokenToKeychain(token: String) {
-        print("token: \(token)")
         let tokenData = token.data(using: .utf8)!
         
         let query: [String: Any] = [

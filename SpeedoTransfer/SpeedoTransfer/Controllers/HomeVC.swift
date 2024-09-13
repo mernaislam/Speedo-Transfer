@@ -30,27 +30,26 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initiateVC()
-        self.dummyTransfer()
+        self.dummyTransfer() // to get user details
         UserDefaultsManager.shared().isLoggedIn = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         UserDefaultsManager.shared().isLoggedIn = true
-        if shouldUpdateHomeTransactions || loggedOut {
-            self.activityIndicator.startAnimating()
-            self.toggleViewsVisibility(alpha: 0)
-            self.getBalance()
-            self.getTransactions()
-            shouldUpdateHomeTransactions = false
-        }
-        
         if loggedOut {
-            print("ana logged out")
+            self.startLoading()
             self.dummyTransfer()
             loggedOut = false
             shouldUpdateTransactionsScreen = true
+            shouldUpdateHomeTransactions = false
+            return
         }
         
+        if shouldUpdateHomeTransactions {
+            self.startLoading()
+            self.updateHomeData()
+            shouldUpdateHomeTransactions = false
+        }
     }
 
     // MARK: - Private Methods
@@ -61,6 +60,23 @@ class HomeVC: UIViewController {
         self.setupTableView()
         self.setupActivityIndicator()
         self.addTapGesture()
+    }
+    
+    private func updateHomeData(){
+        self.getBalance()
+        self.getTransactions()
+    }
+    
+    private func startLoading(){
+        self.activityIndicator.startAnimating()
+        self.toggleViewsVisibility(alpha: 0)
+    }
+    
+    private func stopLoading(){
+        self.activityIndicator.stopAnimating()
+        UIView.animate(withDuration: 0.3) {
+            self.toggleViewsVisibility(alpha: 1)
+        }
     }
     
     private func setupActivityIndicator(){
@@ -109,24 +125,24 @@ class HomeVC: UIViewController {
         self.nameProfile.text = AppHelper.getInitials(from: user.name)
     }
     
+    private func updateTransactions(transactions: [TransactionModel]){
+        self.transactions = transactions
+        self.fillCurrentUserData()
+        self.transactions = self.transactions.filter( {$0.amount > 1})
+        self.transactions = Array(self.transactions.reversed())
+        self.transactionTableView.reloadData()
+    }
+    
     // MARK: - API Methods
     private func getTransactions(){
         APIManager.getTransactions { result in
             DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                UIView.animate(withDuration: 0.3) {
-                    self.toggleViewsVisibility(alpha: 1)
-                }
+                self.stopLoading()
                 switch result {
                 case .success(let transactions):
-                    self.transactions = transactions
-                    print(self.transactions)
-                    self.fillCurrentUserData()
-                    self.transactions = self.transactions.filter( {$0.amount > 1})
-                    self.transactions = Array(self.transactions.reversed())
-                    self.transactionTableView.reloadData()
+                    self.updateTransactions(transactions: transactions)
                 case .failure(_):
-                    print("Token expired")
+                    return
                 }
             }
         }
@@ -134,14 +150,13 @@ class HomeVC: UIViewController {
     
     // Workaround to get current user details (No API exist for this)
     private func dummyTransfer(){
-        print("dummy transferr")
         APIManager.transfer(to: "0890675435", amount: 0.0001) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
-                    self.getTransactions()
+                    self.updateHomeData()
                 case .failure(_):
-                    print("failure")
+                    return
                 }
             }
         }

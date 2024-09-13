@@ -27,10 +27,8 @@ class FavoriteSheetVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        if shouldUpdateFavoriteSheet {
-            self.getFavorites()
-            shouldUpdateFavoriteSheet = false
-//        }
+        self.getFavorites()
+        shouldUpdateFavoriteSheet = false
     }
     
     // MARK: - Private Methods
