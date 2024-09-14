@@ -9,9 +9,10 @@ import UIKit
 import IQKeyboardManagerSwift
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var inactivityManager = InactivityManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.initializeApp()
@@ -39,28 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.makeKeyAndVisible()
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner])
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        self.switchToNotificationsScreen()
-    }
-    
-    func askNotificationPermission(){
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound,
-          .badge]) { granted, error in
-            if granted {
-                sendNotifications = true
-            } else{
-                sendNotifications = false
-            }
-        }
-    }
-    
     func navBarSetup() {
         if #available(iOS 15, *) {
-            // MARK: Navigation bar appearance customization
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithOpaqueBackground()
             navigationBarAppearance.titleTextAttributes = [
@@ -72,29 +53,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }
     }
+
+}
+
+// MARK: - Navigation Extension
+extension AppDelegate {
+    func switchToStoryboardScreen(storyboardName: String, identifier: String){
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifier)
+        window?.rootViewController = initialViewController
+    }
     
     func showOnBoardingScreen() {
-        let storyboard = UIStoryboard(name: Storyboard.OnBoardingScreen, bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllersID.OnBoarding)
-        window?.rootViewController = initialViewController
+        self.switchToStoryboardScreen(storyboardName: Storyboard.OnBoardingScreen, identifier: ViewControllersID.OnBoarding)
     }
 
     func switchToRegisterScreen() {
-        let storyboard = UIStoryboard(name: Storyboard.Main, bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllersID.SignUp)
-        
-        // Embed in UINavigationController if navigation is required
-        let navigationController = UINavigationController(rootViewController: initialViewController)
-        window?.rootViewController = navigationController
+        self.switchToStoryboardScreen(storyboardName: Storyboard.Main, identifier: ViewControllersID.SignUp)
     }
        
     func switchToLoginScreen() {
-        let storyboard = UIStoryboard(name: Storyboard.Main, bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllersID.SignIn)
-        
-        // Embed in UINavigationController if navigation is required
-        let navigationController = UINavigationController(rootViewController: initialViewController)
-        window?.rootViewController = navigationController
+        self.switchToStoryboardScreen(storyboardName: Storyboard.Main, identifier: ViewControllersID.SignIn)
     }
     
     func switchToHomeScreen() {
@@ -114,9 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         window?.rootViewController = initialViewController
         if let homeNavigationController = initialViewController.viewControllers?[0] as? UINavigationController {
-                homeNavigationController.pushViewController(NotificationVC(), animated: true)
-            }
-
+            homeNavigationController.pushViewController(NotificationVC(), animated: true)
+        }
     }
     
     func checkIfUserIsLoggedIn() {
@@ -126,5 +104,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             switchToLoginScreen()
         }
     }
+}
 
+// MARK: - Notifications Extension
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        self.switchToNotificationsScreen()
+    }
+    
+    func askNotificationPermission(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound,
+          .badge]) { granted, error in
+            if granted {
+                canSendNotifications = true
+            }
+        }
+    }
+}
+
+
+// MARK: - Timeout Extension
+extension AppDelegate {
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        inactivityManager.startInactivityTimer()
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        inactivityManager.timer?.invalidate()
+    }
+    
+    func switchToTimeOutScreen(){
+        guard let window = UIApplication.shared.delegate?.window else { return }
+        let initialViewController = TimeOutVC()
+        initialViewController.showAlert(title: "Session Timeout", message: "You have been inactive for 2 minutes.\n Please sign in again.")
+        window?.rootViewController = initialViewController
+    }
 }

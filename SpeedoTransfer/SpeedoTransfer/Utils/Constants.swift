@@ -75,7 +75,7 @@ struct CurrentUser {
 
 var currentUser = CurrentUser(name: "", balance: 0, email: "", dateOfBirth: "", country: "", bankAccount: "")
 
-var sendNotifications: Bool = false
+var canSendNotifications: Bool = false
 
 var loggedOut: Bool = false
 

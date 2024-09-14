@@ -9,16 +9,23 @@ import UIKit
 
 class NotificationVC: UIViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet var notificationTableView: UITableView!
     
+    // MARK: - Private Properties
+    private var notifications: [TransactionModel] = []
+    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initiateVC()
     }
+    
     // MARK: - Private Methods
     private func initiateVC(){
         self.applyGradientBgYellowToRed()
         self.setupNavigationBar(title: "Notifications", selector: #selector(self.goBack))
+        self.getNotifications()
         self.setupTableView()
     }
     
@@ -29,27 +36,37 @@ class NotificationVC: UIViewController {
         self.notificationTableView.backgroundColor = .clear
     }
     
+    private func getNotifications(){
+        APIManager.getTransactions { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let transactions):
+                    self.notifications = transactions.filter( {$0.senderAccount.accountNumber == currentUser.bankAccount && $0.amount > 1}).reversed()
+                    self.notificationTableView.reloadData()
+                case .failure(_):
+                    print()
+                }
+            }
+            
+        }
+    }
+    
     @objc private func goBack(){
         self.navigationController?.popViewController(animated: true)
     }
-    
 
 }
 
 // MARK: - UITableView Extension
 extension NotificationVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.notifications.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationViewCell.identifier, for: indexPath) as! NotificationViewCell
+        cell.configureCell(transaction: self.notifications[indexPath.row])
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(TransactionDetailsVC(), animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -14,7 +14,7 @@ struct TransactionModel: Codable {
     let receiverAccount: Account
     let amount: Double
     
-    func formatTimestamp() -> String {
+    func formatDayTime() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
         formatter.locale = Locale(identifier: "en_EG")
@@ -32,6 +32,21 @@ struct TransactionModel: Codable {
             return formatter.string(from: date)
         }
     }
+    
+    func formatFullDatetime() -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
+        inputFormatter.locale = Locale(identifier: "en_EG")
+        
+        guard let date = inputFormatter.date(from: timestamp) else { return "" }
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "dd MMM yyyy hh:mm a"
+        
+        return outputFormatter.string(from: date)
+    }
+    
+    
 }
 
 

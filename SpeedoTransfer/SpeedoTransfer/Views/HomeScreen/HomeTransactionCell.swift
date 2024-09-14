@@ -43,7 +43,7 @@ class HomeTransactionCell: UITableViewCell {
         }
         let lastFourDigits = String(accNum.suffix(4))
         self.visaDetails.text = "Visa . Master Card . \(lastFourDigits)"
-        self.dateLabel.text = transaction.formatTimestamp()
+        self.dateLabel.text = transaction.formatDayTime()
         self.balanceLabel.text = "\(Int(transaction.amount)) EGP"
     }
     

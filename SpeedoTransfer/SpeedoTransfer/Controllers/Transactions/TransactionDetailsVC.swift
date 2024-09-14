@@ -43,7 +43,7 @@ class TransactionDetailsVC: UIViewController {
         receiverAccount.text = transaction.receiverAccount.accountNumber
         amount.text = "EGP \(transaction.amount)"
         transactionID.text = "\(transaction.id)"
-        dateLabel.text = transaction.formatTimestamp()
+        dateLabel.text = transaction.formatDayTime()
     }
 
 }

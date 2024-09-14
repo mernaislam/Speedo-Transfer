@@ -46,7 +46,7 @@ class MoreVC: UIViewController {
         case 2:
             self.navigationController?.pushViewController(ProfileVC(), animated: true)
         case 3:
-            self.openContactMethodPicker()
+            present(HelpVC(), animated: true)
         case 4:
             self.logout()
         default:
@@ -76,15 +76,6 @@ class MoreVC: UIViewController {
                 }
             }
         }
-    }
-    
-    @objc private func openContactMethodPicker() {
-        let contactMethodPickerVC = ContactMethodPickerVC(nibName: "ContactMethodPickerVC", bundle: nil)
-        
-        contactMethodPickerVC.didSelectMethod = { [weak self] selectedMethod in
-            self?.contactUsSelected.text = selectedMethod
-        }
-        present(contactMethodPickerVC, animated: true, completion: nil)
     }
 }
 

@@ -75,6 +75,11 @@ class AmountCollectionCell: UICollectionViewCell {
             return false
         }
         
+        if Double(self.amountTextField.text!)! < 0 {
+            delegate?.showMessage(title: "Invalid Data", message: "The balance should be greater than 0 EGP")
+            return false
+        }
+        
         return true
     }
     

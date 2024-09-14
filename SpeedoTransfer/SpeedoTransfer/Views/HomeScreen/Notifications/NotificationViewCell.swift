@@ -9,6 +9,8 @@ import UIKit
 
 class NotificationViewCell: UITableViewCell {
     
+    @IBOutlet var notificationBody: UILabel!
+    @IBOutlet var notificationDate: UILabel!
     static let identifier = "NotificationViewCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
 
@@ -28,4 +30,8 @@ class NotificationViewCell: UITableViewCell {
 
     }
     
+    func configureCell(transaction: TransactionModel){
+        notificationBody.text = "You have sent \(transaction.amount) EGP to \(transaction.receiverAccount.name)"
+        notificationDate.text = transaction.formatFullDatetime()
+    }
 }

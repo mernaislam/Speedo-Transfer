@@ -53,8 +53,7 @@ class ConfirmCollectionCell: UICollectionViewCell {
     private func sendNotifications(){
         let content = UNMutableNotificationContent()
         content.title = "Successful Transaction"
-        content.subtitle = currentTransaction!.senderAccount.name
-        content.body = "You sent money to \(currentTransaction!.receiverAccount.name)"
+        content.body = "You have sent money to \(currentTransaction!.receiverAccount.name)"
         content.sound = .default
         content.badge = 0
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(1),
@@ -85,7 +84,9 @@ class ConfirmCollectionCell: UICollectionViewCell {
         delegate?.animateStepColorChange(step: 3)
         shouldUpdateHomeTransactions = true
         shouldUpdateTransactionsScreen = true
-        self.sendNotifications()
+        if canSendNotifications {
+            self.sendNotifications()
+        }
     }
     
     @IBAction func previousBtnTapped(_ sender: Any) {
