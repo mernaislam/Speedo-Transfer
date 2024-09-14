@@ -95,6 +95,57 @@ class HomeVC: UIViewController {
         self.notificationIcon.alpha = alpha
     }
     
+    // Handle token expiration and replace the root view with TimeOutVC
+    private static func handleTokenExpiration() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let window = windowScene.windows.first {
+                let timeOutVC = TimeOutVC(nibName: "TimeOutVC", bundle: nil)	
+                window.rootViewController = timeOutVC
+            }
+        }
+    }
+
+    
+    private func getTransactions(){
+        APIManager.getTransactions { result in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                UIView.animate(withDuration: 0.3) {
+                    self.toggleViewsVisibility(alpha: 1)
+                }
+        
+                switch result {
+                case .success(let transactions):
+                    self.transactions = transactions
+                    self.transactionTableView.reloadData()
+                    
+                case .failure(let error):
+                    self.balanceLabel.text = "Error"
+                    print("Error fetching balance: \(error.localizedDescription)")
+                    HomeVC.handleTokenExpiration()
+                }
+            }
+
+        }
+    }
+    
+    private func getBalance() {
+        APIManager.getBalance { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let balance):
+                    let balanceInt = Int(balance)
+                    self.balanceLabel.text = "\(balanceInt)"
+                    print("Balance: \(balanceInt)")
+                    
+                case .failure(_):
+                    HomeVC.handleTokenExpiration()
+                }
+            }
+        }
+    }
+
+    
     private func setupTableView(){
         self.transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)
         self.transactionTableView.register(HomeEmptyTransactionCell.nib, forCellReuseIdentifier: HomeEmptyTransactionCell.identifier)
