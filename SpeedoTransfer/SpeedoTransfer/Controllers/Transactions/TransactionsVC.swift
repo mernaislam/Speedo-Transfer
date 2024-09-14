@@ -69,7 +69,7 @@ class TransactionsVC: UIViewController {
     
     // MARK: - API Methods
     private func getTransactions(){
-        APIManager.getTransactions { result in
+        APIManager.shared().getTransactions { result in
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 UIView.animate(withDuration: 0.3) {
@@ -84,7 +84,7 @@ class TransactionsVC: UIViewController {
                     self.transactionTableView.reloadData()
                     
                 case .failure(_):
-                    return
+                    self.goToErrorScreen()
                 }
             }
 

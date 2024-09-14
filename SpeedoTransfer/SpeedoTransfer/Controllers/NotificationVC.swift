@@ -37,14 +37,14 @@ class NotificationVC: UIViewController {
     }
     
     private func getNotifications(){
-        APIManager.getTransactions { result in
+        APIManager.shared().getTransactions { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let transactions):
                     self.notifications = transactions.filter( {$0.senderAccount.accountNumber == currentUser.bankAccount && $0.amount > 1}).reversed()
                     self.notificationTableView.reloadData()
                 case .failure(_):
-                    print()
+                    self.goToErrorScreen()
                 }
             }
             

@@ -85,7 +85,7 @@ class AmountCollectionCell: UICollectionViewCell {
     
     // MARK: - API Methods (Validation)
     private func isValidAccount(completion: @escaping (Bool) -> Void) {
-        APIManager.transfer(to: accountTextField.text!, amount: 0.0001) { result in
+        APIManager.shared().transfer(to: accountTextField.text!, amount: 0.0001) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
@@ -99,7 +99,7 @@ class AmountCollectionCell: UICollectionViewCell {
     }
     
     private func getDetails(){
-        APIManager.getTransactions { result in
+        APIManager.shared().getTransactions { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let transactions):

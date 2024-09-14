@@ -65,7 +65,7 @@ class ConfirmCollectionCell: UICollectionViewCell {
     
     // MARK: - API Methods
     private func transfer(){
-        APIManager.transfer(to: receiverAccountNum.text!, amount: amount!) { result in
+        APIManager.shared().transfer(to: receiverAccountNum.text!, amount: amount!) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):

@@ -6,8 +6,13 @@
 //
 
 class TokenManager {
-    static let shared = TokenManager()
-    private init() {}
+    
+    // MARK: - Singleton
+    static private let sharedInstance = TokenManager()
+    
+    static func shared() -> TokenManager {
+        return TokenManager.sharedInstance
+    }
     
     private var token: String?
     
@@ -24,8 +29,8 @@ class TokenManager {
     }
     
     func clearToken() {
-            token = nil
-            KeychainManager.deleteTokenFromKeychain()
-        }
+        token = nil
+        KeychainManager.deleteTokenFromKeychain()
+    }
 }
 

@@ -46,13 +46,8 @@
 		033E31CE2C91AE79008C7FA2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31CD2C91AE79008C7FA2 /* TransactionModel.swift */; };
 		033E31D12C91B729008C7FA2 /* HomeEmptyTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31D02C91B729008C7FA2 /* HomeEmptyTransactionCell.xib */; };
 		033E31D22C91B729008C7FA2 /* HomeEmptyTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31CF2C91B729008C7FA2 /* HomeEmptyTransactionCell.swift */; };
-		033E31D82C91DEF8008C7FA2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31D52C91DEF8008C7FA2 /* NetworkManager.swift */; };
-		033E31D92C91DEF8008C7FA2 /* InternetErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31D62C91DEF8008C7FA2 /* InternetErrorVC.xib */; };
-		033E31DA2C91DEF8008C7FA2 /* InternetErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31D72C91DEF8008C7FA2 /* InternetErrorVC.swift */; };
 		033E31DE2C91DF15008C7FA2 /* ServerErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31DC2C91DF15008C7FA2 /* ServerErrorVC.xib */; };
 		033E31DF2C91DF15008C7FA2 /* ServerErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31DD2C91DF15008C7FA2 /* ServerErrorVC.swift */; };
-		033E31E32C91E1EE008C7FA2 /* TimeOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31E12C91E1EE008C7FA2 /* TimeOutVC.swift */; };
-		033E31E42C91E1EE008C7FA2 /* TimeOutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033E31E22C91E1EE008C7FA2 /* TimeOutVC.xib */; };
 		033E31E62C91F8FC008C7FA2 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31E52C91F8FC008C7FA2 /* FavoriteModel.swift */; };
 		033E31E82C920E40008C7FA2 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31E72C920E40008C7FA2 /* UIViewController+Alert.swift */; };
 		033E31EC2C926DC7008C7FA2 /* DetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E31EB2C926DC7008C7FA2 /* DetailItem.swift */; };
@@ -97,6 +92,11 @@
 		03E5D4C82C95BEEE00021C8B /* HelpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E5D4C62C95BEEE00021C8B /* HelpVC.xib */; };
 		03E5D4CB2C95D31C00021C8B /* InactivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5D4CA2C95D31C00021C8B /* InactivityManager.swift */; };
 		03E5D4CD2C95D54900021C8B /* UIViewController+touchesBegan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5D4CC2C95D54900021C8B /* UIViewController+touchesBegan.swift */; };
+		03E5D4CF2C96283700021C8B /* UIViewController+NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5D4CE2C96283700021C8B /* UIViewController+NetworkCheck.swift */; };
+		03E5D4D12C96288900021C8B /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5D4D02C96288900021C8B /* NetworkMonitor.swift */; };
+		03E5D4D42C962C0100021C8B /* InternetErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5D4D22C962C0100021C8B /* InternetErrorVC.swift */; };
+		03E5D4D52C962C0100021C8B /* InternetErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03E5D4D32C962C0100021C8B /* InternetErrorVC.xib */; };
+		03E5D4D72C963C3600021C8B /* UIViewController+ErrorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E5D4D62C963C3600021C8B /* UIViewController+ErrorScreen.swift */; };
 		03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */; };
 		03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */; };
 		03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */; };
@@ -149,13 +149,8 @@
 		033E31CD2C91AE79008C7FA2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		033E31CF2C91B729008C7FA2 /* HomeEmptyTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyTransactionCell.swift; sourceTree = "<group>"; };
 		033E31D02C91B729008C7FA2 /* HomeEmptyTransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeEmptyTransactionCell.xib; sourceTree = "<group>"; };
-		033E31D52C91DEF8008C7FA2 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		033E31D62C91DEF8008C7FA2 /* InternetErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InternetErrorVC.xib; sourceTree = "<group>"; };
-		033E31D72C91DEF8008C7FA2 /* InternetErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetErrorVC.swift; sourceTree = "<group>"; };
 		033E31DC2C91DF15008C7FA2 /* ServerErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerErrorVC.xib; sourceTree = "<group>"; };
 		033E31DD2C91DF15008C7FA2 /* ServerErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerErrorVC.swift; sourceTree = "<group>"; };
-		033E31E12C91E1EE008C7FA2 /* TimeOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOutVC.swift; sourceTree = "<group>"; };
-		033E31E22C91E1EE008C7FA2 /* TimeOutVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeOutVC.xib; sourceTree = "<group>"; };
 		033E31E52C91F8FC008C7FA2 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		033E31E72C920E40008C7FA2 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		033E31EB2C926DC7008C7FA2 /* DetailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItem.swift; sourceTree = "<group>"; };
@@ -201,10 +196,14 @@
 		03E5D4C62C95BEEE00021C8B /* HelpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpVC.xib; sourceTree = "<group>"; };
 		03E5D4CA2C95D31C00021C8B /* InactivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactivityManager.swift; sourceTree = "<group>"; };
 		03E5D4CC2C95D54900021C8B /* UIViewController+touchesBegan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+touchesBegan.swift"; sourceTree = "<group>"; };
+		03E5D4CE2C96283700021C8B /* UIViewController+NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NetworkCheck.swift"; sourceTree = "<group>"; };
+		03E5D4D02C96288900021C8B /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		03E5D4D22C962C0100021C8B /* InternetErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetErrorVC.swift; sourceTree = "<group>"; };
+		03E5D4D32C962C0100021C8B /* InternetErrorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InternetErrorVC.xib; sourceTree = "<group>"; };
+		03E5D4D62C963C3600021C8B /* UIViewController+ErrorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorScreen.swift"; sourceTree = "<group>"; };
 		03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsVC.swift; sourceTree = "<group>"; };
 		03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsVC.xib; sourceTree = "<group>"; };
-		2F1F3E175CDA11454CEE1B61 /* Pods-Registration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Registration.release.xcconfig"; path = "Target Support Files/Pods-Registration/Pods-Registration.release.xcconfig"; sourceTree = "<group>"; };
 		332DFC6D2C92656F003D72F1 /* TimeOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOutVC.swift; sourceTree = "<group>"; };
 		332DFC6E2C92656F003D72F1 /* TimeOutVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeOutVC.xib; sourceTree = "<group>"; };
 		33613CCC2C90754200082FA3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -240,6 +239,8 @@
 				03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */,
 				033E31E72C920E40008C7FA2 /* UIViewController+Alert.swift */,
 				03E5D4CC2C95D54900021C8B /* UIViewController+touchesBegan.swift */,
+				03E5D4CE2C96283700021C8B /* UIViewController+NetworkCheck.swift */,
+				03E5D4D62C963C3600021C8B /* UIViewController+ErrorScreen.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,6 +272,7 @@
 				03E1AAA32C910A450099A284 /* KeychainManager.swift */,
 				03E1AAA52C910F5A0099A284 /* TokenManager.swift */,
 				03E5D4CA2C95D31C00021C8B /* InactivityManager.swift */,
+				03E5D4D02C96288900021C8B /* NetworkMonitor.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -387,8 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				033E31DC2C91DF15008C7FA2 /* ServerErrorVC.xib */,
-				033E31D62C91DEF8008C7FA2 /* InternetErrorVC.xib */,
-				033E31D52C91DEF8008C7FA2 /* NetworkManager.swift */,
+				03E5D4D32C962C0100021C8B /* InternetErrorVC.xib */,
 			);
 			path = "Error Screens";
 			sourceTree = "<group>";
@@ -495,8 +496,8 @@
 		03E5D4C92C95D06700021C8B /* Error Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03E5D4D22C962C0100021C8B /* InternetErrorVC.swift */,
 				033E31DD2C91DF15008C7FA2 /* ServerErrorVC.swift */,
-				033E31D72C91DEF8008C7FA2 /* InternetErrorVC.swift */,
 			);
 			path = "Error Screens";
 			sourceTree = "<group>";
@@ -694,7 +695,6 @@
 				031FC7BF2C907B8800EBDC37 /* ProfileVC.xib in Resources */,
 				0360B2B02C8FB68D0053D605 /* ProfileViewCell.xib in Resources */,
 				031FC7C72C90807B00EBDC37 /* ProfileInfoViewCell.xib in Resources */,
-				033E31D92C91DEF8008C7FA2 /* InternetErrorVC.xib in Resources */,
 				03B647D22C7F6846007F1F07 /* OnBoardingScreen.storyboard in Resources */,
 				33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */,
 				033836772C8E4938000C8D33 /* MoreViewCell.xib in Resources */,
@@ -703,6 +703,7 @@
 				038B16022C88FF7100BB4549 /* TransactionsVC.xib in Resources */,
 				033E31D12C91B729008C7FA2 /* HomeEmptyTransactionCell.xib in Resources */,
 				036597A42C8B7E3C00E318C2 /* TransferVC.xib in Resources */,
+				03E5D4D52C962C0100021C8B /* InternetErrorVC.xib in Resources */,
 				036597A82C8B8C1D00E318C2 /* AmountCollectionCell.xib in Resources */,
 				033836732C8E483B000C8D33 /* MoreVC.xib in Resources */,
 				036597AC2C8BA29100E318C2 /* ConfirmCollectionCell.xib in Resources */,
@@ -763,6 +764,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03B647D02C7F6741007F1F07 /* AppColors.swift in Sources */,
+				03E5D4D12C96288900021C8B /* NetworkMonitor.swift in Sources */,
 				031FC7E02C90D7D300EBDC37 /* NotificationVC.swift in Sources */,
 				036597A92C8B8C1D00E318C2 /* AmountCollectionCell.swift in Sources */,
 				033836762C8E4938000C8D33 /* MoreViewCell.swift in Sources */,
@@ -777,10 +779,8 @@
 				03A25CBD2C8772E40040DE60 /* UIViewController+Background.swift in Sources */,
 				0301282D2C80A357006ECA3F /* OnBoardingModel.swift in Sources */,
 				031FC7D72C90C04B00EBDC37 /* EditProfileVC.swift in Sources */,
-				033E31DA2C91DEF8008C7FA2 /* InternetErrorVC.swift in Sources */,
 				033836792C8E4F69000C8D33 /* MoreItem.swift in Sources */,
 				03E1AAA62C910F5A0099A284 /* TokenManager.swift in Sources */,
-				033E31D82C91DEF8008C7FA2 /* NetworkManager.swift in Sources */,
 				03B647D42C7F6886007F1F07 /* OnBoardingVC.swift in Sources */,
 				03E05E2B2C8C854B0052DED8 /* CustomCellDelegate.swift in Sources */,
 				03E5D4C72C95BEEE00021C8B /* HelpVC.swift in Sources */,
@@ -790,6 +790,7 @@
 				0353B5CE2C8D0A6E00586A30 /* ContinueSignUpVC.swift in Sources */,
 				0376730E2C863CF700301E6F /* HomeTransactionCell.swift in Sources */,
 				036597A52C8B7E3C00E318C2 /* TransferVC.swift in Sources */,
+				03E5D4D42C962C0100021C8B /* InternetErrorVC.swift in Sources */,
 				0301284F2C8112EA006ECA3F /* UserDefaultsManager.swift in Sources */,
 				0360B2A82C8FA7740053D605 /* EditFavoriteSheetVC.swift in Sources */,
 				0360B2B12C8FB68D0053D605 /* ProfileViewCell.swift in Sources */,
@@ -805,11 +806,13 @@
 				03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */,
 				03E1AAA42C910A450099A284 /* KeychainManager.swift in Sources */,
 				031FC7C42C907F5D00EBDC37 /* ProfileInfoVC.swift in Sources */,
+				03E5D4D72C963C3600021C8B /* UIViewController+ErrorScreen.swift in Sources */,
 				0353B5D02C8D0ABC00586A30 /* CountryPickerVC.swift in Sources */,
 				03E5D4CB2C95D31C00021C8B /* InactivityManager.swift in Sources */,
 				0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */,
 				03E5D4CD2C95D54900021C8B /* UIViewController+touchesBegan.swift in Sources */,
 				33613CCD2C90754200082FA3 /* APIManager.swift in Sources */,
+				03E5D4CF2C96283700021C8B /* UIViewController+NetworkCheck.swift in Sources */,
 				332DFC6F2C92656F003D72F1 /* TimeOutVC.swift in Sources */,
 				033699B22C8F45F10031E047 /* FavoriteViewCell.swift in Sources */,
 				033E31DF2C91DF15008C7FA2 /* ServerErrorVC.swift in Sources */,

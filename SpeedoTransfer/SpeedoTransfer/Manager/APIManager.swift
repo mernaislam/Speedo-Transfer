@@ -9,12 +9,19 @@ import Alamofire
 
 class APIManager {
     
+    // MARK: - Singleton
+    static private let sharedInstance = APIManager()
+    
+    static func shared() -> APIManager {
+        return APIManager.sharedInstance
+    }
+    
     // MARK: - Private Base URL
-    private static let baseURL = "https://money-transfer-production.up.railway.app/api"
+    private let baseURL = "https://money-transfer-production.up.railway.app/api"
     
     // MARK: - Get Token
-    private static func getTokenHeader() -> HTTPHeaders? {
-        guard let token = TokenManager.shared.getToken() else { return nil }
+    private func getTokenHeader() -> HTTPHeaders? {
+        guard let token = TokenManager.shared().getToken() else { return nil }
         
         let headers: HTTPHeaders = [
             .authorization(bearerToken: token),
@@ -24,7 +31,7 @@ class APIManager {
     }
     
     // MARK: - Register
-    static func registerUser(user: User, completion: @escaping (Result<Any, Error>) -> Void) {
+    func registerUser(user: User, completion: @escaping (Result<Any, Error>) -> Void) {
         let url = URL(string: "\(baseURL)/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -90,7 +97,7 @@ class APIManager {
     }
     
     // MARK: - Login
-    static func loginUser(email: String, password: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
+    func loginUser(email: String, password: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/login") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -127,7 +134,7 @@ class APIManager {
                     if let token = jsonResponse["token"] as? String {
                         // Save the token to the Keychain
                         print(token)
-                        TokenManager.shared.setToken(token)
+                        TokenManager.shared().setToken(token)
                         completion(.success(jsonResponse))
                     } else {
                         // Token not found in the response, return an error
@@ -141,10 +148,10 @@ class APIManager {
     }
     
     // MARK: - Logout
-    static func logoutUser(completion: @escaping (Result<String, Error>) -> Void) {
+    func logoutUser(completion: @escaping (Result<String, Error>) -> Void) {
         let url = "\(baseURL)/logout"
         
-        guard let token = TokenManager.shared.getToken() else {
+        guard let token = TokenManager.shared().getToken() else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not available"])))
             return
         }
@@ -175,7 +182,7 @@ class APIManager {
 
 
     // MARK: - Get Balance
-    static func getBalance(completion: @escaping (Result<Double, Error>) -> Void) {
+    func getBalance(completion: @escaping (Result<Double, Error>) -> Void) {
         let url = "\(self.baseURL)/balance"
         guard let headers = self.getTokenHeader() else { return }
         
@@ -201,7 +208,7 @@ class APIManager {
     }
     
     // MARK: - Transfer
-    static func transfer(to accNum: String, amount: Double, completion: @escaping (Result<Data, Error>) -> Void){
+    func transfer(to accNum: String, amount: Double, completion: @escaping (Result<Data, Error>) -> Void){
         let url = "\(self.baseURL)/transfer"
         guard let headers = self.getTokenHeader() else { return }
         
@@ -227,7 +234,7 @@ class APIManager {
     }
     
     // MARK: - Get Transactions
-    static func getTransactions(completion: @escaping (Result<[TransactionModel], Error>) -> Void){
+    func getTransactions(completion: @escaping (Result<[TransactionModel], Error>) -> Void){
         let url = "\(self.baseURL)/transactions"
         guard let headers = self.getTokenHeader() else { return }
         
@@ -242,7 +249,7 @@ class APIManager {
     }
     
     // MARK: - Get Favorites
-    static func getFavorites(completion: @escaping (Result<[FavoriteModel], Error>) -> Void){
+    func getFavorites(completion: @escaping (Result<[FavoriteModel], Error>) -> Void){
         let url = "\(self.baseURL)/favorites"
         guard let headers = self.getTokenHeader() else { return }
         
@@ -257,7 +264,7 @@ class APIManager {
     }
     
     // MARK: - Delete Favorite
-    static func deleteFavorite(id: Int, completion: @escaping (Result<Data, Error>) -> Void){
+    func deleteFavorite(id: Int, completion: @escaping (Result<Data, Error>) -> Void){
         let url = "\(self.baseURL)/favorites/\(id)"
         guard let headers = self.getTokenHeader() else { return }
         
@@ -274,7 +281,7 @@ class APIManager {
     }
     
     // MARK: - Add Favorite
-    static func addFavorite(to recipientName: String, withAccount accNum: String, completion: @escaping (Result<Data, Error>) -> Void){
+    func addFavorite(to recipientName: String, withAccount accNum: String, completion: @escaping (Result<Data, Error>) -> Void){
         let url = "\(self.baseURL)/favorites"
         guard let headers = self.getTokenHeader() else { return }
         

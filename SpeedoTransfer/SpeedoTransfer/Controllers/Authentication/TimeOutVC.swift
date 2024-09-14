@@ -90,12 +90,12 @@ class TimeOutVC: UIViewController {
             return
         }
 
-        APIManager.loginUser(email: email, password: password) { result in
+        APIManager.shared().loginUser(email: email, password: password) { result in
             switch result {
             case .success(let response):
                 print("Login successful: \(response)")
                 DispatchQueue.main.async {
-                    print(TokenManager.shared.getToken() ?? "no token")
+                    print(TokenManager.shared().getToken() ?? "no token")
                     let delegate = UIApplication.shared.delegate as? AppDelegate
                     delegate?.switchToHomeScreen()
                 }
@@ -108,12 +108,5 @@ class TimeOutVC: UIViewController {
         }
         
         
-    }
-    
-    private func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
     }
 }

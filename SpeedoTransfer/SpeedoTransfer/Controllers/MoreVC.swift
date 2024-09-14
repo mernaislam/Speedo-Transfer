@@ -56,7 +56,7 @@ class MoreVC: UIViewController {
     
     private func logout(){
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        APIManager.logoutUser { result in
+        APIManager.shared().logoutUser { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let message):

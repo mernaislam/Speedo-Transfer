@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.initializeApp()
+        NetworkMonitor.shared.startMonitoring()
         
         return true
     }
@@ -28,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         navBarSetup()
         
-
         let isFirstOpen = UserDefaultsManager.shared().isFirstOpen
         
         if isFirstOpen {
@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         window?.makeKeyAndVisible()
+
+        
     }
     
     func navBarSetup() {
@@ -99,9 +101,9 @@ extension AppDelegate {
     
     func checkIfUserIsLoggedIn() {
         if UserDefaultsManager.shared().isLoggedIn {
-            switchToHomeScreen()
-        } else {
             switchToLoginScreen()
+        } else {
+            switchToRegisterScreen()
         }
     }
 }
@@ -132,15 +134,50 @@ extension AppDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         inactivityManager.startInactivityTimer()
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        inactivityManager.timer?.invalidate()
+    
+    func getTopMostViewController(from viewController: UIViewController) -> UIViewController {
+        if let presentedVC = viewController.presentedViewController {
+            return getTopMostViewController(from: presentedVC)
+        } else if let navigationVC = viewController as? UINavigationController {
+            return getTopMostViewController(from: navigationVC.visibleViewController ?? viewController)
+        } else if let tabBarVC = viewController as? UITabBarController {
+            return getTopMostViewController(from: tabBarVC.selectedViewController ?? viewController)
+        } else {
+            return viewController
+        }
     }
     
     func switchToTimeOutScreen(){
-        guard let window = UIApplication.shared.delegate?.window else { return }
-        let initialViewController = TimeOutVC()
-        initialViewController.showAlert(title: "Session Timeout", message: "You have been inactive for 2 minutes.\n Please sign in again.")
-        window?.rootViewController = initialViewController
+        guard let window = self.window,
+            let rootVC = window.rootViewController else {
+            return
+        }
+        
+        let topVC = getTopMostViewController(from: rootVC)
+
+       if topVC is SignInVC || topVC is SignUpVC || topVC is OnBoardingVC || topVC is ContinueSignUpVC || topVC is TimeOutVC {
+           return
+       }
+        
+        let alertController = UIAlertController(title: "Session Timeout",
+                                                message: "You have been inactive for 2 minutes.\n Please sign in again.",
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            let timeOutVC = TimeOutVC()
+            window.rootViewController = timeOutVC
+            window.makeKeyAndVisible()
+        }
+
+        alertController.addAction(okAction)
+
+        rootVC.present(alertController, animated: true)
+    }
+}
+
+
+// MARK: - Network Monitor Extension
+extension AppDelegate {
+    func applicationWillTerminate(_ application: UIApplication) {
+        NetworkMonitor.shared.stopMonitoring()
     }
 }

@@ -162,7 +162,7 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
             dateOfBirth: selectedDate
         )
         
-        APIManager.registerUser(user: newUser) { result in
+        APIManager.shared().registerUser(user: newUser) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
@@ -171,7 +171,7 @@ class ContinueSignUpVC: UIViewController, UIPickerViewDataSource, UIPickerViewDe
                         delegate?.switchToLoginScreen()
                     }
                 case .failure(let error):
-                    self.showAlert(title: "Registration Failed", message: error.localizedDescription.description)
+                    self.goToErrorScreen()
                 }
             }
         }

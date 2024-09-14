@@ -12,11 +12,11 @@ class UserDefaultsManager {
     // MARK: - Singleton
     static private let sharedInstance = UserDefaultsManager()
     
-    class func shared() -> UserDefaultsManager {
+    static func shared() -> UserDefaultsManager {
         return UserDefaultsManager.sharedInstance
     }
     
-    // MARK: - Proprties
+    // MARK: - Computed Proprties
     private let def = UserDefaults.standard
     var isFirstOpen: Bool {
         set {
@@ -34,6 +34,10 @@ class UserDefaultsManager {
             def.setValue(newValue, forKey: "isLoggedIn")
         } get {
             if def.object(forKey: "isLoggedIn") == nil {
+                return false
+            }
+            
+            if def.bool(forKey: "isLoggedIn") {
                 return true
             }
             return false

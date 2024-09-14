@@ -52,7 +52,7 @@ class FavoriteSheetVC: UIViewController {
     
     // MARK: - API Methods
     private func getFavorites(){
-        APIManager.getFavorites { result in
+        APIManager.shared().getFavorites { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let favorites):
@@ -60,7 +60,7 @@ class FavoriteSheetVC: UIViewController {
                     self.favoriteTableView.reloadData()
                     
                 case .failure(_):
-                    self.showAlert(title: "Failure", message: "Failed to get your favorite list")
+                    self.goToErrorScreen()
                 }
             }
         }

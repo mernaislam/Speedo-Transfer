@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeOutVC" customModule="Registration" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeOutVC" customModule="SpeedoTransfer" customModuleProvider="target">
             <connections>
                 <outlet property="EmailTextField" destination="wVu-c6-pnc" id="ctu-lf-m7S"/>
                 <outlet property="PasswordTextField" destination="naM-Ww-HDq" id="VHM-Ik-Aw5"/>
@@ -28,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-Ic-jOr">
-                    <rect key="frame" x="111.00000000000001" y="204.66666666666666" width="168.33333333333337" height="73.999999999999972"/>
+                    <rect key="frame" x="111.00000000000001" y="207.66666666666666" width="168.33333333333337" height="73.999999999999972"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw7-0w-0Fn" userLabel="Speedo Transfer">
                             <rect key="frame" x="0.0" y="0.0" width="168.33333333333334" height="29"/>
@@ -51,13 +52,13 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObS-ag-lGC">
-                    <rect key="frame" x="22" y="86.333333333333314" width="346" height="86"/>
+                    <rect key="frame" x="22" y="86.333333333333314" width="346" height="89"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alert" translatesAutoresizingMaskIntoConstraints="NO" id="BXL-0o-usn">
-                            <rect key="frame" x="15.333333333333336" y="16.666666666666671" width="35" height="28"/>
+                            <rect key="frame" x="15.333333333333336" y="16.666666666666671" width="35" height="31"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Logged you out because you were inactive for 30 minutes - it’s to help your account secure." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-LD-cbG">
-                            <rect key="frame" x="58.333333333333329" y="17" width="229.33333333333337" height="52"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Logged you out because you were inactive for 2 minutes - it’s to help your account secure." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-LD-cbG">
+                            <rect key="frame" x="58.333333333333329" y="17" width="229.33333333333337" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="229.5" id="xKX-4n-e6O"/>
                             </constraints>
@@ -65,8 +66,8 @@
                             <color key="textColor" red="0.33725490200000002" green="0.33333333329999998" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exist" translatesAutoresizingMaskIntoConstraints="NO" id="5jj-CP-epU">
-                            <rect key="frame" x="310.66666666666669" y="24" width="14" height="14"/>
+                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="5jj-CP-epU">
+                            <rect key="frame" x="296.66666666666669" y="18" width="28" height="28"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.89019607840000003" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,7 +76,7 @@
                         <constraint firstAttribute="bottom" secondItem="BXL-0o-usn" secondAttribute="bottom" constant="41.333333333333314" id="3ba-zp-PlY"/>
                         <constraint firstItem="BXL-0o-usn" firstAttribute="top" secondItem="ObS-ag-lGC" secondAttribute="top" constant="16.666666666666671" id="3dw-91-0Pg"/>
                         <constraint firstItem="b1v-LD-cbG" firstAttribute="top" secondItem="ObS-ag-lGC" secondAttribute="top" constant="17" id="7Qy-nO-dA3"/>
-                        <constraint firstItem="5jj-CP-epU" firstAttribute="top" secondItem="ObS-ag-lGC" secondAttribute="top" constant="24" id="83S-d7-c5l"/>
+                        <constraint firstItem="5jj-CP-epU" firstAttribute="top" secondItem="ObS-ag-lGC" secondAttribute="top" constant="18" id="83S-d7-c5l"/>
                         <constraint firstItem="BXL-0o-usn" firstAttribute="leading" secondItem="ObS-ag-lGC" secondAttribute="leading" constant="15.33333333333333" id="BgX-6z-bxb"/>
                         <constraint firstItem="b1v-LD-cbG" firstAttribute="centerX" secondItem="ObS-ag-lGC" secondAttribute="centerX" id="IyR-nd-7sQ"/>
                         <constraint firstItem="b1v-LD-cbG" firstAttribute="leading" secondItem="BXL-0o-usn" secondAttribute="trailing" constant="8" id="Was-aX-HYl"/>
@@ -84,7 +85,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="8SS-9v-YpU">
-                    <rect key="frame" x="23.666666666666657" y="311.66666666666669" width="343" height="251.33333333333331"/>
+                    <rect key="frame" x="23.666666666666657" y="314.66666666666669" width="343" height="251.33333333333331"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ts4-x0-mMQ">
                             <rect key="frame" x="0.0" y="0.0" width="343" height="167.33333333333334"/>
@@ -168,6 +169,6 @@
     </objects>
     <resources>
         <image name="alert" width="27" height="28"/>
-        <image name="exist" width="14" height="14"/>
+        <image name="cancel" width="28" height="28"/>
     </resources>
 </document>

@@ -83,24 +83,24 @@ class SignInVC: UIViewController {
             self.showAlert(title: "Missing Data", message: "Please enter your credientials.")
             return
         }
-
-        APIManager.loginUser(email: email, password: password) { result in
-            switch result {
-            case .success(let response):
-                print("Login successful: \(response)")
-                DispatchQueue.main.async {
-                    print(TokenManager.shared.getToken() ?? "no token")
-                    let delegate = UIApplication.shared.delegate as? AppDelegate
-                    delegate?.switchToHomeScreen()
-                }
-            case .failure(let error):
-                print("Login failed: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                  self.showAlert(title: "Login Failed", message: "User is not registered or login details are incorrect.")
+        self.checkNetworkAndProceed {
+            APIManager.shared().loginUser(email: email, password: password) { result in
+                switch result {
+                case .success(let response):
+                    print("Login successful: \(response)")
+                    DispatchQueue.main.async {
+                        print(TokenManager.shared().getToken() ?? "no token")
+                        let delegate = UIApplication.shared.delegate as? AppDelegate
+                        delegate?.switchToHomeScreen()
+                    }
+                case .failure(let error):
+                    print("Login failed: \(error.localizedDescription)")
+                    DispatchQueue.main.async {
+                      self.showAlert(title: "Login Failed", message: "User is not registered or login details are incorrect.")
+                    }
                 }
             }
         }
-        
         
     }
 }

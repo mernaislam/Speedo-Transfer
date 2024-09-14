@@ -12,9 +12,9 @@ class ServerErrorVC: UIViewController {
     @IBOutlet weak var MessageUsButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        MessageUsButton.layer.borderWidth = 1.5 // Set border width
+        self.applyGradientBgWhiteToRed()
+        self.setupNavigationBar(title: "", selector: nil)
+        MessageUsButton.layer.borderWidth = 1.5
     }
 
 }

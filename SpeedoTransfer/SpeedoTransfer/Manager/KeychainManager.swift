@@ -48,12 +48,12 @@ class KeychainManager {
     
     
     static func deleteTokenFromKeychain() {
-            let query: [String: Any] = [
-                kSecClass as String: kSecClassGenericPassword,
-                kSecAttrAccount as String: "userToken"
-            ]
-            
-            SecItemDelete(query as CFDictionary)
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: "userToken"
+        ]
+        
+        SecItemDelete(query as CFDictionary)
     }
     
 }

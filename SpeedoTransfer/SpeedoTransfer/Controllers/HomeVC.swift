@@ -104,47 +104,6 @@ class HomeVC: UIViewController {
             }
         }
     }
-
-    
-    private func getTransactions(){
-        APIManager.getTransactions { result in
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                UIView.animate(withDuration: 0.3) {
-                    self.toggleViewsVisibility(alpha: 1)
-                }
-        
-                switch result {
-                case .success(let transactions):
-                    self.transactions = transactions
-                    self.transactionTableView.reloadData()
-                    
-                case .failure(let error):
-                    self.balanceLabel.text = "Error"
-                    print("Error fetching balance: \(error.localizedDescription)")
-                    HomeVC.handleTokenExpiration()
-                }
-            }
-
-        }
-    }
-    
-    private func getBalance() {
-        APIManager.getBalance { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let balance):
-                    let balanceInt = Int(balance)
-                    self.balanceLabel.text = "\(balanceInt)"
-                    print("Balance: \(balanceInt)")
-                    
-                case .failure(_):
-                    HomeVC.handleTokenExpiration()
-                }
-            }
-        }
-    }
-
     
     private func setupTableView(){
         self.transactionTableView.register(HomeTransactionCell.nib, forCellReuseIdentifier: HomeTransactionCell.identifier)
@@ -186,14 +145,14 @@ class HomeVC: UIViewController {
     
     // MARK: - API Methods
     private func getTransactions(){
-        APIManager.getTransactions { result in
+        APIManager.shared().getTransactions { result in
             DispatchQueue.main.async {
                 self.stopLoading()
                 switch result {
                 case .success(let transactions):
                     self.updateTransactions(transactions: transactions)
                 case .failure(_):
-                    return
+                    HomeVC.handleTokenExpiration()
                 }
             }
         }
@@ -201,20 +160,20 @@ class HomeVC: UIViewController {
     
     // Workaround to get current user details (No API exist for this)
     private func dummyTransfer(){
-        APIManager.transfer(to: "0890675435", amount: 0.0001) { result in
+        APIManager.shared().transfer(to: "0890675435", amount: 0.0001) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
                     self.updateHomeData()
                 case .failure(_):
-                    return
+                    self.goToErrorScreen()
                 }
             }
         }
     }
     
     private func getBalance() {
-        APIManager.getBalance { result in
+        APIManager.shared().getBalance { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let balance):
@@ -222,8 +181,7 @@ class HomeVC: UIViewController {
                     let balanceInt = Int(balance)
                     self.balanceLabel.text = "\(balanceInt)"
                 case .failure(_):
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.switchToLoginScreen()
+                    self.goToErrorScreen()
                 }
             }
         }

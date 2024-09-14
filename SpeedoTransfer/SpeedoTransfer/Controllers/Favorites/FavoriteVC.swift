@@ -46,30 +46,30 @@ class FavoriteVC: UIViewController {
     
     // MARK: - API Methods
     private func getFavorites(){
-        APIManager.getFavorites { result in
+        APIManager.shared().getFavorites { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let favorites):
                     self.favorites = favorites
                     self.favoriteTableView.reloadData()
                     
-                case .failure(let err):
-                    print(err)
+                case .failure(_):
+                    self.goToErrorScreen()
                 }
             }
         }
     }
     
     private func deleteFavorites(id: Int){
-        APIManager.deleteFavorite(id: id){ result in
+        APIManager.shared().deleteFavorite(id: id){ result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
                     self.getFavorites()
                     self.favoriteTableView.reloadData()
                     
-                case .failure(let err):
-                    print(err)
+                case .failure(_):
+                    self.goToErrorScreen()
                 }
             }
         }

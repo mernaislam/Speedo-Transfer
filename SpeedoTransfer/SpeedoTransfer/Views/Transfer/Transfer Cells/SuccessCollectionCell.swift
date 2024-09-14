@@ -48,7 +48,7 @@ class SuccessCollectionCell: UICollectionViewCell {
     
     // MARK: - API Methods
     private func addFavorite(){
-        APIManager.addFavorite(to: receiverName.text!, withAccount: receiverAccountNum.text!) { result in
+        APIManager.shared().addFavorite(to: receiverName.text!, withAccount: receiverAccountNum.text!) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
