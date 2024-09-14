@@ -1,4 +1,6 @@
 
+<img src="https://github.com/user-attachments/assets/b8ae865b-e32c-4b54-8e89-039d71c7b462">
+
 # Speedo Transfer App
 This project represents our **Final Bank Misr Internship project**. It is an iOS project built using Swift and UIKit.
 
@@ -14,13 +16,14 @@ Our final work is included in the ``develop branch``
 This App consists of multiple features including:-
 - **Onboarding:** Introduces the app's main features to new users.
 - **User Authentication:** Login, register, and logout functionality.
-- **Session Timeout:** Redirects users to the login screen after inactivity.
+- **Session Timeout:** Redirects users to the login screen after 2 minutes inactivity or session expiration.
 - **Home Screen:** Displays the user's balance and recent transactions.
 - **Local Notifications:** Sent after a successful transaction, with an option to view all notifications.
 - **Favorites Management:** Add, delete, and select favorite contacts for faster transfers.
 - **Money Transfer:** Allows secure transfers with proper validation.
 - **Transaction History:** View details of all sent and received transactions.
 - **Profile Information:** View and edit user details.
+- **Animations:** Smooth tab bar switching and transfer steps. 
 
 ## Prerequisites
 Before getting started, ensure you have the following installed on your machine:
@@ -45,7 +48,7 @@ Before getting started, ensure you have the following installed on your machine:
 
 - **Open the project in Xcode**: After the dependencies are installed, open the project using the ``.xcworkspace`` file:
 
-        open Registration.xcworkspace
+        open SpeedoTransfer.xcworkspace
 
 ## Usage
 ‭In order to use the app functionalities you must register with new account or log in with existing account, you can use this test account:-
@@ -91,6 +94,10 @@ Speedo Transfer project is implemented using the **Model-View-Controller (MVC)**
 <img width=200 src="https://github.com/user-attachments/assets/47caee2b-0ab3-4521-a55b-5eb9951b3505">
 <img width= 200 src= https://github.com/user-attachments/assets/e85db8bf-7727-4315-a761-a70c874ab5f0>
 <img width= 200 src= https://github.com/user-attachments/assets/ac8c3c72-19bf-419f-9f26-cead441267e3>
+
+### Session TimeOut
+<img width=200 src="https://github.com/user-attachments/assets/6448aa1f-6c60-4f4d-bdbb-f957b0b9ac02">
+<img width=200 src="https://github.com/user-attachments/assets/fc9c902d-9d00-45e8-a88b-0bc7d6106985">
 
 ### Home Screen
 <img width= 200 src= https://github.com/user-attachments/assets/7ac718f5-462a-4b44-bced-2c34975771d2>
