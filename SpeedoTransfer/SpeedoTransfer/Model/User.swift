@@ -7,7 +7,6 @@
 
 import Foundation
 
-// User model
 struct User: Codable {
     var name: String
     var email: String

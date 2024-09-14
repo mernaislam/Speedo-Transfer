@@ -28,6 +28,7 @@ class MoreViewCell: UITableViewCell {
 
     }
     
+    // MARK: - Methods
     func configureCell(i: Int){
         self.prefixICon.image = moreItems[i].prefixImage
         self.titleLabel.text = moreItems[i].title

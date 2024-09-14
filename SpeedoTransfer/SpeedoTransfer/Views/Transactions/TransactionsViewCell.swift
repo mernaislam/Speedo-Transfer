@@ -13,13 +13,12 @@ class TransactionsViewCell: UITableViewCell {
     static let identifier = "TransactionsViewCell"
     static let nib = UINib(nibName: "TransactionsViewCell", bundle: nil)
     
+    // MARK: - IBOutlet
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var receivedOrSentLabel: UILabel!
     @IBOutlet var visaDetails: UILabel!
-    
-    // MARK: - IBOutlet
     @IBOutlet var cellView: UIView!
     
     // MARK: - Lifecycle Methods
@@ -31,6 +30,7 @@ class TransactionsViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - Methods
     private func checkSenderOrReceiver(transaction: TransactionModel){
         var accNum: String
         if currentUser.name == transaction.senderAccount.name {
@@ -48,7 +48,6 @@ class TransactionsViewCell: UITableViewCell {
         self.amountLabel.text = "\(Int(transaction.amount)) EGP"
     }
     
-    // MARK: - Other Methods
     func configureCell(transaction: TransactionModel){
         checkSenderOrReceiver(transaction: transaction)
     }

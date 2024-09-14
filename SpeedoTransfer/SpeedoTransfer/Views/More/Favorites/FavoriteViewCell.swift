@@ -31,7 +31,7 @@ class FavoriteViewCell: UITableViewCell {
         super.setSelected(false, animated: animated)
     }
     
-    // MARK: - Private Methods
+    // MARK: - Methods
     private func addGesture(){
         let openTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.openEditSheet))
         self.editView.addGestureRecognizer(openTapGesture)
@@ -46,6 +46,7 @@ class FavoriteViewCell: UITableViewCell {
         self.currentIndexPath = i
     }
     
+    // MARK: - objc Methods
     @objc private func openEditSheet(){
         if let indexPath = self.currentIndexPath {
             self.delegate?.openEditSheet(at: indexPath)

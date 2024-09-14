@@ -4,7 +4,7 @@ class MoreVC: UIViewController {
     
     // MARK: - IBOutlet
     @IBOutlet var moreTableView: UITableView!
-    @IBOutlet weak var contactUsSelected: UILabel! // Change to UILabel if you use UILabel
+    @IBOutlet weak var contactUsSelected: UILabel!
     
     // MARK: - Properties
     var tabSwitchDelegate: TabSwitchProtocol?
@@ -35,7 +35,6 @@ class MoreVC: UIViewController {
     
     private func clearUserSession() {
         UserDefaults.standard.removeObject(forKey: "userToken")
-        UserDefaults.standard.removeObject(forKey: "userId") // Example if userId is stored
         UserDefaults.standard.synchronize()
     }
     

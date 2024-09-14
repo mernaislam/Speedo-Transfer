@@ -2,21 +2,25 @@
 //  TimeOutVC.swift
 //  Registration
 //
-//  Created by Merna Islam on 11/09/2024.
+//  Created by Malak Mohamed on 11/09/2024.
 //
 
 import UIKit
 
 class TimeOutVC: UIViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet weak var notificationView: UIView!
     @IBOutlet weak var closeButton: UIImageView!
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
-    let emailIcon = UIImageView(image: UIImage(named: "email"))
-    let eyeOpenIconPassword = UIImageView(image: UIImage(named: "eye open"))
-    var isPasswordVisible = false
+    
+    // MARK: - Private Properties
+    private let emailIcon = UIImageView(image: UIImage(named: "email"))
+    private let eyeOpenIconPassword = UIImageView(image: UIImage(named: "eye open"))
+    private var isPasswordVisible = false
 
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.applyGradientBgWhiteToRed()
@@ -26,14 +30,14 @@ class TimeOutVC: UIViewController {
            closeButton.addGestureRecognizer(tapGesture)
        }
 
-    @objc func closeNotification() {
-               UIView.animate(withDuration: 0.3) {
-                   self.notificationView.alpha = 0
-               } completion: { _ in
-                   self.notificationView.removeFromSuperview()
-               }
+    // MARK: - Private Methods
+    @objc private func closeNotification() {
+       UIView.animate(withDuration: 0.3) {
+           self.notificationView.alpha = 0
+       } completion: { _ in
+           self.notificationView.removeFromSuperview()
        }
-    
+    }
     
     private func checkIfUserIsRegistered() -> Bool{
         let userDefaults = UserDefaults.standard
@@ -76,13 +80,13 @@ class TimeOutVC: UIViewController {
     }
     
     // MARK: - Toggle Password Visibility
-    
     @objc func togglePasswordVisibility(_ sender: UITapGestureRecognizer) {
         isPasswordVisible.toggle()
         PasswordTextField.isSecureTextEntry = !isPasswordVisible
         eyeOpenIconPassword.image = UIImage(named: isPasswordVisible ? "closed eye" : "eye open")
     }
     
+    // MARK: - IBAction
     @IBAction func SignInButtonTapped(_ sender: Any) {
         guard let email = EmailTextField.text, !email.isEmpty,
               let password = PasswordTextField.text, !password.isEmpty else {

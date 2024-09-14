@@ -30,6 +30,7 @@ class HomeTransactionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - Methods
     private func checkSenderOrReceiver(transaction: TransactionModel){
         var accNum: String
         if currentUser.name == transaction.senderAccount.name {

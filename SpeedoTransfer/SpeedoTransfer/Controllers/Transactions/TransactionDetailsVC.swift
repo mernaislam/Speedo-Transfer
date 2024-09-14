@@ -9,6 +9,7 @@ import UIKit
 
 class TransactionDetailsVC: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var senderName: UILabel!
     @IBOutlet var senderAccount: UILabel!
@@ -18,6 +19,7 @@ class TransactionDetailsVC: UIViewController {
     @IBOutlet var transactionID: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
+    // MARK: - Properties
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     var transaction: TransactionModel!
     
@@ -28,7 +30,6 @@ class TransactionDetailsVC: UIViewController {
         self.setupNavigationBar(title: "Successful Trasactions", selector: #selector(self.goBack))
         self.setupDetails()
     }
-    
     
     // MARK: - Private Methods
     @objc private func goBack(){

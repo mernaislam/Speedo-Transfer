@@ -10,6 +10,7 @@ import UIKit
 class ServerErrorVC: UIViewController {
 
     @IBOutlet weak var MessageUsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.applyGradientBgWhiteToRed()

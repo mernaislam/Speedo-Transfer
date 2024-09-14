@@ -9,13 +9,15 @@ import UIKit
 
 class ProfileInfoViewCell: UITableViewCell {
 
+    // MARK: - Static Properties
     static let identifier = "ProfileInfoViewCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
     
-
+    // MARK: - IBOutlet
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
     
+    // MARK: - Lifecycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -24,6 +26,7 @@ class ProfileInfoViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - Methods
     func configureCell(detailItem: DetailItem) {
         titleLabel.text = detailItem.title
         subTitleLabel.text = detailItem.subTitle

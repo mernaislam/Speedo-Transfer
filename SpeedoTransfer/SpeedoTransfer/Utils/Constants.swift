@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - Storyboard IDs
 struct ViewControllersID {
     static let SignUp = "SignUpNC"
     static let OnBoarding = "OnBoardingVC"
@@ -19,6 +20,7 @@ struct Storyboard {
     static let OnBoardingScreen = "OnBoardingScreen"
 }
 
+// MARK: - Static Data
 let moreItems = [
     MoreItem(prefixImage: UIImage(named: "Website"), title: "Transfer From Website"),
     MoreItem(prefixImage: UIImage(named: "Favorite"), title: "Favourites"),
@@ -60,6 +62,7 @@ let countries: [(name: String, flag: String)] = [
     ("", "")
 ]
 
+// MARK: - Current Data Handler
 var currentTransaction: TransactionModel?
 
 var currentBalance: Double!
@@ -79,6 +82,7 @@ var canSendNotifications: Bool = false
 
 var loggedOut: Bool = false
 
+// MARK: - Update Screen Handler
 var shouldUpdateHomeTransactions: Bool = true
 var shouldUpdateTransactionsScreen: Bool = true
 var shouldUpdateFavoriteScreen: Bool = true

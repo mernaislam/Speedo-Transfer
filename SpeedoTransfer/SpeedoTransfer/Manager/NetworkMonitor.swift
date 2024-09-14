@@ -19,7 +19,6 @@ final class NetworkMonitor {
         monitor = NWPathMonitor()
     }
     
-    // Ensure monitoring starts
     func startMonitoring() {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
@@ -27,7 +26,6 @@ final class NetworkMonitor {
         }
     }
     
-    // Ensure monitoring stops
     func stopMonitoring() {
         monitor.cancel()
     }

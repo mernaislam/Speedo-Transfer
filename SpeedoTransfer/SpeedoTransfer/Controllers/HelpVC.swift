@@ -9,15 +9,18 @@ import UIKit
 
 class HelpVC: UIViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet var callView: UIView!
     @IBOutlet var emailView: UIView!
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createSheet()
         self.setupShadow()
     }
     
+    // MARK: - Private Methods
     private func createSheet() {
         if let sheet = self.sheetPresentationController {
             if #available(iOS 16.0, *) {

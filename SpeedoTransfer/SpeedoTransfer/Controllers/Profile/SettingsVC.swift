@@ -9,7 +9,10 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet var settingTableView: UITableView!
+    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initiateVC()
