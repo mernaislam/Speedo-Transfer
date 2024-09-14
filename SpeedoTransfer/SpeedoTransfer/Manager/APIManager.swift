@@ -4,7 +4,8 @@
 //
 //  Created by Malak Mohamed on 10/09/2024.
 //
-import UIKit
+
+import Foundation
 import Alamofire
 
 class APIManager {
@@ -29,7 +30,7 @@ class APIManager {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         do {
             let jsonData = try JSONEncoder().encode(user)
             request.httpBody = jsonData
@@ -37,7 +38,7 @@ class APIManager {
             completion(.failure(error))
             return
         }
-        
+
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 DispatchQueue.main.async {
@@ -68,7 +69,7 @@ class APIManager {
                 }
                 return
             }
-            
+
             guard let data = data else {
                 let noDataError = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data returned"])
                 DispatchQueue.main.async {
@@ -76,7 +77,7 @@ class APIManager {
                 }
                 return
             }
-            
+
             // Debugging: Print the response data
             if let responseString = String(data: data, encoding: .utf8) {
                 print("Response Data: \(responseString)")
@@ -128,7 +129,9 @@ class APIManager {
                         // Save the token to the Keychain
                         print(token)
                         TokenManager.shared.setToken(token)
+                        
                         completion(.success(jsonResponse))
+                    
                     } else {
                         // Token not found in the response, return an error
                         completion(.failure(NSError(domain: "Token not found in response", code: -1, userInfo: nil)))
@@ -142,37 +145,35 @@ class APIManager {
     
     // MARK: - Logout
     static func logoutUser(completion: @escaping (Result<String, Error>) -> Void) {
-        let url = "\(baseURL)/logout"
-        
-        guard let token = TokenManager.shared.getToken() else {
-            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not available"])))
-            return
-        }
-        
-        let headers: HTTPHeaders = [
-            .authorization(bearerToken: token)
-        ]
-        
-        AF.request(url, method: .post, headers: headers)
-            .validate(statusCode: 200...299)
-            .responseString { response in
-                switch response.result {
-                case .success(let message):
-                    print("Response Data: \(message)")
-                    completion(.success(message))
-                case .failure(let error):
-                    print("Logout request error: \(error.localizedDescription)")
-                    if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
-                        print("Response Data: \(errorMessage)")
-                        completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])))
-                    } else {
-                        completion(.failure(error))
+            let url = "\(baseURL)/logout"
+            
+            guard let token = TokenManager.shared.getToken() else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not available"])))
+                return
+            }
+            
+            let headers: HTTPHeaders = [
+                .authorization(bearerToken: token)
+            ]
+            
+            AF.request(url, method: .post, headers: headers)
+                .validate(statusCode: 200...299)
+                .responseString { response in
+                    switch response.result {
+                    case .success(let message):
+                        print("Response Data: \(message)")
+                        completion(.success(message))
+                    case .failure(let error):
+                        print("Logout request error: \(error.localizedDescription)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Response Data: \(errorMessage)")
+                            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])))
+                        } else {
+                            completion(.failure(error))
+                        }
                     }
                 }
-        
         }
-    }
-
 
     // MARK: - Get Balance
     static func getBalance(completion: @escaping (Result<Double, Error>) -> Void) {
@@ -180,24 +181,25 @@ class APIManager {
         guard let headers = self.getTokenHeader() else { return }
         
         AF.request(url, method: .get, headers: headers)
-            .validate()
-            .responseData { response in
-                switch response.result {
-                case .success(let data):
-                    do {
-                        if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                           let balance = jsonResponse["balance"] as? Double {
-                            completion(.success(balance))
-                        } else {
-                            completion(.failure(NSError(domain: "Invalid response format", code: -1, userInfo: nil)))
-                        }
-                    } catch {
-                        completion(.failure(error))
-                    }
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+               .validate()
+               .responseData { response in
+                   switch response.result {
+                   case .success(let data):
+                       do {
+                           if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                              let balance = jsonResponse["balance"] as? Double {
+                               completion(.success(balance))
+                           } else {
+                               completion(.failure(NSError(domain: "Invalid response format", code: -1, userInfo: nil)))
+                           }
+                       } catch {
+                           completion(.failure(error))
+                       }
+                       
+                   case .failure(let error):
+                       completion(.failure(error))
+                   }
+               }
     }
     
     // MARK: - Transfer

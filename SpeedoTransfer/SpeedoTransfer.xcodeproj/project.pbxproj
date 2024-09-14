@@ -100,8 +100,6 @@
 		03EF355F2C8A54BC009640FC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */; };
 		03EF35622C8A5E7D009640FC /* TransactionDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */; };
 		03EF35632C8A5E7D009640FC /* TransactionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */; };
-		332DFC6F2C92656F003D72F1 /* TimeOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332DFC6D2C92656F003D72F1 /* TimeOutVC.swift */; };
-		332DFC702C92656F003D72F1 /* TimeOutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332DFC6E2C92656F003D72F1 /* TimeOutVC.xib */; };
 		33613CCD2C90754200082FA3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33613CCC2C90754200082FA3 /* APIManager.swift */; };
 		33A3720C2C7E5A0F00EE834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */; };
 		33A372152C7E5A2500EE834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A372142C7E5A2500EE834F /* Assets.xcassets */; };
@@ -204,9 +202,6 @@
 		03EF355E2C8A54BC009640FC /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		03EF35602C8A5E7D009640FC /* TransactionDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsVC.swift; sourceTree = "<group>"; };
 		03EF35612C8A5E7D009640FC /* TransactionDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsVC.xib; sourceTree = "<group>"; };
-		2F1F3E175CDA11454CEE1B61 /* Pods-Registration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Registration.release.xcconfig"; path = "Target Support Files/Pods-Registration/Pods-Registration.release.xcconfig"; sourceTree = "<group>"; };
-		332DFC6D2C92656F003D72F1 /* TimeOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOutVC.swift; sourceTree = "<group>"; };
-		332DFC6E2C92656F003D72F1 /* TimeOutVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeOutVC.xib; sourceTree = "<group>"; };
 		33613CCC2C90754200082FA3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		33A372082C7E5A0F00EE834F /* SpeedoTransfer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedoTransfer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A3720B2C7E5A0F00EE834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -396,7 +391,7 @@
 		033E31E02C91E1D2008C7FA2 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				332DFC6E2C92656F003D72F1 /* TimeOutVC.xib */,
+				033E31E22C91E1EE008C7FA2 /* TimeOutVC.xib */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -469,7 +464,7 @@
 		03E05E3B2C8CE6490052DED8 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				332DFC6D2C92656F003D72F1 /* TimeOutVC.swift */,
+				033E31E12C91E1EE008C7FA2 /* TimeOutVC.swift */,
 				0353B5CB2C8D0A2F00586A30 /* SignUpVC.swift */,
 				0353B5CD2C8D0A6E00586A30 /* ContinueSignUpVC.swift */,
 				0353B5CF2C8D0ABC00586A30 /* CountryPickerVC.swift */,
@@ -690,7 +685,7 @@
 				033699B12C8F45F10031E047 /* FavoriteViewCell.xib in Resources */,
 				031FC7C32C907F5D00EBDC37 /* ProfileInfoVC.xib in Resources */,
 				031FC7DA2C90CC7B00EBDC37 /* ChangePasswordVC.xib in Resources */,
-				332DFC702C92656F003D72F1 /* TimeOutVC.xib in Resources */,
+				033E31E42C91E1EE008C7FA2 /* TimeOutVC.xib in Resources */,
 				031FC7BF2C907B8800EBDC37 /* ProfileVC.xib in Resources */,
 				0360B2B02C8FB68D0053D605 /* ProfileViewCell.xib in Resources */,
 				031FC7C72C90807B00EBDC37 /* ProfileInfoViewCell.xib in Resources */,
@@ -810,7 +805,7 @@
 				0360B2A72C8FA7740053D605 /* FavoriteVC.swift in Sources */,
 				03E5D4CD2C95D54900021C8B /* UIViewController+touchesBegan.swift in Sources */,
 				33613CCD2C90754200082FA3 /* APIManager.swift in Sources */,
-				332DFC6F2C92656F003D72F1 /* TimeOutVC.swift in Sources */,
+				033E31E32C91E1EE008C7FA2 /* TimeOutVC.swift in Sources */,
 				033699B22C8F45F10031E047 /* FavoriteViewCell.swift in Sources */,
 				033E31DF2C91DF15008C7FA2 /* ServerErrorVC.swift in Sources */,
 				0360B2A32C8FA6F40053D605 /* FavoritesProtocol.swift in Sources */,
