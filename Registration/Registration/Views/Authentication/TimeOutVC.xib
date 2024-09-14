@@ -56,7 +56,7 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alert" translatesAutoresizingMaskIntoConstraints="NO" id="BXL-0o-usn">
                             <rect key="frame" x="15.333333333333336" y="16.666666666666671" width="35" height="28"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Logged you out because you were inactive for 30 minutes - it’s to help your account secure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-LD-cbG">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Logged you out because you were inactive for 30 minutes - it’s to help your account secure." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-LD-cbG">
                             <rect key="frame" x="58.333333333333329" y="17" width="229.33333333333337" height="52"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="229.5" id="xKX-4n-e6O"/>
