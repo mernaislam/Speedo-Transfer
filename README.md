@@ -7,7 +7,7 @@ This project represents our **Final Bank Misr Internship project**. It is an iOS
 ## Overview
 This project proposes a mobile application for secure and convenient money‬ transfers, incorporating features similar to online banking and mobile money apps.‬ 
 
-The app's features align with predefined user stories and integrate seamlessly with the backend. The complete list of user stories can be found in the PDF located in the ``develop`` branch.
+The app's features align with predefined user stories and integrate seamlessly with the backend. The complete list of user stories can be found in the PDF located in the ``develop`` branch named ``BM 2024 Project - Money Transfer Application.pdf``.
 
 Our final work is included in the ``develop branch``
 
